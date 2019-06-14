@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+</head>
+<body>
+<form method="post" enctype="application/x-www-form-urlencoded">{% csrf_token %}
+    用户名:<input type="text" id="username" name="username">
+    密码:<input type="text" id="password" name="password">
+    <input id="xxx" type="button"  class="btn btn-info" value="提交">
+</form>
+
+<script type="text/javascript">
+
+    $('#xxx').click(function () {
+        var username = $('#username').val().trim();
+        var password = $('#password').val().trim();
+        var token = $("[name='csrfmiddlewaretoken']").val();
+        if (username.length == 0) {
+            alert('姓名不能为空')
+            return false
+        }
+
+        $.ajax({
+            url: '/test/',
+            type: 'post',
+            {#hearders:{'Content-Type':'application/json'},#}
+            contentType: 'application/json',
+            data: JSON.stringify({
+                username: username,
+                password: password,
+                csrfmiddlewaretoken: $.cookie('csrftoken')
+            }),
+            {#dataType: 'Json',#}
+            success: function (data) {
+            console.log(data)
+            if ('token' in data){
+                console.log('token是'+ data.token)
+            }
+            else {
+                console.log(data.error)
+            }
+
+            },
+            error: function (xxx) {
+                alert("发生错误：" + xxx.status)
+            }
+        })
+})
+</script>
+</body>
+</html>

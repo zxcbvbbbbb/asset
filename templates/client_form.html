@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>创建用户 - 联动下拉菜单</h2>
+<form>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input id="client" type="button"  class="btn btn-info" value="提交">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+    $('#id_country').change(function () {
+        var country_id = $(this).val()
+        console.log(country_id)
+        $.ajax({
+            url:'/ajax/load_cities',
+            type:'GET',
+            dataType:'json',
+            data:{'country_id':country_id},
+            success:function (data) {
+                var content = ''
+                $.each(data,function (i,item) {
+                    content += '<option value=' + item.id + '>' + item.name + '</option>'
+                });
+                $('#id_city').html(content)
+            }
+        })
+    })
+</script>
+</body>
+</html>
