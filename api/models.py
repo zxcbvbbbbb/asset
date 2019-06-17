@@ -119,5 +119,14 @@ class Client(models.Model):
         return self.name
 
 
+class Classes(models.Model):
+    caption = models.CharField(max_length=32)
 
+class Student(models.Model):
+    name = models.CharField(max_length=32)
+    cls = models.ForeignKey('Classes',on_delete=models.CASCADE)
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=32)
+    cls = models.ManyToManyField('Classes')
 

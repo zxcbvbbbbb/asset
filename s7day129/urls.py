@@ -24,6 +24,13 @@ urlpatterns = [
     # url(r'^api/v1/info/$', views.UserInfoView.as_view()),
     # url(r'^client/create/$',views.ClientCreateView.as_view(),name="client_create"),
     # url(r'^ajax/load_cities/$',views.ajax_load_cities,name="ajax_load_cities"),
-    url(r'^posttest/$',views.posttest,name="posttest"),
-    url(r'^test/$',views.Test.as_view(),name="test")
+    # url(r'^posttest/$',views.posttest,name="posttest"),
+    # url(r'^test/$',views.Test.as_view(),name="test"),
+    url(r'^index/$', views.index, name="index"),
+    url(r'^modal/$', views.modal, name="modal"),
+    url(r'^login/$',views.Login.as_view(),name="login"),
+    url(r'^logout/$',views.logout,name="logout"),
+    url(r'^classes/$',views.handle_classes,name="classes"),
+    url(r'^student/$',views.handle_student,name="student"),
+    url(r'^teacher/$',views.handle_teacher,name="teacher"),
 ]
