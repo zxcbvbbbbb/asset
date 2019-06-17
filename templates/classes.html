@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+
+    <div>
+    <input id="id_add" type="button" value="添加">
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>班级</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in classes %}
+                <tr>
+                    <td>
+                        {{ class.id }}
+                    </td>
+                    <td>
+                        {{ class.caption }}
+                    </td>
+                    <td>
+                        <a>编辑</a> | <a class="td-delete">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="modal hide">
+        <form method="post" action="/classes/">
+            <input name="caption" type="text" placeholder="请输入标题">
+            <input id="id_modal_cancel" type="button" value="取消">
+            <input type="submit" value="确定">
+            <input id="modal_ajax_submit" type="button" value="ajax确定">
+        </form>
+    </div>
+    <div class="shade hide"></div>
+    <div class="remove hide">
+        <input id="id_remove_cancel" type="button" value="取消">
+        <input type="button" value="确定">
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            $('#menu_class').addClass('active');
+            bindAddEvent();
+            bindCancelEvent();
+            bindTdDeleteEvent();
+            bindSubmitModal();
+        })
+
+        function bindAddEvent() {
+            $('#id_add').click(function () {
+                $('.modal,.shade').removeClass('hide')
+            })
+        }
+        function bindCancelEvent() {
+            $('#id_modal_cancel,#id_remove_cancel').click(function () {
+                $('.modal,.shade,.remove').addClass('hide')
+            })
+        }
+        function bindTdDeleteEvent() {
+            $('td .td-delete').click(function () {
+                $('.remove,.shade').removeClass('hide')
+            })
+        }
+        function bindSubmitModal() {
+
+            $('#modal_ajax_submit').click(function () {
+                var value = $('.modal input[name="caption"]').val()
+                console.log(value)
+                $.ajax({
+                    url: '/classes/',
+                    type: 'post',
+                    data: {
+                        caption: value
+                    },
+                    success:function (data) {
+                        console.log(data)
+                        if(!data.status){
+                            alert(data.error)
+                        }else {
+                            alert(data.data)
+                        }
+                    },
+                    error:function (msg) {
+                      alert("发生错误" + msg.status)
+                    }
+                })
+            })
+        }
+    </script>
+{% endblock %}

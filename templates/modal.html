@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .hide {
+            display: none;
+        }
+        #div1 {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 1000px;
+            background-color: #dddddd;
+            z-index: 99;
+        }
+        #div2 {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: chocolate;
+            opacity: 0.1;
+        }
+        #div3 {
+            position: fixed;
+            height: 400px;
+            width: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            top: 50%;
+            left: 50%;
+            z-index: 100;
+            background-color: blueviolet;
+        }
+    </style>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">
+        <input id="show" type="button" value="点击">
+    </div>
+    <div id="div2" class="div hide"></div>
+    <div id="div3" class="div hide">
+        <input type="button" value="cancel" id="cancel">
+    </div>
+    <script type="text/javascript">
+        $('#show').click(function () {
+            var ele = document.getElementsByClassName('div');
+            console.log(ele)
+            for(var i=0;i < ele.length;i++){
+                ele[i].classList.remove('hide')
+            }
+        })
+        $('#cancel').click(function () {
+            var ele = document.getElementsByClassName('div');
+            console.log(ele)
+            for(var i=0;i < ele.length;i++){
+                ele[i].classList.add('hide')
+            }
+        })
+    </script>
+</body>
+</html>
