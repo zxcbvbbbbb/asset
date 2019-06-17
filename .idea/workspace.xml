@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="用户管理到59-07(缺新url提交数据，js事件委托)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="用户管理到59-07(缺新url提交数据，js事件委托)" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +59,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/classes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+            <state relative-caret-position="776">
+              <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/utils/reg.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <folding>
+                <element signature="e#50#77#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -226,6 +235,12 @@
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="s7day129" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,11 +275,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/utils" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\posttest\api\utils" />
       <recent name="D:\posttest\templates" />
       <recent name="D:\电影\E\git\dog\小知识\python\复习\restframework应用和源码分析视频课程\s7day129\templates" />
     </key>
@@ -321,7 +337,7 @@
       <workItem from="1560587302290" duration="5050000" />
       <workItem from="1560642253458" duration="10760000" />
       <workItem from="1560653544872" duration="1170000" />
-      <workItem from="1560734665039" duration="847000" />
+      <workItem from="1560734665039" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -330,17 +346,24 @@
       <option name="project" value="LOCAL" />
       <updated>1560735227828</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
+      <created>1560735596898</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560735596898</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44086000" />
+    <option name="totallyTimeSpent" value="44832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26599148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26599148" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -376,7 +399,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="用户管理到59-07(缺新url提交数据，js事件委托)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/rest_framework/views.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/rest_framework/permissions.py" />
     <entry file="file://$PROJECT_DIR$/api/utils/permission.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -631,8 +653,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/classes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+        <state relative-caret-position="776">
+          <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/reg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <folding>
+            <element signature="e#50#77#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
