@@ -33,6 +33,10 @@
         </tbody>
     </table>
 
+    <div class="pagination">
+        {{ str_pager | safe }}
+    </div>
+
     <div class="modal hide">
         <form method="post" action="/classes/">
             <input name="caption" type="text" placeholder="请输入标题">
@@ -86,6 +90,7 @@
                     },
                     success:function (data) {
                         console.log(data)
+
                         if(!data.status){
                             alert(data.error)
                         }else {

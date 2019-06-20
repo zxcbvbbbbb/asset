@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>账号删除</title>
+    {% load staticfiles %}
+    <style>
+        .del {
+
+            text-align: center;
+            width: 50px;
+            cursor: pointer;
+            line-height: 26px;
+            font-size: 14px;
+            color: white;
+            background-image: url("{% static 'image/qq.jpeg' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="/static/css/mobi.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+<center>
+<div class="flex-center">
+<div>
+        <h1 class="logo"><a href="{% url 'index' %}"><s>DEV</s>OPS</a></h1>
+<br>
+<form method="post" onsubmit="return false">
+    {% csrf_token %}
+    中文姓名：<input id="realname" type="text" name="realname" style="width:100px">
+    <div id="drop" class="del">删除</div>
+</form>
+
+<div id="loading"></div>
+<div id="response"></div>
+
+
+</div>
+</div>
+</div>
+    <script>
+        $(document).keydown(function (event) {
+            if(event.keyCode == 13){
+                $('#drop').click()
+            }
+        })
+        $('#drop').click(function () {
+            var realname = $('#realname').val().trim()
+            if (realname.length == 0) {
+                alert('姓名不能为空')
+                return false
+            }
+            $.ajax({
+                url: '/dropuser/',
+                type: 'post',
+                data: {realname: realname},
+                beforeSend: function(XMLHttpReqeust){
+                  $('#loading').html("<span style=\"color:red\">处理中..</span>")
+                },
+                success: function (rep) {
+                    console.log(rep)
+                    var arr = Object.keys(rep)[0]
+
+                    var val = Object.values(rep)
+
+                    console.log('arr'+val)
+
+                    if(arr.length == 1){
+                        if(!val.status){
+                            alert(val.name+ ': ' + val.error)
+                        }else {
+                            alert(val.data)
+                        }
+                    }else {
+                        $.each(rep,function (i,item) {
+                            if(!item.status){
+                                alert(item.name+ ': ' + item.error)
+                            }else {
+                                alert(item.data)
+                            }
+
+                        })
+                    }
+                },
+                complete: function (XMLHttpRequest,textStatus) {
+                    $("#loading").empty();
+                },
+                error: function (msg) {
+                    alert('发生错误' + msg.text)
+                }
+            })
+        })
+    </script>
+</center>
+</body>
+</html>

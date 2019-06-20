@@ -72,3 +72,11 @@ js事件委托
 
 #59-11
 模态对话框提交，换成URL方式提交
+
+#59-12
+分页
+
+1.数据库分片取数据
+2.current_page,start_page,end_page表达式
+3.classes?p=1的形式(后台传)
+4.divmod取余

@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>新员工入职自助注册</title>
+    <link rel="stylesheet" href="/static/css/mobi.min.css' %}">
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+<center>
+<div class="flex-center">
+<div>
+        <h1 class="logo"><a href="{% url 'index' %}"><s>DEV</s>OPS</a></h1>
+<h3>请输入员工信息,系统将为你自动创建账号</h3>
+<br>
+<form name=form1 action="/reg/" method="post">
+    {% csrf_token %}
+    姓名：<input required type="text" name="realname" style="width:100px">
+    　部门：
+    <select name="pro" id="pro" style="width:100px;">
+      <option selected="selected">请选择</option>
+      <option value="hc24k">24K</option>
+      <option value="chess">棋牌</option>
+      <option value="slot">SLOT</option>
+      <option value="hunter">捕猎</option>
+      <option value="arcade">街机</option>
+      <option value="crm">CRM</option>
+      <option value="mchat">Mchat</option>
+      <option value="platform">平台</option>
+      <option value="testing">测试</option>
+      <option value="art">美术</option>
+      <option value="support">技术支持</option>
+      <option value="gm">总经办</option>
+      <option value="hr">行政</option>
+      <option value="ops">运维</option>
+      <option value="proj">产品</option>
+    </select>
+    　岗位：
+    <select name="job" id="job" style="width:100px;">
+      <option selected="selected">请选择</option>
+      <option value="PO">PO/策划</option>
+      <option value="开发">开发</option>
+      <option value="测试">测试</option>
+      <option value="美术">美术</option>
+      <option value="行政">行政</option>
+      <option value="运维">运维</option>
+      <option value="PO">产品</option>
+    </select>　
+    <input class="btn btn-default" type="button" value="创建" onclick="javascript:{this.disabled=true;document.form1.submit();}"/>
+</form>
+<hr>
+<b>新员工入职登记须知：</b>
+<br>
+安装团队聊天工具BearyChat：<a href="https://bearychat.com/downloads" target="_blank">点击下载</a>
+<br>
+启动后输入团队地址<font color="#ff0000"><strong>blizzmi</strong></font>，并使用手机号自助注册。
+<hr>
+<div {{ hidden }}>
+<b>{{ name }}您的以下账号已经创建成功：</b>
+<br>
+<a href="http://jira.blizzmi.local/secure/Dashboard.jspa" target="_blank">JIRA:项目管理与考勤管理[http://jira.blizzmi.local]</a>
+<div {{ hidden2 }}>
+<a href="http://mantis.blizzmi.local/login_page.php" target="_blank">Mantis:项目BUG管理[http://mantis.blizzmi.local]</a>
+<br>
+<a href="http://share.blizzmi.local/dokuwiki/doku.php?id=start&do=login" target="_blank">Doku:知识管理[http://share.blizzmi.local]</a>
+</div>
+<br>
+<strong>用户名：<font color="#ff0000">{{username}}</font>，密码：【<font color="#ff0000">{{passwd}}</font>】</strong>
+<br>
+<br>
+<strong><font color="#ff0000">该页面只会出现一次，请使用拍照、截图、文本复制等方式保留！每套系统账号独立，如需修改密码，请分别修改。</font></strong>
+<br>
+您的企业邮箱稍后会创建并通知您。
+<br>
+开发人员GIT账号请使用企业邮箱自行<a href="https://git.blizzmi.com/users/sign_in" target="_blank">注册</a>，注册后不会收到邮箱，注册后请通知运维部，并等待老板审核。
+
+</div>
+</div>
+</div>
+</center>
+</body>
+</html>
