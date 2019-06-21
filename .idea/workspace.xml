@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="用户管理到59-07(缺新url提交数据，js事件委托)">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/s7day129.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/s7day129.iml" afterDir="false" />
+    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="删除jira/mantis账号，暂未添加删除doku账号">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/reg.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/register/reg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/register/reg.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/register/reg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s7day129/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/s7day129/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modal.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="242" column="41" lean-forward="true" selection-start-line="242" selection-start-column="41" selection-end-line="242" selection-end-column="41" />
+            <state relative-caret-position="-173">
+              <caret line="217" column="31" lean-forward="true" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -75,22 +68,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../scrape/api/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="57" column="40" lean-forward="true" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="1495">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -101,29 +82,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+            <state relative-caret-position="482">
+              <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#50#77#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="118" column="24" lean-forward="true" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/classes.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="92" selection-start-line="92" selection-end-line="92" />
             </state>
           </provider>
         </entry>
@@ -140,8 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkbox</find>
-      <find>post</find>
       <find>r</find>
       <find>find_element_by_css_selector</find>
       <find>--&gt;</find>
@@ -166,10 +127,12 @@
       <find>search_users</find>
       <find>包蕊洁</find>
       <find>安伟</find>
-      <find>set</find>
       <find>doku</find>
       <find>del</find>
+      <find>del_mantis</find>
       <find>del_doku</find>
+      <find>set</find>
+      <find>pro</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,9 +172,9 @@
         <option value="$PROJECT_DIR$/../scrape/templates/test.html" />
         <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
         <option value="$PROJECT_DIR$/api/utils/tmp.py" />
-        <option value="$PROJECT_DIR$/api/utils/test.py" />
         <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/api/utils/test.py" />
       </list>
     </option>
   </component>
@@ -323,7 +286,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api/utils" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -353,7 +316,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.s7day129">
+  <component name="RunManager" selected="Django server.scrape">
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="s7day129" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -479,7 +442,7 @@
       <workItem from="1560771022925" duration="10986000" />
       <workItem from="1560813967677" duration="67431000" />
       <workItem from="1560946961946" duration="10107000" />
-      <workItem from="1560986389258" duration="24674000" />
+      <workItem from="1560986389258" duration="33270000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -495,11 +458,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560735596898</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="删除jira/mantis账号，暂未添加删除doku账号">
+      <created>1561025351423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561025351423</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181939000" />
+    <option name="totallyTimeSpent" value="190535000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,7 +483,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2835821" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -525,7 +494,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32935154" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32850778" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.311804" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.43318486" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.29692832" />
@@ -548,11 +517,12 @@
       <path value="$PROJECT_DIR$/../../../../.." />
     </ignored-roots>
     <MESSAGE value="用户管理到59-07(缺新url提交数据，js事件委托)" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户管理到59-07(缺新url提交数据，js事件委托)" />
+    <MESSAGE value="删除jira/mantis账号，暂未添加删除doku账号" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除jira/mantis账号，暂未添加删除doku账号" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/posttest$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1561020564477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
-    <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561021964538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561083756743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/rest_framework/authentication.py">
@@ -774,33 +744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="118" column="24" lean-forward="true" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-685">
           <caret line="988" column="8" selection-start-line="988" selection-start-column="8" selection-end-line="988" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/classes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>
@@ -827,30 +774,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+    <entry file="file://$PROJECT_DIR$/templates/classes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1213">
+          <caret line="118" column="24" lean-forward="true" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+        <state relative-caret-position="482">
+          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#50#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1495">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="242" column="41" lean-forward="true" selection-start-line="242" selection-start-column="41" selection-end-line="242" selection-end-column="41" />
+        <state relative-caret-position="-173">
+          <caret line="217" column="31" lean-forward="true" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>

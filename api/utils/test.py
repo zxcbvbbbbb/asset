@@ -15,6 +15,7 @@ def get_bcusers():
     return name_list
 
 def get_jirausers():
+    print('\033[;34m比较jira账号\033[0m')
     y = dict(x.group_members('jira-software-users'))
     users = []
     for xxx in y.items():
@@ -22,6 +23,7 @@ def get_jirausers():
     return users
 
 def get_dokuusers():
+    print('\033[;34m比较doku账号\033[0m')
     f = open('wikiusers.csv', 'r', encoding='utf-8')
     user_list = []
     for line in f.readlines():
@@ -33,6 +35,7 @@ def get_dokuusers():
     return user_list
 
 def get_mantisusers():
+    print('\033[;34m比较mantis账号\033[0m')
     user_list = []
     try:
         db = pymysql.connect("192.168.200.150","mantis","ZroXnQDlcJs7lgJ6", \
@@ -49,13 +52,16 @@ def get_mantisusers():
     except pymysql.err.OperationalError as e:
         print(e)
 
-
-founded_jira = set(get_jirausers()) - set(get_bcusers())
-founded_doku = set(get_dokuusers()) - set(get_bcusers())
-founded_mantis = set(get_mantisusers()) - set(get_bcusers())
-print('jira账号:   {0}'.format(founded_jira))
-print('doku账号:   {0}'.format(founded_doku))
-print('mantis账号: {0}'.format(founded_mantis))
+bcusers = set(get_bcusers())
+founded_jira = set(get_jirausers()) - bcusers
+print(founded_jira)
+founded_doku = set(get_dokuusers()) - bcusers
+print(founded_doku)
+founded_mantis = set(get_mantisusers()) - bcusers
+if founded_mantis:
+    print(founded_mantis)
+else:
+    print('ok')
 
 
 

@@ -205,16 +205,16 @@ def addnew(request):
         job = request.POST['job']
         new = reg.register(realname,job)
         # new.sendbc(pro)
-        # statjira = new.add_jira()
+        statjira = new.add_jira()
         # if statjira == False:
         #     return HttpResponse("请勿重复注册！")
         username = new.username
         passwd = new.passwd
         name = new.realname
         if job in ("测试","开发","PO","运维"):
-            # new.del_mantis()
-            new.add_jira()
-            # new.add_mantis()
+            # new.add_jira()
+            new.add_mantis()
+            # new.add_doku(pro)
             return render(request, 'register/reg.html',{"username": username,"passwd": passwd,"name":name})
         else:
             return render(request, 'register/reg.html',{"username": username,"passwd": passwd,"hidden2": "hidden","name":name})
@@ -239,13 +239,16 @@ def dropuser(request):
         name = new.realname
         rep_jira = new.del_jira()
         print('-->rep_jira', rep_jira)
+        rep = {'jira': rep_jira}
         if rep_jira['status']:
             rep_mantis = new.del_mantis()
-            rep = {'jira':rep_jira,'mantis':rep_mantis}
+            rep.update({'mantis': rep_mantis})
+            if rep_mantis['status']:
+                rep_doku = new.del_doku()
+                rep.update({'doku':rep_doku})
+            # rep = {'jira':rep_jira,'mantis':rep_mantis}
             return JsonResponse(rep)
-        # rep = {'jira':rep_jira,'mantis':{'name':'mantis','status':False,'error':'请先删除jira账号'}}
-        rep = {'jira': rep_jira}
-        print('-->rep',rep)
+        print('-->rep', rep)
         return JsonResponse(rep)
 
     elif request.method == 'GET':

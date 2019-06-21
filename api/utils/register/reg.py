@@ -199,7 +199,7 @@ class register:
         # print('xxxdoku',xxxdoku.text)
         # xxxdoku.status_code
 
-    def del_doku(self,pro):
+    def del_doku(self):
         print('\033[;34m删除doku账户\033[0m')
         data = {"do": "login", "id": "start", "p": "6520sl", "sectok": "", "u": "admin"}
         header = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -213,7 +213,7 @@ class register:
             "userid": self.username,
             "username": self.realname,
             "usermail": self.email,
-            "usergroups": 'user,' + pro,
+            "usergroups": '',
             "fn[delete]": '',
             "delete[%s]" % self.username: 'on',
             "do": 'admin',
@@ -223,9 +223,12 @@ class register:
             # "fn[search][new]":'',
         }
 
-
+        response_dict = {'name': 'mantis', 'status': True, 'error': None, 'data': None}
         deldoku = s.post("http://share.blizzmi.local/dokuwiki/doku.php?id=start", data=deldata, headers=header)
         print('-->deldoku',deldoku.status_code)
+        if deldoku.status_code == 200:
+            response_dict['data'] = 'doku账号已删除'
+            return response_dict
 
     # def add_doku(self, pro):
     #     data = {"do": "login", "id": "start", "p": "6520sl", "sectok": "", "u": "admin"}
@@ -274,7 +277,7 @@ class register:
             if exists_user:
                 if '离职' in exists_user[0].displayName:
                     response_dict['status'] = False
-                    response_dict['error'] = '账号已删除,不要重复操作'
+                    response_dict['error'] = '账号已删除,请勿重复操作'
                     return response_dict
                 for group in x.groups():
                     if self.username in x.group_members(group):
