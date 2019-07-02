@@ -7,7 +7,6 @@ import requests,re
 from bearychat import incoming
 from jira.resources import User
 from jira import client
-from selenium import webdriver
 from django.http.response import HttpResponse,JsonResponse
 from jira.exceptions import JIRAError
 
