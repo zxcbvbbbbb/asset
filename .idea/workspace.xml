@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="IT工具账号对比/账号清理的web页面部署使用">
-      <change beforePath="$PROJECT_DIR$/api/utils/register/reg.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/register/reg.py" afterDir="false" />
+    <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="供216使用">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s7day129/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/s7day129/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/wikiusers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/static/wikiusers.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+            <state relative-caret-position="138">
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -68,6 +70,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-274">
               <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -84,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
@@ -120,28 +131,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="17" column="93" selection-start-line="17" selection-start-column="93" selection-end-line="17" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+            <state relative-caret-position="575">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -170,7 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>删除</find>
       <find>block</find>
       <find>port</find>
       <find>班级</find>
@@ -199,6 +191,7 @@
       <find>student</find>
       <find>drop</find>
       <find>name</find>
+      <find>赵国荣</find>
       <find>selenium</find>
     </findStrings>
     <replaceStrings>
@@ -222,7 +215,6 @@
         <option value="C:/python/Lib/site-packages/django/template/response.py" />
         <option value="$PROJECT_DIR$/templates/client_form1.html" />
         <option value="$PROJECT_DIR$/templates/client_form.html" />
-        <option value="$PROJECT_DIR$/s7day129/settings.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/app01/views.py" />
         <option value="F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/classes.html" />
@@ -249,7 +241,6 @@
         <option value="$PROJECT_DIR$/static/js/demo.js" />
         <option value="$PROJECT_DIR$/api/utils/tmp2.py" />
         <option value="$PROJECT_DIR$/s7day129/urls.py" />
-        <option value="$PROJECT_DIR$/api/utils/compare.py" />
         <option value="$PROJECT_DIR$/templates/student.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/test.html" />
@@ -259,6 +250,9 @@
         <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
         <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
+        <option value="$PROJECT_DIR$/api/utils/compare.py" />
+        <option value="$PROJECT_DIR$/s7day129/settings.py" />
+        <option value="$PROJECT_DIR$/static/wikiusers.csv" />
       </list>
     </option>
   </component>
@@ -293,6 +287,12 @@
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -316,19 +316,7 @@
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
@@ -622,7 +610,7 @@
       <workItem from="1561940201735" duration="3938000" />
       <workItem from="1561944812293" duration="18998000" />
       <workItem from="1561971553215" duration="2039000" />
-      <workItem from="1561973915819" duration="14958000" />
+      <workItem from="1561973915819" duration="16369000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -659,11 +647,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562036711848</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="供216使用">
+      <created>1562038603891</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562038603891</updated>
+    </task>
+    <task id="LOCAL-00007" summary="供216使用">
+      <created>1562039522560</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562039522560</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368099000" />
+    <option name="totallyTimeSpent" value="369510000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -714,7 +716,8 @@
     <MESSAGE value="用户管理到59-07(缺新url提交数据，js事件委托)" />
     <MESSAGE value="删除jira/mantis账号，暂未添加删除doku账号" />
     <MESSAGE value="IT工具账号对比/账号清理的web页面部署使用" />
-    <option name="LAST_COMMIT_MESSAGE" value="IT工具账号对比/账号清理的web页面部署使用" />
+    <MESSAGE value="供216使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="供216使用" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/posttest$game.coverage" NAME="game Coverage Results" MODIFIED="1561532973722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
@@ -726,9 +729,6 @@
     <SUITE FILE_PATH="coverage/posttest$lend.coverage" NAME="lend Coverage Results" MODIFIED="1561544376181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-52" />
@@ -842,9 +842,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/wikiusers.csv">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/register/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1032,34 +1029,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
-          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/compare.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1077,6 +1050,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-274">
+          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/wikiusers.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="134" column="44" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>
