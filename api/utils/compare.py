@@ -2,6 +2,7 @@ from jira import JIRA
 from jira.exceptions import JIRAError
 import requests,pymysql
 import os
+from s7day129 import settings
 
 
 x = JIRA('http://jira.blizzmi.local/', basic_auth=('sunsw', 'b4b1a6'))
@@ -25,8 +26,7 @@ def get_jirausers():
 
 def get_dokuusers():
     print('\033[;34m比较doku账号\033[0m')
-    import os
-    file_path = os.path.join('static','wikiusers.csv')
+    file_path = os.path.join(settings.BASE_DIR,'static','wikiusers.csv')
     f = open(file_path, 'r', encoding='utf-8')
     user_list = []
     for line in f.readlines():
