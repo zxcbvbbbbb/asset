@@ -171,6 +171,7 @@ def handle_classes(request):
         print('-->response_dict',response_dict)
         return JsonResponse(response_dict)
 
+@auth
 def edit_class(request):
     if request.method == 'GET':
         nid = request.GET.get('nid')
@@ -187,7 +188,8 @@ def edit_class(request):
 @auth
 def handle_student(request):
     if request.method == 'GET':
-        return render(request, 'student.html')
+        user = request.session.get('username')
+        return render(request, 'student.html',{'username':user})
     elif request.method == 'POST':
         name = request.POST.get('name')
         exec_cmd(
@@ -223,6 +225,7 @@ def handle_teacher(request):
     print(result)
     return render(request,'teacher.html',{'username':username,'teachers':result})
 
+@auth
 def add_teacher(request):
     if request.method == 'GET':
         cls_list = models.Classes.objects.all()
@@ -235,6 +238,7 @@ def add_teacher(request):
         obj.cls.add(*cls)
         return redirect('/teacher')
 
+@auth
 def edit_teacher(request,nid):
     if request.method == 'GET':
         obj = models.Teacher.objects.get(id=nid)
@@ -265,6 +269,7 @@ def modal(request):
     print('-->s',s)
     return render(request,'modal.html')
 
+@auth
 def addnew(request):
     if request.method == 'POST':
         realname = request.POST['realname']
@@ -294,7 +299,7 @@ def check_name(name):
     for i in req_info:
         if (i['name'] == name or i['full_name'] == name) and i['inactive'] == False:
             return True
-
+@auth
 def dropuser(request):
     if request.method == 'POST':
         realname = request.POST['realname']
@@ -319,7 +324,8 @@ def dropuser(request):
         return JsonResponse(rep)
 
     elif request.method == 'GET':
-        return render(request, 'register/dropuser.html',{"hidden": "hidden"})
+        user = request.session.get('username')
+        return render(request, 'register/dropuser.html',{"hidden": "hidden",'username':user})
 
 def upload(request):
     if request.method == 'GET':
@@ -346,10 +352,12 @@ def search(request):
 
         return JsonResponse(l,safe=False)
 
+@auth
 def test(request):
+    user = request.session.get('username')
     service = {}
     if request.method == 'GET':
-        return render(request,'test.html')
+        return render(request,'test.html',{'username':user})
     elif request.method == 'POST':
         name = request.POST.get('name')
         type = request.POST.get('type')
@@ -376,11 +384,13 @@ def test(request):
             return JsonResponse({'msg':r.text})
         return JsonResponse({'msg':'添加成功'})
 
+@auth
 def compare(request):
     if request.method == 'GET':
+        user = request.session.get('username')
         accounts = account_compare()
         print('-->accounts',accounts)
-        return render(request, 'compare.html',{'accounts':accounts})
+        return render(request, 'compare.html',{'accounts':accounts,'username':user})
 
 
 
