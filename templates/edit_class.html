@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <form action="/edit_class/" method="post">
+        <input name="nid" class="hide" type="text" value="{{ obj.id }}">
+        <input type="text" name="caption" value="{{ obj.caption }}">
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

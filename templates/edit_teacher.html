@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .teacher {
+            display: inline-block;
+            width: 70px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <form action="/edit_teacher-{{ obj.id }}/" method="post">
+        <input style="display: none" id="nid" value="{{ obj.id }}">
+        <p>
+            <span class="teacher">老师姓名:</span><input class="teacher" name="name" type="text" value="{{ obj.name }}">
+        </p>
+        <p>
+            <span class="teacher">班级:</span>
+            <select id="sel" name="cls" multiple>
+                {% for c in cls_list %}
+                    <option value="{{ c.0 }}">{{ c.1 }}</option>
+                {% endfor %}
+            </select>
+            未管理班级：<select id="none" multiple>
+                {% for c in exclude_list %}
+                    <option value="{{ c.id }}">{{ c.caption }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <div>
+            <a id="removeCls">》</a>
+            <a id="addCls">《</a>
+        </div>
+        <input id="submitForm" type="submit" value="提交">
+    </form>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            $('#menu_teacher').addClass('active')
+            bindRemoveCls();
+            bindAddCls();
+            bindSubmitForm()
+        })
+
+        function bindRemoveCls() {
+            $('#removeCls').click(function () {
+            var options = $('#sel')[0].selectedOptions
+            {#$.each(options,function (k,v) {#}
+            {#    $(v).appendTo('#none')#}
+
+            while (options.length > 0){
+                $(options[0]).appendTo('#none')
+            }
+        })
+        }
+
+        function bindAddCls() {
+            $('#addCls').click(function () {
+            var options = $('#none')[0].selectedOptions
+            while (options.length > 0){
+                $(options[0]).appendTo('#sel')
+            }
+        })
+        }
+
+        function bindSubmitForm() {
+            $('#submitForm').click(function () {
+                console.log(123)
+                $('#sel').children().each(function () {
+                    $(this).prop('selected',true)
+                })
+            })
+        }
+    </script>
+{% endblock %}

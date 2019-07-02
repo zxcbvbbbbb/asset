@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+{#    <h1>Welcome to 学生管理</h1>#}
+    <form method="get" action="/search/">
+        <p>
+            <label>ID：</label>
+            <input id="seach-text" type="text" name="q">
+        </p>
+        <p>
+            <input id="removeConsul" type="button" value="搜索">
+        </p>
+        <p><span id='search-result'></span></p>
+    </form>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            $('#menu_student').addClass('active')
+        })
+
+        $('#seach-text').keyup(function () {
+            var q = $('#seach-text').val()
+            $.get('/search/',{"q":q},function (data) {
+                for(var i =data.length-1;i>=0;i--){
+                    $('#search-result').append(data[i]+'<br>')
+                }
+            })
+        })
+        $('#seach-text').keydown(function () {
+            $('#search-result').empty()
+        })
+        $('#seach-text').blur(function () {
+            $('#search-result').empty()
+        })
+    </script>
+{% endblock %}

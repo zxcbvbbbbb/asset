@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .teacher {
+            display: inline-block;
+            width: 70px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <form action="/add_teacher/" method="post">
+        <p>
+            <span class="teacher">老师姓名:</span><input class="teacher" type="text" name="teacher">
+        </p>
+        <p>
+            <span class="teacher">班级:</span><select name="cls" multiple>
+                {% for c in cls_list %}
+                <option value="{{ c.id }}">{{ c.caption }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

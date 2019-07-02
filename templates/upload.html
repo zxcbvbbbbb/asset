@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            width: 80px;
+            text-align: right;
+            display: inline-block;
+        }
+        li {
+
+        }
+    </style>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>用户名:</label>
+        <input type="text" name="user">
+    </div>
+    <div>
+        <label>密码:</label>
+        <input type="file" name="tftp">
+    </div>
+    <div>
+        <label></label>
+        <input type="submit" value="提交">
+    </div>
+    <div>
+        {% for image in images %}
+            <img src="/{{ image.path }}">
+        {% endfor %}
+    </div>
+</form>
+</body>
+</html>

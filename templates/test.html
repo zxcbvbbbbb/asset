@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+
+    {% load staticfiles %}
+    <style>
+
+        .del {
+            margin-top: 25px;
+            text-align: center;
+            width: 50px;
+            cursor: pointer;
+            line-height: 26px;
+            font-size: 14px;
+            color: white;
+            margin-left: 90px;
+            background-image: url("{% static 'image/qq.jpeg' %}");
+        }
+        .add {
+            display: inline-block;
+            width: 70px;
+            margin-top: 30px;
+            margin-left: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+        <form method="get">
+			<span class="add">Name</span>
+            <select id="dropdown">
+                <option >WS_FG</option>
+                <option >WS_WL</option>
+                <option >24K</option>
+            </select>
+            <p>
+            <span class="add">type</span>
+            <select id="type">
+                <option >chess</option>
+                <option >hunter</option>
+                <option >swf</option>
+            </select>
+            </p>
+            <p><span class="add">Tags</span> <textarea id="t" name="tags"></textarea></p>
+            <p><span class="add">Adress</span> <input id="a" type="text" name="address"  autocomplete="off"/></p>
+            <p><span class="add">Port</span><input type="radio" name="port" value="443" checked> 443 <input type="radio" name="port" value="8888"> 8888</p>
+
+            <div id="sub" class="del">提交</div>
+        </form>
+
+{% endblock %}
+
+{% block js %}
+    <script src="/static/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+	<script src="/static/js/input-autocomplete.js" type="text/javascript"></script>
+	<script src="/static/js/data.js" type="text/javascript"></script>
+	<script src="/static/js/demo.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $('#menu_student').addClass('active');
+            $('#menu_student').next().removeClass('hide')
+        })
+        $('#sub').click(function () {
+        var name=$('#dropdown').val();
+        var type=$('#type').val();
+        var tags=$('#t').val();
+        var address=$('#a').val();
+        var port=$(':radio:checked').val()
+        if(name.length == 0){
+            alert('不能为空')
+            return
+        }
+        console.log(name)
+        $.ajax({
+            url: '/test/',
+            type: 'post',
+            dataType: 'json',
+            data: {name:name,
+                type:type,
+                tags:tags,
+                address:address,
+                port: port,
+                },
+            success: function (rep) {
+                alert(rep.msg)
+            }
+            })
+        })
+    </script>
+{% endblock %}
