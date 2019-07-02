@@ -20,6 +20,11 @@
             background-color: black;
             color: white;
         }
+        .a {
+            display: block;
+            margin-left: 10px;
+            font-size: 13px;
+        }
         .pagination a{
             display: inline-block;
             padding: 5px;
@@ -27,6 +32,15 @@
         .pagination a.active{
             background-color: black;
             color: white;
+        }
+        .input-default{
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-indent: 0!important;
+            min-height: 22px;
         }
         .hide {
             display: none;
@@ -63,7 +77,15 @@
             opacity: 0.5;
             z-index: 99;
         }
+        .ele a:hover {
+            color: red;
+            background-color: #e6e6e6;
+            cursor: pointer;
+        }
     </style>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/mobi.min.css">
+    <link rel="stylesheet" href="/static/css/input-autocomplete.css" />
     {% block css %}
     {% endblock %}
 </head>
@@ -74,16 +96,46 @@
         </div>
     </div>
     <div>
-        <div class="menu" style="position:absolute;top: 48px;left: 0;bottom: 0;width: 200px;background-color: #eeeeee">
-            <a id="menu_class" class="item" href="/classes">班级管理</a>
-            <a id="menu_student" class="item" href="/student">学生管理</a>
-            <a id="menu_teacher" class="item" href="/teacher">老师管理</a>
+        <div class="menu" style="position:fixed;top: 48px;left: 0;bottom: 0;width: 200px;background-color: #eeeeee">
+            <div class="ele">
+                <div id="menu_class" class="item" onclick="show(this)">其他管理</div>
+                <div class="content hide">
+                    <div>111</div>
+                    <div>111</div>
+                    <div>111</div>
+                </div>
+            </div>
+
+            <div class="ele">
+                <div id="menu_student" class="item" onclick="show(this)">consul管理</div>
+                <div class="content hide">
+                    <a class="a delSingle" href="/student/">删除单个</a>
+                    <a class="a addSingle" href="/test/">添加单个</a>
+                </div>
+            </div>
+
+            <div class="ele">
+                <div id="menu_teacher" class="item" onclick="show(this)">账号管理</div>
+                <div class="content hide">
+                    <a class="a" href="/dropuser/">清理</a>
+                    <a class="a" href="/compare/">对比</a>
+
+                </div>
+            </div>
         </div>
-        <div style="position: absolute;top:48px;right: 0;bottom: 0;left: 200px;overflow: auto">
+        <div style="position: fixed;top:48px;right: 0;bottom: 0;left: 200px;overflow: auto">
+            <div style="position: fixed;width: 80px;bottom: 0;right: 0;height: 50px">返回顶部</div>
                 {% block content %}{% endblock %}
         </div>
     </div>
         <script src="/static/js/jquery-1.11.1.min.js"></script>
+        <script>
+            function show(self) {
+                $(self).next().removeClass('hide')
+                $(self).parent().siblings().children('.content').addClass('hide')
+            }
+
+        </script>
         {% block js %}
         {% endblock %}
 

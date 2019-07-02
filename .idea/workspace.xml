@@ -2,10 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="删除jira/mantis账号，暂未添加删除doku账号">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54edc49a-9f4f-4e82-b486-1dab47ac761c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54edc49a-9f4f-4e82-b486-1dab47ac761c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/s7day129.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/s7day129.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/register/reg.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/register/reg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/utils/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/tmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/wikiusers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/static/wikiusers.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s7day129/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/s7day129/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/dropuser.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/dropuser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/dropuser.html.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/teacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/teacher.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources.local.xml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources.xml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources/da557715-5a00-4389-952d-1b4e47f76acc.xml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/dataSources/da557715-5a00-4389-952d-1b4e47f76acc.xml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/encodings.xml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/fortress.iml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/fortress.iml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/.idea/workspace.xml" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/db.sqlite3" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/db.sqlite3" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/fortress/settings.py" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/fortress/settings.py" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/fortress/urls.py" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/fortress/urls.py" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/static/img/bg-img-3.jpg" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/static/tmp.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/static/tmp.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/base.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/base.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/host_list_component.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/host_list_component.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/host_mgr.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/host_mgr.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/login.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/login.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/multitask_js_component.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/multitask_js_component.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/test.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/test.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/tmp.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/tmp.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/templates/web_ssh.html" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/templates/web_ssh.html" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0002_auto_20180419_1049.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0003_auto_20180419_1050.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0004_task.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0004_task_tasklogdetail.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0005_auto_20180426_1143.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0005_tasklogdetail.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0006_auto_20180505_1219.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0007_auto_20180505_1234.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0008_auto_20180505_1235.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/migrations/0009_auto_20180506_0832.py" beforeDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/models.py" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/web/models.py" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/tests.py" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/web/tests.py" afterDir="false" />
+      <change beforePath="F:/BaiduNetdiskDownload/fortress/web/views.py" beforeDir="false" afterPath="F:/BaiduNetdiskDownload/fortress/web/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,16 +100,18 @@
     </expand>
     <select />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" module-name="s7day129" is-module-sdk="true">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+    <option name="myUseModuleSdk" value="true" />
+    <option name="myModuleName" value="s7day129" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-173">
-              <caret line="217" column="31" lean-forward="true" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
+            <state relative-caret-position="298">
+              <caret line="321" column="47" lean-forward="true" selection-start-line="321" selection-start-column="47" selection-end-line="321" selection-end-column="47" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -67,11 +119,64 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="322">
+              <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/teacher.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/compare.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="17" column="93" selection-start-line="17" selection-start-column="93" selection-end-line="17" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-299">
+              <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -80,13 +185,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
+        <entry file="file://$PROJECT_DIR$/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+            <state relative-caret-position="207">
+              <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
               <folding>
-                <element signature="e#50#77#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/student.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -96,44 +219,47 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>r</find>
-      <find>find_element_by_css_selector</find>
-      <find>--&gt;</find>
-      <find>add_doku</find>
-      <find>zhaogr</find>
-      <find>--&gt;x</find>
-      <find>regdoku</find>
-      <find>find_elements_by_css_selector</find>
-      <find>redirect</find>
-      <find>jira</find>
-      <find>response_dict</find>
-      <find>reg</find>
-      <find>return</find>
-      <find>创建</find>
-      <find>loading</find>
-      <find>dataType</find>
-      <find>prompt</find>
-      <find>response</find>
-      <find>username</find>
-      <find>JIRAError</find>
-      <find>classes</find>
-      <find>search_users</find>
-      <find>包蕊洁</find>
-      <find>安伟</find>
-      <find>doku</find>
-      <find>del</find>
-      <find>del_mantis</find>
-      <find>del_doku</find>
-      <find>set</find>
-      <find>pro</find>
+      <find>删除</find>
+      <find>block</find>
+      <find>port</find>
+      <find>班级</find>
+      <find>60</find>
+      <find>headers</find>
+      <find>bootstrap</find>
+      <find>图书</find>
+      <find>mobi</find>
+      <find>request.user</find>
+      <find>清理</find>
+      <find>load</find>
+      <find>账号</find>
+      <find>单个</find>
+      <find>8888</find>
+      <find>selenium</find>
+      <find>index</find>
+      <find>menu_student</find>
+      <find>exec_cmd</find>
+      <find>其他</find>
+      <find>content</find>
+      <find>111</find>
+      <find>show</find>
+      <find>object</find>
+      <find>对比</find>
+      <find>upload</find>
+      <find>table</find>
+      <find>name</find>
+      <find>student</find>
+      <find>drop</find>
     </findStrings>
+    <replaceStrings>
+      <replace>1</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,35 +280,49 @@
         <option value="$PROJECT_DIR$/templates/client_form.html" />
         <option value="$PROJECT_DIR$/s7day129/settings.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/api/models.py" />
         <option value="F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/app01/views.py" />
         <option value="F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/classes.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/student.html" />
-        <option value="$PROJECT_DIR$/templates/teacher.html" />
         <option value="$PROJECT_DIR$/api/utils/reg.py" />
         <option value="$PROJECT_DIR$/api/utils/register.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/client.py" />
-        <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/templates/modal.html" />
-        <option value="$PROJECT_DIR$/s7day129/urls.py" />
         <option value="$PROJECT_DIR$/templates/register/reg.html" />
-        <option value="$PROJECT_DIR$/templates/classes.html" />
         <option value="$PROJECT_DIR$/../scrape/templates/test.html" />
-        <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
-        <option value="$PROJECT_DIR$/api/utils/tmp.py" />
         <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
-        <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/api/utils/test.py" />
+        <option value="$PROJECT_DIR$/templates/classes.html" />
+        <option value="$PROJECT_DIR$/templates/edit_class.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/templates/add_teacher.html" />
+        <option value="$PROJECT_DIR$/templates/edit_teacher.html" />
+        <option value="$PROJECT_DIR$/api/utils/game.py" />
+        <option value="$PROJECT_DIR$/api/utils/lend.py" />
+        <option value="$PROJECT_DIR$/templates/upload.html" />
+        <option value="$PROJECT_DIR$/api/models.py" />
+        <option value="$PROJECT_DIR$/static/js/input-autocomplete.js" />
+        <option value="$PROJECT_DIR$/api/utils/cmd.py" />
+        <option value="$PROJECT_DIR$/api/utils/tmp.py" />
+        <option value="$PROJECT_DIR$/static/js/data.js" />
+        <option value="$PROJECT_DIR$/static/js/demo.js" />
+        <option value="$PROJECT_DIR$/api/utils/tmp2.py" />
+        <option value="$PROJECT_DIR$/s7day129/urls.py" />
+        <option value="$PROJECT_DIR$/api/utils/compare.py" />
+        <option value="$PROJECT_DIR$/templates/student.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/test.html" />
+        <option value="$PROJECT_DIR$/templates/layout.html" />
+        <option value="$PROJECT_DIR$/templates/teacher.html" />
+        <option value="$PROJECT_DIR$/templates/compare.html" />
+        <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="74" />
-    <option name="y" value="56" />
-    <option name="width" value="1087" />
-    <option name="height" value="678" />
+    <option name="x" value="96" />
+    <option name="y" value="7" />
+    <option name="width" value="1300" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -209,12 +349,6 @@
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -236,6 +370,18 @@
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -246,33 +392,21 @@
             </path>
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fortress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fortress" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="scrape" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="scrape" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scrape" type="462c0819:PsiDirectoryNode" />
-              <item name="scrape" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scrape" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scrape" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scrape" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,21 +421,30 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/utils" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Django Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="s7day129" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="s7day129" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\posttest\static" />
       <recent name="D:\posttest\api\utils" />
       <recent name="D:\posttest\api\utils\register" />
       <recent name="D:\posttest\templates\注册" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\posttest" />
+      <recent name="D:\posttest\templates" />
       <recent name="D:\posttest\api\utils" />
-      <recent name="D:\posttest\static" />
       <recent name="D:\posttest\templates\register" />
-      <recent name="D:\posttest\static\image" />
-      <recent name="D:\posttest\static\css" />
+      <recent name="D:\posttest\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -316,8 +459,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.scrape">
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.compare">
+    <configuration name="compare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="s7day129" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -330,7 +473,51 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/compare.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="s7day129" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lend" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="s7day129" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/lend.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -353,6 +540,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/tmp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tmp2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="s7day129" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/tmp2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -413,12 +622,18 @@
       <item itemvalue="Django server.s7day129" />
       <item itemvalue="Django server.scrape" />
       <item itemvalue="Python.tmp" />
-      <item itemvalue="Python.test" />
+      <item itemvalue="Python.lend" />
+      <item itemvalue="Python.game" />
+      <item itemvalue="Python.tmp2" />
+      <item itemvalue="Python.compare" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.compare" />
+        <item itemvalue="Python.tmp2" />
         <item itemvalue="Python.tmp" />
+        <item itemvalue="Python.lend" />
+        <item itemvalue="Python.game" />
       </list>
     </recent_temporary>
   </component>
@@ -442,7 +657,21 @@
       <workItem from="1560771022925" duration="10986000" />
       <workItem from="1560813967677" duration="67431000" />
       <workItem from="1560946961946" duration="10107000" />
-      <workItem from="1560986389258" duration="33270000" />
+      <workItem from="1560986389258" duration="46945000" />
+      <workItem from="1561151912999" duration="20558000" />
+      <workItem from="1561244704848" duration="3644000" />
+      <workItem from="1561325923501" duration="4981000" />
+      <workItem from="1561337630436" duration="1843000" />
+      <workItem from="1561426561147" duration="17910000" />
+      <workItem from="1561501805618" duration="24768000" />
+      <workItem from="1561595045907" duration="22550000" />
+      <workItem from="1561674606742" duration="20899000" />
+      <workItem from="1561708922581" duration="2404000" />
+      <workItem from="1561712464870" duration="4399000" />
+      <workItem from="1561940201735" duration="3938000" />
+      <workItem from="1561944812293" duration="18998000" />
+      <workItem from="1561971553215" duration="2039000" />
+      <workItem from="1561973915819" duration="13643000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -465,11 +694,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561025351423</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="删除jira/mantis账号，暂未添加删除doku账号">
+      <created>1561085800206</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561085800206</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190535000" />
+    <option name="totallyTimeSpent" value="366784000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -483,21 +719,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2835821" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32995737" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850778" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.37527838" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.37527838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32850778" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.311804" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.43318486" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.29692832" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.2026726" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159913" side_tool="true" weight="0.37527838" />
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.32850778" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="13" weight="0.32962137" />
@@ -505,7 +742,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18976545" />
+      <window_info anchor="right" id="Database" order="4" weight="0.18976545" />
       <window_info anchor="right" id="SciView" order="5" weight="0.32995737" />
     </layout>
   </component>
@@ -521,296 +758,349 @@
     <option name="LAST_COMMIT_MESSAGE" value="删除jira/mantis账号，暂未添加删除doku账号" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/posttest$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1561020564477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
-    <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561083756743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$game.coverage" NAME="game Coverage Results" MODIFIED="1561532973722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1561962537775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$tmp2.coverage" NAME="tmp2 Coverage Results" MODIFIED="1561975339893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$compare.coverage" NAME="compare Coverage Results" MODIFIED="1561975835815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561101789059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$views.coverage" NAME="views Coverage Results" MODIFIED="1561152304917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/posttest$lend.coverage" NAME="lend Coverage Results" MODIFIED="1561544376181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/rest_framework/authentication.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/email/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="-149">
+          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/login.html">
+    <entry file="file://$PROJECT_DIR$/api/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207" />
+        <state relative-caret-position="-52" />
       </provider>
     </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/app01/views.py">
+    <entry file="file://$PROJECT_DIR$/x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload/x.png" />
+    <entry file="file://$PROJECT_DIR$/static/upload/333.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
+        <state>
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/index.html">
+    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_teacher">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_teacher_cls">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_img">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/lend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="109" column="12" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/page.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/api/utils/auth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state>
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/student.html">
+    <entry file="file://$PROJECT_DIR$/templates/edit_class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edit_teacher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="e#272#293#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/input-autocomplete.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/teacher.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
+    <entry file="file://$PROJECT_DIR$/api/utils/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="322">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/teacher.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/posttest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/classes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1909">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/register.py" />
-    <entry file="file://$PROJECT_DIR$/api/utils/__init__.py">
+    <entry file="file://$PROJECT_DIR$/static/wikiusers.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/register/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="97" column="97" selection-start-line="97" selection-start-column="90" selection-end-line="97" selection-end-column="97" />
+        <state relative-caret-position="-1695">
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/resilientsession.py">
+    <entry file="file://$PROJECT_DIR$/static/js/input-autocomplete.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
+        <state relative-caret-position="391">
+          <caret line="185" column="21" lean-forward="true" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/rest_framework/static/rest_framework/css/bootstrap.min.css">
+    <entry file="file://$PROJECT_DIR$/static/js/jquery-1.4.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="4" column="78070" lean-forward="true" selection-start-line="4" selection-start-column="78070" selection-end-line="4" selection-end-column="78071" />
+        <state relative-caret-position="133">
+          <caret line="52" column="461" selection-start-line="52" selection-start-column="452" selection-end-line="52" selection-end-column="461" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/resources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="325" column="8" selection-start-line="325" selection-start-column="8" selection-end-line="325" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/dokuwiki.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="497" column="8" selection-start-line="497" selection-start-column="8" selection-end-line="497" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/doku2.html">
+    <entry file="file://$PROJECT_DIR$/templates/student.html.提示搜索框">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/views/templates/default_urlconf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/mobi.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="3097" selection-start-column="3097" selection-end-column="3097" />
+          <caret column="3961" selection-start-column="3950" selection-end-column="3961" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../scrape/static/css/nifty.min.css">
+    <entry file="file://$PROJECT_DIR$/api/utils/cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" selection-start-column="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/contrib/admin/static/admin/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret column="100696" lean-forward="true" selection-start-column="100696" selection-end-column="100696" />
+          <caret line="223" column="1" selection-start-line="223" selection-start-column="1" selection-end-line="223" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/nifty.min.css" />
-    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/add_teacher.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        <state relative-caret-position="252">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/BaiduNetdiskDownload/fortress/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4554" />
+      </provider>
+    </entry>
+    <entry file="file://F:/BaiduNetdiskDownload/fortress/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="118" column="4" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1010">
           <folding>
-            <element signature="e#642#674#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register/reg.html">
+    <entry file="file://$PROJECT_DIR$/static/js/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+        <state relative-caret-position="138">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
+    <entry file="file://$PROJECT_DIR$/static/js/demo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1545">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/image/token.png" />
-    <entry file="file://$PROJECT_DIR$/static/image/d.png" />
-    <entry file="file://$PROJECT_DIR$/static/image/xxx.png" />
-    <entry file="file://$PROJECT_DIR$/static/image/drop.png" />
-    <entry file="file://$PROJECT_DIR$/static/image/x.png" />
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../scrape/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        <state relative-caret-position="46">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html.bak">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/exceptions.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_classes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jira/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-685">
-          <caret line="988" column="8" selection-start-line="988" selection-start-column="8" selection-end-line="988" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        <state relative-caret-position="177">
+          <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/tmp.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/wikiusers.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../scrape/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="57" column="40" lean-forward="true" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+        <state relative-caret-position="391">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/classes.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        <state relative-caret-position="165">
+          <caret line="17" column="93" selection-start-line="17" selection-start-column="93" selection-end-line="17" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="118" column="24" lean-forward="true" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+        <state relative-caret-position="207">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
+    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+        <state relative-caret-position="256">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
           <folding>
-            <element signature="e#50#77#0" expanded="true" />
+            <element signature="e#642#674#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/tables.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="177">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/teacher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/compare.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -819,11 +1109,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <caret line="217" column="31" lean-forward="true" selection-start-line="217" selection-start-column="31" selection-end-line="217" selection-end-column="31" />
+        <state relative-caret-position="298">
+          <caret line="321" column="47" lean-forward="true" selection-start-line="321" selection-start-column="47" selection-end-line="321" selection-end-column="47" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register/dropuser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
         </state>
       </provider>
     </entry>

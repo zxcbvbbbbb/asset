@@ -19,6 +19,7 @@
     <orderEntry type="module" module-name="user_manager" />
     <orderEntry type="module" module-name="user_manager" />
     <orderEntry type="module" module-name="scrape" />
+    <orderEntry type="module" module-name="fortress" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

@@ -52,16 +52,39 @@ def get_mantisusers():
     except pymysql.err.OperationalError as e:
         print(e)
 
+def get_ipinfousers():
+    print('\033[;34m比较ipinfo\033[0m')
+    user_list = []
+    try:
+        db = pymysql.connect("192.168.200.150","root","wefw$jh374SDYU", \
+                             "mydrf", use_unicode=True, charset="utf8mb4")
+        cursor = db.cursor()
+        sql = "SELECT Name FROM ipinfo_asset"
+        cursor.execute(sql)
+        data = cursor.fetchall()
+        for row in data:
+            if row[0]:
+                user_list.append(row[0])
+        db.close()
+        return user_list
+
+    except pymysql.err.OperationalError as e:
+        print(e)
+
 bcusers = set(get_bcusers())
-founded_jira = set(get_jirausers()) - bcusers
-print(founded_jira)
-founded_doku = set(get_dokuusers()) - bcusers
-print(founded_doku)
-founded_mantis = set(get_mantisusers()) - bcusers
-if founded_mantis:
-    print(founded_mantis)
-else:
-    print('ok')
+# founded_jira = set(get_jirausers()) - bcusers
+# print(founded_jira)
+# founded_doku = set(get_dokuusers()) - bcusers
+# print(founded_doku)
+# founded_mantis = set(get_mantisusers()) - bcusers
+# if founded_mantis:
+#     print(founded_mantis)
+# else:
+#     print('ok')
+
+founded_ipinfo = set(get_ipinfousers()) - bcusers
+print(founded_ipinfo)
+
 
 
 

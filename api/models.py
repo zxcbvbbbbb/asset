@@ -122,11 +122,25 @@ class Client(models.Model):
 class Classes(models.Model):
     caption = models.CharField(max_length=32)
 
+    def __str__(self):
+        return self.caption
+
 class Student(models.Model):
     name = models.CharField(max_length=32)
     cls = models.ForeignKey('Classes',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class Teacher(models.Model):
     name = models.CharField(max_length=32)
     cls = models.ManyToManyField('Classes')
 
+    def __str__(self):
+        return self.name
+
+class Img(models.Model):
+    path = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.path

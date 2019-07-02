@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://F:/BaiduNetdiskDownload/fortress/.idea/fortress.iml" filepath="F:/BaiduNetdiskDownload/fortress/.idea/fortress.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/s7day129.iml" filepath="$PROJECT_DIR$/.idea/s7day129.iml" />
       <module fileurl="file://$PROJECT_DIR$/../scrape/.idea/scrape.iml" filepath="$PROJECT_DIR$/../scrape/.idea/scrape.iml" />
       <module fileurl="file://F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/.idea/user_manager.iml" filepath="F:/BaiduNetdiskDownload/day59-python 全栈开发-web框架篇/day59课件笔记/user_manager/.idea/user_manager.iml" />

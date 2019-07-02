@@ -1,16 +1,67 @@
 {% extends 'layout.html' %}
 
 {% block css %}
+
+    {% load staticfiles %}
+    <style>
+        .del {
+            margin-left: 30px;
+            text-align: center;
+            width: 50px;
+            cursor: pointer;
+            line-height: 26px;
+            font-size: 14px;
+            color: white;
+            background-image: url("{% static 'image/qq.jpeg' %}");
+        }
+        .dropservice {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+
+
+    </style>
 {% endblock %}
 
 {% block content %}
-    <h1>Welcome to 学生管理</h1>
+
+        <form method="get" onsubmit="return false">
+            <div class="dropservice">
+                ID <input id="auto" type="text" name="name" class="input-default" autocomplete="off"/>
+                <div id="submitForm" class="del">删除</div>
+            </div>
+        </form>
+
 {% endblock %}
 
 {% block js %}
+    <script src="/static/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+	<script src="/static/js/input-autocomplete.js" type="text/javascript"></script>
+	<script src="/static/js/data.js" type="text/javascript"></script>
+	<script src="/static/js/demo.js" type="text/javascript"></script>
     <script>
         $(function () {
-            $('#menu_student').addClass('active')
+            $('#menu_student').addClass('active');
+            $('#menu_student').next().removeClass('hide');
+
+        })
+        $('#submitForm').click(function () {
+        var name=$('#auto').val()
+        if(name.length == 0){
+            alert('不能为空')
+            return
+        }
+        console.log(name)
+        $.ajax({
+            url: '/student/',
+            type: 'post',
+            dataType: 'json',
+            data: {name:name},
+            success: function (rep) {
+                alert(rep.msg)
+            }
+            })
         })
     </script>
 {% endblock %}

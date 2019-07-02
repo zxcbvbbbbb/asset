@@ -1,10 +1,38 @@
 {% extends 'layout.html' %}
 
 {% block css %}
+    <style>
+        .tag {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: chocolate;
+            cursor: pointer;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
     <h1>Welcome to 老师管理</h1>
+    <a href="/add_teacher/">添加</a>
+    <table>
+        <tbody>
+            {% for k,v in teachers.items %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v.name }}</td>
+                    <td>
+                        {% for c in v.cls_list %}
+                            <span class="tag" nid="{{ c.id }}">{{ c.caption }}</span>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="/edit_teacher-{{ k }}/">编辑</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
 
 {% block js %}

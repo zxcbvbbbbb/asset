@@ -69,6 +69,9 @@ location.reload()
 
 #59-08
 js事件委托
+jiquery的on
+$().on(click,function())
+$().on(click,'xx',function())
 
 #59-11
 模态对话框提交，换成URL方式提交
@@ -80,3 +83,70 @@ js事件委托
 2.current_page,start_page,end_page表达式
 3.classes?p=1的形式(后台传)
 4.divmod取余
+
+#59-18 新URL提交
+
+#60-01 orm数据库操作
+
+#60-04
+获取老师列表1
+teacher_list = models.Teacher.objects.all()，前端循环，操作数据库比较多
+
+#60-07
+获取老师列表3
+
+    teacher_list = models.Teacher.objects.filter(id__in=models.Teacher.objects.all()[0:2]).values('id','name','cls__id','cls__caption')
+    result = {}
+    cls_list = []
+    for t in teacher_list:
+        if t['id'] in result:
+            if t['cls__id'] != 'None':
+                cls_list.append({'id':t['cls__id'],'caption':t['cls__caption']})
+                print('-->cls_list',cls_list)
+        else:
+            cls_list = [{'id':t['cls__id'],'caption':t['cls__caption']}]
+        result[t['id']] = {'nid':t['id'],'name':t['name'], 'cls_list':cls_list}
+		
+#60-11
+修改老师信息
+
+1.
+传老师id的方式：
+url(r'^edit_teacher-(\d+)/$')
+def edit_teacher(request,nid) #不需要从GET方法中取
+
+2.
+添加老师的input框 name='teacher'用来提交信息
+编辑老师的input框 value="{{ obj.name }}"需要直接显示
+
+3.
+选中老师所教的班级：
+    cls = obj.cls.all().values_list('id')
+    id_list = list(zip(*cls))[0]
+	
+#61-03
+给编辑老师的select设置一个id='sel'
+在浏览器console直接获取选中的班级$('#sel').val()
+    
+jQuery对象和DOM对象
+	obj = document.getElementById('sel')
+	$(obj)
+	
+	$('#sel')
+	$('#sel')[0]
+	
+	select标签的Dom对象中有 selectedOptions
+	$('#sel')[0].selectedOptions
+	
+	appendTo
+	
+#61-04
+提交前全选中：
+	$('#submitForm').click(function () {
+		$('#sel').children().each(function () {
+			$(this).prop('selected',true)
+		})
+	})
+	
+#61-05
+文件路径存到数据库里
