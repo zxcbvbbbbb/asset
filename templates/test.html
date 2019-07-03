@@ -28,26 +28,24 @@
 {% block content %}
 
         <form method="get">
-			<span class="add">Name</span>
-            <select id="dropdown">
-                <option >WS_FG</option>
-                <option >WS_WL</option>
-                <option >24K</option>
-            </select>
+			<span class="add">Name</span><input type="text" id="service"  autocomplete="off">
+            <span id="ser" style="display: none">输入Service的名字</span>
             <p>
-            <span class="add">type</span>
-            <select id="type">
+            <span class="add">type</span><input type="text" name="type">
+            <!--<select id="type">
                 <option >chess</option>
                 <option >hunter</option>
                 <option >swf</option>
-            </select>
+            </select>-->
             </p>
             <p><span class="add">Tags</span> <textarea id="t" name="tags"></textarea></p>
             <p><span class="add">Adress</span> <input id="a" type="text" name="address"  autocomplete="off"/></p>
-            <p><span class="add">Port</span><input type="radio" name="port" value="443" checked> 443 <input type="radio" name="port" value="8888"> 8888</p>
-
+            <!--<p><span class="add">Port</span><input type="radio" name="port" value="443" checked> 443 <input type="radio" name="port" value="8888"> 8888</p>-->
+            <p><span class="add">Port</span> <input id="xxx" type="text" name="port"></p>
+            <div id="ret" style="color: chocolate;margin-left: 15px"></div>
             <div id="sub" class="del">提交</div>
         </form>
+
 
 {% endblock %}
 
@@ -57,35 +55,57 @@
 	<script src="/static/js/data.js" type="text/javascript"></script>
 	<script src="/static/js/demo.js" type="text/javascript"></script>
     <script>
-        $(function () {
+
+
             $('#menu_student').addClass('active');
-            $('#menu_student').next().removeClass('hide')
-        })
-        $('#sub').click(function () {
-        var name=$('#dropdown').val();
-        var type=$('#type').val();
-        var tags=$('#t').val();
-        var address=$('#a').val();
-        var port=$(':radio:checked').val()
-        if(name.length == 0){
-            alert('不能为空')
-            return
-        }
-        console.log(name)
-        $.ajax({
-            url: '/test/',
-            type: 'post',
-            dataType: 'json',
-            data: {name:name,
-                type:type,
-                tags:tags,
-                address:address,
-                port: port,
-                },
-            success: function (rep) {
-                alert(rep.msg)
-            }
+            $('#menu_student').next().removeClass('hide');
+
+            $('#service').focus(function () {
+                $('#ser').css('display','inline').fadeOut(3000)
             })
-        })
+            $('#xxx').keyup(function () {
+                var name = $('#service').val();
+                var type = $('input[name="type"]').val();
+                var tags = $('#t').val();
+                console.log(tags)
+                var address = $('#a').val();
+                var port = $('input[name="port"]').val()
+                var serviceId = 'prod_' + type + '_' + address + '_' + port
+                $('#ret').text(serviceId)
+            })
+
+            // var port=$(':radio:checked').val()
+
+            $('#sub').click(function () {
+                var name = $('#service').val();
+                var type = $('input[name="type"]').val();
+                var tags = $('#t').val();
+                console.log(tags)
+                var address = $('#a').val();
+                var port = $('input[name="port"]').val()
+                var serviceId = 'prod_' + type + '_' + address + '_' + port
+
+                if (name.length == 0) {
+                    alert('不能为空')
+                    return
+                }
+                console.log(name)
+                $.ajax({
+                    url: '/test/',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        name: name,
+                        type: type,
+                        tags: tags,
+                        address: address,
+                        port: port,
+                    },
+                    success: function (rep) {
+                        alert(rep.msg)
+                    }
+                })
+            })
+
     </script>
 {% endblock %}

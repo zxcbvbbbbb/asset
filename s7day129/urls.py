@@ -42,4 +42,6 @@ urlpatterns = [
     url(r'^search/$',views.search,name="search"),
     url(r'^test/$',views.test,name="test"),
     url(r'^compare/$',views.compare,name="compare"),
+    url(r'^blur/$',views.blur,name="blur"),
+    url(r'^ftp/$',views.ftp,name="ftp"),
 ]

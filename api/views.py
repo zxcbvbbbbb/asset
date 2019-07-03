@@ -21,7 +21,7 @@ from django.http.request import QueryDict
 from api.utils.register import reg
 from jira import JIRA
 from jira.exceptions import JIRAError
-import requests,os,re
+import requests,os,re,hashlib
 from api.utils.cmd import exec_cmd
 from api.utils.compare import account_compare
 
@@ -393,7 +393,59 @@ def compare(request):
         return render(request, 'compare.html',{'accounts':accounts,'username':user})
 
 
+def blur(request):
+    # q = request.GET['q']
+    # models.Classes.objects.filter(caption__contains=q)
+    # objs = models.Classes.objects.filter(caption__contains=q)
+    # l = [obj.caption for obj in objs]
+    # print(l)
+    return render(request,'blur.html')
 
+def file_md5(path):
+    md5 = hashlib.md5()
+    path_size = os.path.getsize(path)
+    with open(path,'rb') as f:
+        while path_size >= 4096:
+            cont = f.read(4096)
+            md5.update(cont)
+            path_size -= 4096
+        else:
+            cont = f.read()
+            if cont:
+                md5.update(cont)
+    return md5.hexdigest()
+
+def ftp(request):
+    if request.method == 'GET':
+        user = request.session.get('username')
+        # pictures = models.Img.objects.all()
+        return render(request, 'ftp.html',{'username':user})
+    elif request.method == 'POST':
+        obj = request.FILES.get('transfer')
+        print('-->obj.size', obj.size)
+        if obj:
+            file_path = os.path.join('static','upload',obj.name)
+            f = open(file_path,'wb')
+            for chunk in obj.chunks():
+                f.write(chunk)
+            f.close
+            print('-->file_path',file_path)
+            print('xxx',os.path.getsize(file_path))
+
+            print(os.path.getsize(file_path) == obj.size)
+            # if os.path.getsize(file_path) == obj.size:
+            #     print('上传成功')
+            models.Img.objects.create(path=file_path)
+            # return render(request, 'ftp.html', {'msg': '上传成功'})
+
+            if os.path.exists(file_path):
+                # howbig = os.path.getsize('d:\\posttest\\static\\upload\\wikiusers.csv')
+                howbig = exec_cmd("stat -c '%s' %s" % file_path)
+                print('上传文件大小',howbig)
+                print('上传成功')
+                return redirect('/ftp')
+        else:
+            return render(request, 'ftp.html',{'msg':'请选择文件'})
 
 
 

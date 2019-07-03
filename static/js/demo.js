@@ -2,6 +2,10 @@
 $('#auto').bigAutocomplete({
 	data:data1
 });
+//简易调用2
+$('#service').bigAutocomplete({
+	data:data6
+});
 //title
 $('#title').bigAutocomplete({
 	data:data2,
