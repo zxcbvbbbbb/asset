@@ -422,7 +422,6 @@ def ftp(request):
         return render(request, 'ftp.html',{'username':user})
     elif request.method == 'POST':
         obj = request.FILES.get('transfer')
-        print('-->obj.size', obj.size)
         if obj:
             file_path = os.path.join('static','upload',obj.name)
             f = open(file_path,'wb')
@@ -430,20 +429,19 @@ def ftp(request):
                 f.write(chunk)
             f.close
             print('-->file_path',file_path)
-            print('xxx',os.path.getsize(file_path))
-
-            print(os.path.getsize(file_path) == obj.size)
-            # if os.path.getsize(file_path) == obj.size:
-            #     print('上传成功')
-            models.Img.objects.create(path=file_path)
-            # return render(request, 'ftp.html', {'msg': '上传成功'})
 
             if os.path.exists(file_path):
-                # howbig = os.path.getsize('d:\\posttest\\static\\upload\\wikiusers.csv')
-                howbig = exec_cmd("stat -c '%s' %s" % file_path)
-                print('上传文件大小',howbig)
-                print('上传成功')
-                return redirect('/ftp')
+                md5 = exec_cmd('md5sum %s' % file_path)
+                print('-->md5',md5)
+                sep = file_path.split('.')
+                file_name = '.'.join((sep[0]+'_'+md5[:8],sep[1]))
+                print('-->file_name',file_name)
+                os.rename(file_path,file_name)
+                print('上传文件大小')
+                local_add = 'http://192.168.200.111:18081/' + file_name
+                internet_add = 'http://218.17.239.26:18081/'+ file_name
+
+                return render(request, 'ftp.html',{'msg':'请选择文件','md5':md5,'local_add':local_add,'internet_add':internet_add})
         else:
             return render(request, 'ftp.html',{'msg':'请选择文件'})
 

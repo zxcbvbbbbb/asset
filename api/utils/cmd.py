@@ -1,5 +1,6 @@
-from subprocess import call
-import sys
+from subprocess import *
 
 def exec_cmd(cmd):
-    call(cmd,shell=True,stdout=sys.stdout,stderr=sys.stderr)
+    res = Popen(cmd, shell=True, stdout=PIPE)
+    ret = res.communicate()[0].decode('utf-8')
+    return ret.strip()
