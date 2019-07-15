@@ -11,6 +11,10 @@
     </style>
 {% endblock %}
 
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
 {% block content %}
     <h3>对比结果：</h3>
     <table>

@@ -69,9 +69,10 @@ location.reload()
 
 #59-08
 js事件委托
-jiquery的on
+https://blog.csdn.net/cyyy1223/article/details/78796360  jquery之on()和click()的本质区别
+jquery的on
 $().on(click,function())
-$().on(click,'xx',function())
+$('ul').on(click,'li',function())
 
 #59-11
 模态对话框提交，换成URL方式提交
@@ -150,3 +151,72 @@ jQuery对象和DOM对象
 	
 #61-05
 文件路径存到数据库里
+
+#71-01
+1.权限管理：
+	1.动态菜单(关系存在数据库)
+	2.基于角色分配权限(而非基于用户)
+	Role Based Access Control
+
+2.怎么写表结构
+1.用户表，角色表多对多的关系，所以有第三张表User2Role
+
+2.角色跟权限有关系，权限就是一个url，创建权限表(url表示用户管理/订单管理等)；
+一个url下有4种动作增删改查，创建Permission2Action(比如修改订单，创建订单等)；
+真正的权限管理在Permission2Action，单独的Permission粒度太大
+
+3.角色，用户，权限关系图
+Permission2Action(权限)   角色    用户
+post
+delete
+put
+get    user.html          role1   p1
+post
+delete
+put
+get    order.html	      role2   p2
+post
+delete
+put                       role3   p3
+
+4.角色表与Permissino还是Permission2Action创建关系？创建Permission2Action2Role
+
+#71-03填充权限数据
+User2Role
+    def __str__(self):
+        return '%s-%s' % (self.u.name,self.r.caption) #为用户分配角色，不是return '%s-%s' % (self.u,self.r)
+
+Permission2Action		
+    def __str__(self):
+        return '%s-%s:%s?t=%s' % (self.p.caption,self.a.caption,self.p.url,self.a.code)
+		
+#71-04
+流程：
+1.用户登录
+2.根据用户获取所有的权限(url+action)
+3.根据用户获取所有的权限(url+action) url去重
+4.放在左侧菜单，新建菜单表，菜单之间有等级关系(给Permission设置menu，url属于哪一个菜单)
+
+#71-06
+用户获取角色：
+方式1.通过ManyToManyField获取
+current_user = request.session.get('username')
+user_obj =  models.User.objects.get(name=current_user)
+ m=Models.ManyToManyField('Role')
+user_obj.m.all()
+
+方式2.通过第三张表获取
+ models.User2Role.objects.filter(u=user_obj)
+ 
+方式3.通过role表获取
+models.Role.objects.filter(user2role__u=user_obj)
+
+方式4.直接通过username获取
+role_list = models.Role.objects.filter(user2role__u__name=current_user)
+
+获取权限列表
+p2a2r_list = models.Permission2Action2Role.objects.filter(r__in=role_list)
+也可以  p2a_list = models.Permission2Action.objects.\
+        filter(permission2action2role__r__in=role_list).\
+        values('p__caption','a__code').distinct()
+    print(p2a_list)

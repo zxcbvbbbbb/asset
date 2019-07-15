@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .menu .item{
+           display: block;
+            padding: 5px 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+        .menu .item:hover {
+            background-color: black;
+            color: white;
+        }
+        .menu .item.active{
+            background-color: black;
+            color: white;
+        }
+        .a {
+            display: block;
+            margin-left: 10px;
+            font-size: 13px;
+        }
+        .pagination a{
+            display: inline-block;
+            padding: 5px;
+        }
+        .pagination a.active{
+            background-color: black;
+            color: white;
+        }
+        .input-default{
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-indent: 0!important;
+            min-height: 22px;
+        }
+        .hide {
+            display: none;
+        }
+        .modal{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 400px;
+            margin-top: -250px;
+            margin-left: -250px;
+            z-index: 100;
+            background-color: white;
+        }
+        .remove{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 200px;
+            margin-top: -100px;
+            margin-left: -200px;
+            z-index: 100;
+            background-color: chocolate;
+        }
+        .shade{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 99;
+        }
+        .ele a:hover {
+            color: red;
+            background-color: #e6e6e6;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="/static/css/mobi.min.css">
+    <link rel="stylesheet" href="/static/css/input-autocomplete.css" />
+
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+    <div style="height: 48px;background-color: black;color: chocolate">
+        <div style="height: 48px;background-color: black;color: white">
+            <div style="float: right">用户名：{{ username }} | <a href="/logout">注销</a></div>
+        </div>
+    </div>
+    <div>
+        <div class="menu" style="position:fixed;top: 48px;left: 0;bottom: 0;width: 200px;background-color: #eeeeee">
+            <div class="ele">
+                <div id="menu_class" class="item" onclick="show(this)">其他管理</div>
+                <div class="content hide">
+                    <div>111</div>
+                    <div>111</div>
+                    <div>111</div>
+                </div>
+            </div>
+
+            <div class="ele">
+                <div id="menu_student" class="item" onclick="show(this)">consul管理</div>
+                <div class="content hide">
+                    <a class="a delSingle" href="/student/">删除单个</a>
+                    <a class="a addSingle" href="/test/">添加单个</a>
+                </div>
+            </div>
+
+            <div class="ele">
+                <div id="menu_teacher" class="item" onclick="show(this)">账号管理</div>
+                <div class="content hide">
+                    <a class="a" href="/dropuser/">清理</a>
+                    <a class="a" href="/compare/">对比</a>
+
+                </div>
+            </div>
+        </div>
+        <div style="position: fixed;top:48px;right: 0;bottom: 0;left: 200px;overflow: auto">
+            <div style="position: fixed;width: 80px;bottom: 0;right: 0;height: 50px">返回顶部</div>
+                {% block content %}{% endblock %}
+        </div>
+    </div>
+        <script src="/static/js/jquery-1.11.1.min.js"></script>
+
+        <script>
+            function show(self) {
+                $(self).next().removeClass('hide')
+                $(self).parent().siblings().children('.content').addClass('hide')
+            }
+
+        </script>
+        {% block js %}
+        {% endblock %}
+
+</body>
+</html>

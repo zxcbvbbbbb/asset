@@ -1,0 +1,142 @@
+{% extends 'ops/layout.html' %}
+
+{% block css %}
+    <style>
+        .file {
+            left: 15px;
+            position: relative;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 2px 10px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+        .file input {
+            font-size: 20px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .file:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+
+        }
+        .msg {
+            color: chocolate;
+            margin-left: 15px;
+            margin-top: 30px;
+        }
+        .rep {
+            margin-left: 15px;    
+        }
+        .test {
+            display: block
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    <input id="file" type="file" style="margin-top: 20px;margin-left: 15px" name="file">
+    <p>
+    <!--<input type="submit" class="file" onclick="upload()" value="上传">-->
+    <button type="button" class="file" onclick="upload();">上传</button>
+    <!--<button type="button" class="file" onclick="upload();">上传</button>-->
+    </p>
+</form>
+
+<div id='1' style="height:20px;width:100px;float:left;margin-right:10px;margin-left:15px;margin-top:15px">
+			<div id='2' style="height:100%;width:0px;background:gray;"></div>
+
+		</div>
+		
+		<span style="display:block;margin-right:20px;margin-top:28px" id='3'>0%</span>
+
+    <p class="msg">{{ msg }}</p>
+
+<div id="rep" class="rep">
+</div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+                    console.log(e);
+                });
+
+    clipboard.on('error', function(e) {
+                    console.log(e);
+                });
+    function on_progress(evt) {
+    if(evt.lengthComputable) {
+        var ele = document.getElementById('2');
+        var percent = Math.round((evt.loaded) * 100 / evt.total);
+        ele.style.width = percent + '%';
+        document.getElementById('3').innerHTML = percent + '%';
+    }
+    }
+    function upload() {
+        var rep=document.getElementById("rep");
+        var childs = rep.childNodes;
+        for(var i = childs.length - 1; i >= 0; i--) {
+           rep.removeChild(childs[i]);
+           }
+        var xhr = new XMLHttpRequest();
+        var file = document.getElementById('file').files[0];
+        console.log(file);
+        if(typeof(file)=="undefined"){
+            alert('请上传文件')
+            return
+            }
+        var form = new FormData();
+        form.append('file',file);
+        console.log(form)
+        xhr.upload.addEventListener('progress',on_progress,false);
+        xhr.open('POST','http://192.168.200.111/upload/',true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4){
+            var obj = JSON.parse(xhr.responseText)
+            if(obj.status){
+                console.log(obj.howbig)
+                var rep = document.getElementById('rep')
+                function createP(text){
+                var p = document.createElement('p');
+                p.innerHTML = text
+                                rep.appendChild(p)
+                }
+                createP('文件大小：'+obj.howbig+'M')
+                createP('md5值：'+obj.md5)
+                createP('下载地址：'+obj.internet_add)
+                pWget = document.createElement('p')
+                pWget.innerHTML = 'wget '+obj.internet_add+' -O '+obj.name
+                pWget.className = 'copy'
+                rep.appendChild(pWget)
+                b = document.createElement('button')
+                b.className = 'btn'
+                b.setAttribute('data-clipboard-action','copy')
+                b.setAttribute('data-clipboard-target','.copy')
+                var t=document.createTextNode("copy")
+                b.appendChild(t)
+                rep.appendChild(b)
+
+                }
+            else {
+                alert()
+            }
+            }
+         }
+        xhr.send(form);
+        }    
+    </script>
+{% endblock %}

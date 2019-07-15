@@ -25,25 +25,29 @@
     </style>
 {% endblock %}
 
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
 {% block content %}
 
         <form method="get">
-			<span class="add">Name</span><input type="text" id="service"  autocomplete="off">
+			<span class="add">Name</span><input type="text" id="service" class="input-all"  autocomplete="off">
             <span id="ser" style="display: none">输入Service的名字</span>
             <p>
-            <span class="add">type</span><input type="text" name="type">
+            <span class="add">type</span><input type="text" class="input-all" name="type">
             <!--<select id="type">
                 <option >chess</option>
                 <option >hunter</option>
                 <option >swf</option>
             </select>-->
             </p>
-            <p><span class="add">Tags</span> <textarea id="t" name="tags"></textarea></p>
-            <p><span class="add">Adress</span> <input id="a" type="text" name="address"  autocomplete="off"/></p>
+            <p><span class="add">Tags</span> <textarea id="t" style="margin-left: -5px;width: 170px" class="input-all" name="tags"></textarea></p>
+            <p><span class="add">Adress</span> <input id="a" type="text" style="margin-left: -5px" class="input-all" name="address"  autocomplete="off"/></p>
             <!--<p><span class="add">Port</span><input type="radio" name="port" value="443" checked> 443 <input type="radio" name="port" value="8888"> 8888</p>-->
-            <p><span class="add">Port</span> <input id="xxx" type="text" name="port"></p>
+            <p><span class="add">Port</span> <input id="xxx" type="text" style="margin-left: -5px" class="input-all" name="port"></p>
             <div id="ret" style="color: chocolate;margin-left: 15px"></div>
-            <div id="sub" class="del">提交</div>
+            <div id="sub" style="margin-left: 83px" class="btn-all">提交</div>
         </form>
 
 
@@ -91,7 +95,7 @@
                 }
                 console.log(name)
                 $.ajax({
-                    url: '/test/',
+                    url: '/add_consul/',
                     type: 'post',
                     dataType: 'json',
                     data: {

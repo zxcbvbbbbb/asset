@@ -2,30 +2,24 @@
 
 {% block css %}
     <style>
-        #div1 {
-            position: fixed;
-            width: 500px;
-            top: 50%;
-            left: 50%;
-            height: 400px;
-            background-color: #dddddd;
+        .content {
+            margin-left: 20px;
         }
-    .test:hover .b{
-        background-color: chocolate;
-    }
+        .content a{
+            display: block;
+        }
     </style>
 {% endblock %}
 
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
 {% block content %}
-    <h1>Welcome to NewYork</h1>
-    <div class="test">
-    <div >123</div>
-    <div class="b">456</div>
-    </div>
-    <p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>1
-    <p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
-
-
+    <h1>Welcome to NewYork, {{ username }}</h1>
+    {% if 'POST' in action_list %}
+        <a href="http://www.baidu.com">添加</a>
+    {% endif %}
 
 {% endblock %}
 

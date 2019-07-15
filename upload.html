@@ -1,0 +1,137 @@
+{% extends 'ops/layout.html' %}
+
+{% block css %}
+    <style>
+        .file {
+            top: 20px;
+            left: 15px;
+            position: relative;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+        .file input {
+            position: absolute;
+            font-size: 5px;
+            right: 0;
+            top: 0;
+            opacity: 1;
+        }
+        .file:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+
+        }
+        .msg {
+            color: chocolate;
+            margin-left: 15px;
+            margin-top: 30px;
+        }
+        .rep {
+            margin-left: 15px;    
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <a href="javascript:;" class="file">选择文件
+        <input id="file" type="file" name="file">
+    </a>
+    <p>
+        <input type="submit" class="file" onclick="upload()" value="上传">
+    </p>
+</form>
+
+<div id='1' style="height:20px;width:100px;border:2px solid gray;float:left;margin-right:10px;">
+			<div id='2' style="height:100%;width:0px;background:gray;"></div>
+
+		</div>
+		<b style="margin-right:20px" id='3'>0%</b>
+
+    <p class="msg">{{ msg }}</p>
+    
+{% if md5 %}
+<div id="rep">
+    <p>文件大小： {{ howbig }}M</p>
+    <p>md5值：{{ md5 }}</p>
+    <p>下载地址：{{ internet_add }}</p>
+    <div class="copy">wget {{ internet_add }} -qO {{ name }}</div>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target=".copy">Copy</button>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+    <script>
+    $(function () {
+        upload()
+    })
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+                    console.log(e);
+                });
+
+    clipboard.on('error', function(e) {
+                    console.log(e);
+                });
+    		function on_progress(evt) {
+			if(evt.lengthComputable) {
+				var ele = document.getElementById('2');
+				var percent = Math.round((evt.loaded) * 100 / evt.total);
+				ele.style.width = percent + '%';
+				document.getElementById('3').innerHTML = percent + '%';
+			}
+		}
+		function upload() {
+            var xhr = new XMLHttpRequest();
+            var file = document.getElementById('file').files[0];
+            console.log('aaa'+file);
+            if(typeof (file) == "undefined"){
+                alert('请选择文件')
+            }
+            file.length
+            var form = new FormData();
+            form.append('file', file);
+            xhr.upload.addEventListener('progress', on_progress, false);
+            xhr.open('POST', 'http://192.168.200.111/ops/upload/', true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4){
+                    var obj = JSON.parse(xhr.responseText)
+                    if(obj.status){
+                        console.log(obj.howbig)
+                        var div = document.createElement('div');
+                        var t1 = document.createTextNode('文件大小：'+obj.howbig+'M')
+                        var t2 = document.createTextNode('下载地址：'+obj.internet_add)
+                        //document.body.appendChild(div)
+                        var rep = document.getElementById('rep')
+                        rep.appendChild(div)
+
+                        function createDIV(text)
+                            {
+                            var div = document.createElement("div");
+                            div.innerHTML = text;
+                            o.appendChild(div);
+                            }
+                            createDIV("网页教学网：http://www.ffasp.com/");
+
+                    }
+            }
+            }
+            xhr.setRequestHeader('X-CSRFTOKEN', '{{ request.COOKIES.csrftoken }}');
+            xhr.send(form);
+        }
+        document.getElementsByTagName()
+    </script>
+{% endblock %}

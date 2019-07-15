@@ -3,16 +3,6 @@
 {% block css %}
     {% load staticfiles %}
     <style>
-        .del {
-            margin-left: 80px;
-            text-align: center;
-            width: 50px;
-            cursor: pointer;
-            line-height: 26px;
-            font-size: 14px;
-            color: white;
-            background-image: url("{% static 'image/qq.jpeg' %}");
-        }
     .dropuser {
         margin-top: 25px;
         margin-left: 20px;
@@ -20,18 +10,21 @@
     </style>
 {% endblock %}
 
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
 {% block content %}
 <div class="dropuser">
     <form method="post" onsubmit="return false">
         {% csrf_token %}
-        中文姓名：<input id="realname" type="text" name="realname" style="width:100px">
-        <div id="drop" class="del">删除</div>
+        中文姓名：<input id="realname" class="input-all" type="text" name="realname" style="width:100px">
+        <div id="drop" style="margin-left: 70px" class="btn-all">删除</div>
     </form>
 
     <div id="loading"></div>
     <div id="response"></div>
 </div>
-
 
 {% endblock %}
     {% block js %}
@@ -40,6 +33,7 @@
         $('#menu_teacher').addClass('active');
         $('#menu_teacher').next().removeClass('hide')
     })
+
         $(document).keydown(function (event) {
             if(event.keyCode == 13){
                 $('#drop').click()

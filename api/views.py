@@ -92,26 +92,44 @@ class Test(APIView):
 #             # return render(request,'login.html',{'msg':msg})
 #     return render(request,'login.html',{'msg':msg})
 
+# class Login(APIView):
+#     def get(self,request,*args,**kwargs):
+#         return render(request,'login.html',{'msg':''})
+#     def post(self,request,*args,**kwargs):
+#         msg = ''
+#         user = request.data['username']
+#         pwd = request.data['password']
+#         try:
+#             obj = models.UserInfo.objects.get(name=user)
+#             if check_password(pwd, obj.password):
+#                 request._request.session['is_login'] = True
+#                 request._request.session['username'] = user
+#                 print('-->check password',request._request.session['is_login'])
+#                 return redirect('/')
+#             else:
+#                 msg = '密码错误'
+#                 return render(request, 'login.html', {'msg': msg})
+#         except UserInfo.DoesNotExist:
+#             msg = 'user does not exist.'
+#             return render(request, 'login.html', {'msg': msg})
+
 class Login(APIView):
     def get(self,request,*args,**kwargs):
         return render(request,'login.html',{'msg':''})
     def post(self,request,*args,**kwargs):
-        msg = ''
-        user = request.data['username']
+        username = request.data['username']
         pwd = request.data['password']
-        try:
-            obj = models.UserInfo.objects.get(name=user)
-            if check_password(pwd, obj.password):
-                request._request.session['is_login'] = True
-                request._request.session['username'] = user
-                print('-->check password',request._request.session['is_login'])
-                return redirect('/')
-            else:
-                msg = '密码错误'
-                return render(request, 'login.html', {'msg': msg})
-        except UserInfo.DoesNotExist:
-            msg = 'user does not exist.'
-            return render(request, 'login.html', {'msg': msg})
+        print(username,pwd)
+        obj = models.User.objects.filter(name=username,password=pwd).first()
+        print('-->obj',obj)
+        if obj:
+            request._request.session['user_info'] = {'nid':obj.id,'username':obj.name}
+            MenuHelper(request,obj.name)
+            return redirect('/')
+        else:
+            return redirect('/login')
+
+
 
 
 def logout(request):
@@ -128,13 +146,257 @@ def auth(func):
             return redirect('/login')
     return inner
 
-@auth
-def index(request):
-    current_user = request.session.get('username')
-    print('-->current_user',current_user)
-    return render(request,'index.html',{'username':current_user})
+# @auth
+# def index(request):
+#     current_user = request.session.get('username')
+#     print('-->current_user',current_user)
+#     obj = models.User.objects.get(name=current_user)
+#     user2role_list = models.User2Role.objects.filter(u=obj)
+#     role_list= models.Role.objects.filter(user2role__u__name=current_user)
+#     print(role_list)
+#     # p2a2r_list = models.Permission2Action2Role.objects.filter(r__in=role_list)
+#     menu_leaf_list = models.Permission2Action.objects.\
+#         filter(permission2action2role__r__in=role_list).exclude(p__menu__isnull=True).\
+#         values('p_id','p__url','p__caption','p__menu').distinct()
+#     print(menu_leaf_list)
+#     menu_leaf_dict = {}
+#     for item in menu_leaf_list:
+#         item = {
+#             'id': item['p_id'],
+#             'url': item['p__url'],
+#             'caption': item['p__caption'],
+#             'parent_id': item['p__menu'],
+#             'child':[],
+#             'status':True
+#         }
+#         if item['parent_id'] in menu_leaf_dict:
+#             menu_leaf_dict[item['parent_id']].append(item)
+#         else:
+#             menu_leaf_dict[item['parent_id']] = [item]
+#     print('-->menu_leaf_dict',menu_leaf_dict)
+#     for item,v in menu_leaf_dict.items():
+#         print('-->leaf item',v)
+#     menu_list = models.Menu.objects.values('id','caption','parent_id')
+#     print('-->menu_list',menu_list)
+#     menu_dict = {}
+#     for item in menu_list:
+#         item['child'] = []
+#         item['status'] = False
+#         menu_dict[item['id']] = item
+#
+#     for k,v in menu_leaf_dict.items():
+#         menu_dict[k]['child'] = v
+#         parent_id = k
+#         while parent_id:
+#             menu_dict[parent_id]['status'] = True
+#             parent_id = menu_dict[parent_id]['parent_id']
+#     print('-------------- ')
+#     for k,v in menu_dict.items():
+#         print(k,v)
+#     print(json.dumps(menu_dict,ensure_ascii=False))
+#     for k,v in menu_leaf_dict.items():
+#         print(k,v)
+#     result = []
+#     for row in menu_list:
+#         if not row['parent_id']:
+#             result.append(row)
+#         else:
+#             menu_dict[row['parent_id']]['child'].append(row)
+#
+#     print('------------------')
+#     for item in result:
+#         print(item)
+#     string = menu_tree(result)
+#     return render(request,'index.html',{'username':current_user,'menu_string':string})
 
-@auth
+def permission(func):
+    def inner(request,*args,**kwargs):
+        user_info = request.session.get('user_info')
+        print('-->userinfo', user_info)
+        if not user_info:
+            return redirect('/login')
+        obj = MenuHelper(request, user_info['username'])
+        action_list = obj.actions()
+        print('action_list', action_list)
+        if not action_list:
+            return HttpResponse('无权限访问')
+        kwargs['xxx'] = 'this is a test.'
+        print('-->kwargs',kwargs)
+        kwargs['menu_string'] = obj.menu_tree()
+        kwargs['action_list'] = obj.actions()
+        kwargs['username'] = user_info['username']
+        return func(request,*args,**kwargs)
+    return inner
+
+@permission
+def index(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    current_user = kwargs.get('username')
+    if 'GET' in action_list:
+        result = models.User.objects.all()
+    else:
+        result = []
+    return render(request,'index.html',{'username':current_user,'menu_string':menu_string,'action_list':action_list})
+
+
+def menu_content(child_list):
+    response = ''
+    tpl = '''<div class="item">
+        <div class="title">%s</div>
+        <div class="content">%s</div>
+    </div>'''
+    for row in child_list:
+        if not row['status']:
+            continue
+        if 'url' in row:
+            response += '<a href="%s">%s</a>' % (row['url'],row['caption'])
+        else:
+            title = row['caption']
+            content = menu_content(row['child'])
+            response += tpl % (title,content)
+    return response
+
+
+# def menu_tree(result):
+#     response = ''
+#     tpl = '''<div class="item">
+#         <div class="title">%s</div>
+#         <div class="content">%s</div>
+#     </div>'''
+#     for row in result:
+#         if not row['status']:
+#             continue
+#         title = row['caption']
+#         content = menu_content(row['child'])
+#         response += tpl % (title,content)
+#     return response
+
+class MenuHelper(object):
+    def __init__(self,request,username):
+        self.request = request
+        self.username = username
+        self.current_url = request.path_info
+        self.permission2action_dict = None
+        self.menu_leaf_list = None
+        self.menu_list = None
+        self.session_data()
+
+    def session_data(self):
+        permission_dict = self.request.session.get('permission_info')
+        if permission_dict:
+            self.permission2action_dict = permission_dict['permission2action_dict']
+            self.menu_leaf_list = permission_dict['menu_leaf_list']
+            self.menu_list = permission_dict['menu_list']
+        else:
+            role_list = models.Role.objects.filter(user2role__u__name=self.username)
+            permission2action_list = models.Permission2Action.objects.\
+                filter(permission2action2role__r__in=role_list).exclude(p__menu__isnull=True).\
+                values('p__url','a__code').distinct()
+            permission2action_dict = {}
+            for item in permission2action_list:
+                if item['p__url'] in permission2action_dict:
+                    permission2action_dict[item['p__url']].append(item['a__code'])
+                else:
+                    permission2action_dict[item['p__url']] = [item['a__code']]
+
+            menu_leaf_list = list(models.Permission2Action.objects.\
+                filter(permission2action2role__r__in=role_list).exclude(p__menu__isnull=True).\
+                values('p_id','p__url','p__caption','p__menu').distinct())
+            menu_list = list(models.Menu.objects.values('id','caption','parent_id'))
+
+            self.request.session['permission_info'] = {
+                'permission2action_dict': permission2action_dict,
+                'menu_leaf_list': menu_leaf_list,
+                'menu_list': menu_list,
+            }
+
+    def menu_data_list(self):
+        menu_leaf_dict = {}
+        open_leaf_parent_id = None
+        for item in self.menu_leaf_list:
+            item = {
+                'id': item['p_id'],
+                'url': item['p__url'],
+                'caption': item['p__caption'],
+                'parent_id': item['p__menu'],
+                'child':[],
+                'status':True
+            }
+            if item['parent_id'] in menu_leaf_dict:
+                menu_leaf_dict[item['parent_id']].append(item)
+            else:
+                menu_leaf_dict[item['parent_id']] = [item]
+        print('-->menu_leaf_dict',menu_leaf_dict)
+        menu_dict = {}
+        for item in self.menu_list:
+            item['child'] = []
+            item['status'] = False
+            menu_dict[item['id']] = item
+
+        for k,v in menu_leaf_dict.items():
+            menu_dict[k]['child'] = v
+            parent_id = k
+            while parent_id:
+                menu_dict[parent_id]['status'] = True
+                parent_id = menu_dict[parent_id]['parent_id']
+
+        while open_leaf_parent_id:
+            menu_dict[open_leaf_parent_id]['open'] = True
+            open_leaf_parent_id = menu_dict[open_leaf_parent_id]['parent_id']
+
+        result = []
+        for row in menu_dict.values():
+            if not row['parent_id']:
+                result.append(row)
+            else:
+                menu_dict[row['parent_id']]['child'].append(row)
+
+        return result
+
+    def menu_content(self,child_list):
+        response = ''
+        tpl = '''<div class="item">
+            <div class="title" onclik="testToggle(this)">%s</div>
+            <div class="content">%s</div>
+        </div>'''
+        for row in child_list:
+            if not row['status']:
+                continue
+            if 'url' in row:
+                response += '<a href="%s">%s</a>' % (row['url'], row['caption'])
+            else:
+                title = row['caption']
+                content = self.menu_content(row['child'])
+                response += tpl % (title, content)
+        return response
+
+    def menu_tree(self):
+        response = ''
+        tpl = '''<div class="item">
+            <div class="title" onclik="testToggle(this)">%s</div>
+            <div class="content">%s</div>
+        </div>'''
+        for row in self.menu_data_list():
+            if not row['status']:
+                continue
+            title = row['caption']
+            content = self.menu_content(row['child'])
+            response += tpl % (title, content)
+        return response
+
+
+    def actions(self):
+        action_list = []
+        for k,v in self.permission2action_dict.items():
+            print('action k v',k,v)
+            print('-->current_url',self.current_url)
+            if re.match(k,self.current_url):
+                action_list = v
+                break
+        return action_list
+
+# @auth
 def handle_classes(request):
     if request.method == 'GET':
         # 当前页
@@ -185,11 +447,13 @@ def edit_class(request):
     else:
         return redirect('/')
 
-@auth
-def handle_student(request):
+@permission
+def del_consul(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
     if request.method == 'GET':
-        user = request.session.get('username')
-        return render(request, 'student.html',{'username':user})
+        return render(request, 'del_consul.html', {'menu_string':menu_string,\
+                                           'action_list':action_list})
     elif request.method == 'POST':
         name = request.POST.get('name')
         exec_cmd(
@@ -299,8 +563,11 @@ def check_name(name):
     for i in req_info:
         if (i['name'] == name or i['full_name'] == name) and i['inactive'] == False:
             return True
-@auth
-def dropuser(request):
+
+@permission
+def dropuser(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
     if request.method == 'POST':
         realname = request.POST['realname']
         if not check_name(realname):
@@ -325,22 +592,47 @@ def dropuser(request):
 
     elif request.method == 'GET':
         user = request.session.get('username')
-        return render(request, 'register/dropuser.html',{"hidden": "hidden",'username':user})
+        return render(request, 'register/dropuser.html',{"hidden": "hidden",'username':user,'menu_string':menu_string})
 
-def upload(request):
+def upload(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
     if request.method == 'GET':
-        img_list = models.Img.objects.all()
-        print(img_list)
-        return render(request,'upload.html',{'images':img_list})
+        return render(request, 'ops/upload.html',{'menu_string':menu_string})
     elif request.method == 'POST':
-        obj = request.FILES.get('tftp')
-        file_path = os.path.join('static','upload',obj.name)
-        f = open(file_path,'wb')
-        for chunk in obj.chunks():
-            f.write(chunk)
-        f.close()
-        models.Img.objects.create(path=file_path)
-        return redirect('/upload')
+        obj = request.FILES.get('file')
+        if obj:
+            if re.findall('[()]',obj.name):
+                print('-->此处括号')
+                msg = '上传失败!文件名不要使用括号等特殊字符!'
+                return JsonResponse({"status":False,"msg":msg})
+                #return render(request,'ops/upload.html',{'msg':msg})
+            file_path = os.path.join('/var/www/html/upload',obj.name)
+            f = open(file_path,'wb')
+            for chunk in obj.chunks():
+                f.write(chunk)
+            f.close
+            print('-->file_path',file_path)
+            print('-->obj',obj)
+            if os.path.exists(file_path):
+                #howbig = int(exec_cmd("stat -c '%s' {0}".format(file_path)))
+                md5 = exec_cmd('md5sum %s' % file_path).split()[0]
+                print('-->md5',md5)
+                new_name = md5[:8]+'_'+obj.name
+                new_file_path = os.path.dirname(file_path)+'/'+new_name
+                print('-->new_file_path',new_file_path)
+                os.rename(file_path,new_file_path)
+                howbig = obj.size / 1024 / 1024
+                howbig = round(howbig,2)
+                internet_add = 'http://sz.v26.top:18081/' + new_name
+                print('-->internet_add',internet_add)
+                ret = {"status":True,"howbig":howbig,"md5":md5,"internet_add":internet_add,"name":obj.name}
+                return JsonResponse(ret)
+                #return render(request,'ops/upload.html',{'msg':'上传成功','howbig':howbig,'md5':md5,'internet_add':internet_add,'name':obj.name})
+            else:
+                return JsonResponse({'status':False})
+        else:
+            return render(request, 'ops/upload.html',{'msg':'请选择文件'})
 
 def search(request):
     if request.method == 'GET':
@@ -352,12 +644,16 @@ def search(request):
 
         return JsonResponse(l,safe=False)
 
-@auth
-def test(request):
+@permission
+def add_consul(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
     user = request.session.get('username')
     service = {}
     if request.method == 'GET':
-        return render(request,'test.html',{'username':user})
+        return render(request, 'add_consul.html', {'username':user, 'menu_string':menu_string,\
+                                           'action_list':action_list
+                                                   })
     elif request.method == 'POST':
         name = request.POST.get('name')
         type = request.POST.get('type')
@@ -370,7 +666,6 @@ def test(request):
         print('-->port',port)
         service['Name'] = name
         service['Tags'] = re.split('[,， ]',tags)
-        service['Tags'].append('正式玩')
         print(service['Tags'])
         service['Address'] = address
         service['Port'] = int(port)
@@ -384,13 +679,19 @@ def test(request):
             return JsonResponse({'msg':r.text})
         return JsonResponse({'msg':'添加成功'})
 
-@auth
-def compare(request):
+@permission
+def compare(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    print('-->compare',menu_string)
+    action_list = kwargs.get('action_list')
     if request.method == 'GET':
         user = request.session.get('username')
         accounts = account_compare()
         print('-->accounts',accounts)
-        return render(request, 'compare.html',{'accounts':accounts,'username':user})
+        return render(request, 'compare.html',{'accounts':accounts,
+                                               'username':user,
+                                               'menu_string':menu_string,
+                                               'action_list':action_list})
 
 
 def blur(request):
@@ -415,7 +716,8 @@ def file_md5(path):
                 md5.update(cont)
     return md5.hexdigest()
 
-def ftp(request):
+@permission
+def ftp(request,*args,**kwargs):
     if request.method == 'GET':
         user = request.session.get('username')
         # pictures = models.Img.objects.all()

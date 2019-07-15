@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    {% load staticfiles %}
+
+    <style>
+.file {
+    left: 15px;
+    position: relative;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 2px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    right: 0;
+    top: 0;
+    opacity: 1;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+
+}
+.msg {
+    color: chocolate;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+.rep {
+    left: 15px;
+}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+<form method="post" enctype="multipart/form-data">
+
+
+
+
+        <input type="file" style="margin-top: 20px;margin-left: 15px" name="transfer">
+
+    <p>
+    <input type="submit" class="file" value="提交" >
+    </p>
+
+
+</form>
+
+    <p class="msg">{{ msg }}</p>
+
+
+
+{% if md5 %}
+    <div class="rep">
+        <p>md5值：{{ md5 }}</p>
+        <p>内网地址：{{ local_add }}</p>
+        <p>外网地址：{{ internet_add }}</p>
+    </div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
+{% endblock %}
