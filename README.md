@@ -70,9 +70,68 @@ location.reload()
 #59-08
 js事件委托
 https://blog.csdn.net/cyyy1223/article/details/78796360  jquery之on()和click()的本质区别
+https://www.cnblogs.com/yuanchenqi/articles/6070667.html  前端学习之jquery
 jquery的on
-$().on(click,function())
+$('.btn').on(click,function())
 $('ul').on(click,'li',function())
+
+通过on或click绑定的事件只对当前存在的元素有效;
+将事件绑定到类名为del的元素的父元素上(事件委托)
+语法:$(父元素).on(event,子元素,function(){})
+使用on可以为动态添加的元素绑定事件
+
+
+表结构：
+    <button class="btn">添加</button>
+    <ul>
+        <li>
+			<button class="aaa">删除</button>
+            <button class="del">删除</button>
+        </li>
+        <li>
+            <button class="del">删除</button>
+        </li>
+    </ul>
+	
+1.动态添加按钮
+append，appendTo属于内部插入，after，before属于外部插入
+方式一
+	$('.btn').click(function () {
+		$('ul').append('<li><button class="del">删除</button></li>')
+	})
+方式二
+	$('.btn').click(function () {
+		$('<li><button class="del">删除</button></li>').appendTo('ul')
+	})
+	
+	appendTo()方法在被选元素的结尾插入HTML元素，$(content).appendTo(selector)；
+	prependTo()在被选元素的开头插入HTML元素
+
+2.删除整个li：
+//删除ul
+	$('ul').empty()
+	$('ul').remove()
+	
+//删除li	
+	方式一
+		$('ul').on('click','li',function () {
+			$(this).remove()
+		})
+	方式二
+		$('ul').on('click','.del',function () {
+			$(this).parent().remove()
+		})
+		
+3.查找筛选器
+$('ul').find('.aaa')[0]
+$('.del').prev()
+$('.aaa').next()
+$('.del').siblings()
+$('li').children('.aaa')[0]
+
+4.过滤筛选器
+选取第二个<p>元素：
+$("p").eq(1).css("background-color","yellow")
 
 #59-11
 模态对话框提交，换成URL方式提交
@@ -220,3 +279,16 @@ p2a2r_list = models.Permission2Action2Role.objects.filter(r__in=role_list)
         filter(permission2action2role__r__in=role_list).\
         values('p__caption','a__code').distinct()
     print(p2a_list)
+	
+#63-02
+form的作用：
+用于验证用户请求数据合法性的一个组件
+
+django form的字段用于验证用户某个字段，相当于验证规则，
+obj = MyForm(request.POST)
+obj.is_valid()会把定义的几条规则执行一遍
+
+django form创建模板：
+类
+字段，验证
+插件wedget，页面效果

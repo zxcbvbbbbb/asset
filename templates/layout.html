@@ -31,7 +31,6 @@
         }
         .pg-header .hl-menu .item:hover,.pg-header .hr-menu .item:hover {
             background-color: #034c50;
-
             display: inline-block;
         }
         .pg-header .hl-menu .item-set{
@@ -101,14 +100,12 @@
             bottom: 0;
             overflow: scroll;
         }
-        .menus .item .item-content a{
-            display: block;
-            padding: 3px;
-            text-decoration: none;
-            border-left: 3px solid transparent;
+        .content a{
+            padding: 2px;
+            border-left: 2px solid transparent;
         }
-        .menus .item .item-content a:hover {
-            border-left: 3px solid #1c5a9c;
+        .content a:hover {
+            border-left: 2px solid #1c5a9c;
         }
         .left {
             float: left;
@@ -134,7 +131,7 @@
             border-radius: 2px;
             min-height: 20px;
         }
-            .btn-all {
+        .btn-all {
             margin-top: 15px;
             margin-left: 80px;
             text-align: center;
@@ -145,6 +142,21 @@
             background: #D0EEFF;
             border: 1px solid #99D3F5;
             border-radius: 4px;
+        }
+        .btn-all:hover {
+            background-color: #F49900;
+        }
+        .returnTop {
+            position: fixed;
+            height: 70px;
+            line-height: 70px;
+            bottom: 50px;
+            right: 30px;
+            background-color: darkgray;
+            width: 80px;
+            cursor: pointer;
+            text-align: center;
+            display: none;
         }
     </style>
 {% block css %}
@@ -190,6 +202,7 @@
     </div>
     <div class="contents">
         <div>
+            <div class="returnTop">Top</div>
             {% block content %}
             {% endblock %}
         </div>
@@ -201,14 +214,24 @@
 
 <script src="/static/js/jquery-1.11.1.min.js"></script>
 <script>
-    console.log('before')
+    $(function(){
+        $('.contents').scroll(function () {
+            console.log($(this).scrollTop())
+            if ($(this).scrollTop() > 200) {
+                $(".returnTop").fadeIn();
+            } else {
+                $(".returnTop").fadeOut();
+            }
+        });
+        $(".returnTop").click(function () {
+             		if ($('.contents').scrollTop() > 0) {
+             			$(".contents").animate({ scrollTop: 0 },200);
+             		}
+             	});
+    })
 
-    function xxx() {
-        console.log('xxx')
-    }
 
-
-    $('.title').on('click',function testToggle(){
+    $('.title').on('click',function (){
         console.log('zzz')
         console.log(this)
         $(this).next().toggle()

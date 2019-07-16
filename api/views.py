@@ -239,6 +239,35 @@ def index(request,*args,**kwargs):
         result = []
     return render(request,'index.html',{'username':current_user,'menu_string':menu_string,'action_list':action_list})
 
+@permission
+def test(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    return render(request, 'test.html', {'menu_string':menu_string, 'action_list':action_list})
+
+@permission
+def jquery(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    return render(request,'jquery.html',{'menu_string':menu_string,'action_list':action_list})
+
+@permission
+def tab(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    return render(request,'tab.html',{'menu_string':menu_string,'action_list':action_list})
+
+@permission
+def top(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    return render(request,'top.html',{'menu_string':menu_string,'action_list':action_list})
+
+@permission
+def ipinfo(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    return render(request,'ipinfo.html',{'menu_string':menu_string,'action_list':action_list})
 
 def menu_content(child_list):
     response = ''
@@ -357,7 +386,7 @@ class MenuHelper(object):
     def menu_content(self,child_list):
         response = ''
         tpl = '''<div class="item">
-            <div class="title" onclik="testToggle(this)">%s</div>
+            <div class="title">%s</div>
             <div class="content">%s</div>
         </div>'''
         for row in child_list:
@@ -374,7 +403,7 @@ class MenuHelper(object):
     def menu_tree(self):
         response = ''
         tpl = '''<div class="item">
-            <div class="title" onclik="testToggle(this)">%s</div>
+            <div class="title">%s</div>
             <div class="content">%s</div>
         </div>'''
         for row in self.menu_data_list():
@@ -471,7 +500,7 @@ def del_consul(request,*args,**kwargs):
             response_dict['msg'] = r.text
             return JsonResponse(response_dict)
 
-@auth
+
 def handle_teacher(request):
 
     username = request.session.get('username')

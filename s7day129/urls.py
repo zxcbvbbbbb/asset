@@ -44,4 +44,9 @@ urlpatterns = [
     url(r'^compare/$',views.compare,name="compare"),
     url(r'^blur/$',views.blur,name="blur"),
     url(r'^ftp/$',views.ftp,name="ftp"),
+    url(r'^test/$',views.test,name="test"),
+    url(r'^jquery/$',views.jquery,name="jquery"),
+    url(r'^tab/$',views.tab,name="tab"),
+    url(r'^top/$',views.top,name="top"),
+    url(r'^ipinfo/$',views.ipinfo,name="ipinfo"),
 ]
