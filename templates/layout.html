@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0px;
@@ -148,15 +149,21 @@
         }
         .returnTop {
             position: fixed;
-            height: 70px;
-            line-height: 70px;
+            height: 50px;
             bottom: 50px;
             right: 30px;
-            background-color: darkgray;
-            width: 80px;
+            background-color: #3ac57d;
+            color: whitesmoke;
+            width: 50px;
             cursor: pointer;
             text-align: center;
             display: none;
+            box-shadow: 5px 5px 2px #888888;
+            border-radius: 2px;
+        }
+        .returnTop>i{
+            font-size: 30px;
+            margin: 10px;
         }
     </style>
 {% block css %}
@@ -202,7 +209,9 @@
     </div>
     <div class="contents">
         <div>
-            <div class="returnTop">Top</div>
+            <div class="returnTop">
+                <i class="fa fa-angle-double-up"></i>
+            </div>
             {% block content %}
             {% endblock %}
         </div>

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+    <h1>滑动滚轮返回顶部</h1>
+    <div id="box" style="height: 2000px"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

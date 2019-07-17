@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+    <h1>This is a test page</h1>
+    {% if 'POST' in action_list %}
+        <a href="http://www.baidu.com">添加</a>
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

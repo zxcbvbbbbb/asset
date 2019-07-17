@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+        .div-test {
+            color: rebeccapurple !important;
+        }
+        span {
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            border: darkgrey 1px solid;
+            background: no-repeat 0 -50px url("/static/image/avatar.png");
+        }
+        .back {
+            height: 50px;
+            text-indent: 20px;
+           /* line-height: 100px; */
+            width: 200px;
+            background-color: lightskyblue;
+        }
+        .div1 {
+            background-color: beige;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        .div2 {
+            background-color: rebeccapurple;
+            width: 200px;
+            height: 100px;
+            float: left;
+           /* clear: left; */
+        }
+        .div3 {
+            background-color: greenyellow;
+            width: 100px;
+            height: 200px;
+            float: left;
+        }
+        .div4 {
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+        }
+        .container {
+            margin-top: 40px;
+            border: 1px solid darkblue;width: 300px;
+        }
+        .box1 {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        .box2 {
+            background-color: deeppink;
+            width: 100px;
+            height: 100px;
+            float: right;
+        }
+        .box3 {
+            background-color: pink;
+            height: 40px;
+            width: 300px;
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+    <h1>jquery基础</h1>
+
+    <h3>// css优先级</h3>
+    <div class="div-test" id="id1" style="color: orange">色彩</div>
+
+    <h3>// 背景图片(38-07)</h3>
+    <span></span>
+
+    <h3>// 文本属性(39-01)</h3>
+    <div class="back">文本居中</div>
+
+    <h3>// float属性(39-05)</h3>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+
+    <div class="container clearfix">
+        <div class="box1">box1 向左浮动</div>
+        <div class="box2">box2 向右浮动</div>
+        <!-- <div style="clear: both"></div> -->
+    </div>
+    <div class="box3">box3</div>
+    <p>元素浮动之后，周围的元素会重新排列，为了避免这种情况，使用clear属性指定元素两侧不能出现浮动元素</p>
+    <p> div style那行表示不要跟box1，box2一行，另起一行</p>
+
+    <h3>// 添加li</h3>
+    <button class="btn">添加</button>
+    <ul>
+        <li>
+            <button class="del">删除</button>
+            <button class="aaa">aaa</button>
+        </li>
+        <li>
+            <button id="alex" class="del">删除</button>
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('.btn').click(function () {
+            $('ul').remove()
+        })
+        $('.del').click(function () {
+            $(this).remove()
+        })
+
+
+    </script>
+{% endblock %}

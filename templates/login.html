@@ -17,12 +17,19 @@
 <body>
 <form method="post">
     <div>
-        <label>用户名:</label>
-        <input type="text" id="username" name="username">
+        {{ oo.username }}
+        {{ oo.errors.username.0 }}
     </div>
     <div>
-        <label>密码:</label>
-        <input type="text" id="password" name="password">
+        {{ oo.email }}
+        {{ oo.errors.email.0 }}
+    </div>
+    <div>
+        {{ oo.password }}
+    </div>
+    <div>
+        <label>favor:</label>
+        {{ oo.favor }}
     </div>
     <div>
         <label></label>

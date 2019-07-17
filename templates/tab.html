@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+        .test-header {
+            height: 48px;
+            background: #dddddd;
+        }
+        .test-header .menu{
+            display: inline-block;
+            padding: 0 5px;
+            line-height: 48px;
+        }
+        .test-content {
+            position: absolute;
+            background-color: tan;
+            top: 110px;
+            left: 0px;
+            bottom: 0;
+            right: 0px;
+        }
+        .current {
+            background-color: #c8c8c8;
+            color: yellow;
+            border-top: 1px solid #1c5a9c
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+    <h1>tab切换</h1>
+    {% if 'POST' in action_list %}
+        <a href="http://www.baidu.com">添加</a>
+    {% endif %}
+
+<div class="test-header">
+    <div xxx="c1" class="menu" onclick="show(this)">菜单1</div>
+    <div xxx="c2" class="menu" onclick="show(this)">菜单2</div>
+    <div xxx="c3" class="menu" onclick="show(this)">菜单3</div>
+</div>
+<div class="test-content">
+    <div id="c1" class="hide">内容一</div>
+    <div id="c2" class="hide">内容二</div>
+    <div id="c3" class="hide">内容三</div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script>
+    function show(self) {
+        var index=$(self).attr('xxx')
+        console.log($('#'+index).parent())
+        $("#"+index).removeClass('hide').siblings().addClass('hide')
+        console.log($('[xxx=' + index + ']'))
+        $(self).addClass('current').siblings().removeClass('current')
+    }
+
+
+
+    </script>
+{% endblock %}

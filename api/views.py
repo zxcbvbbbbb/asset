@@ -24,7 +24,8 @@ from jira.exceptions import JIRAError
 import requests,os,re,hashlib
 from api.utils.cmd import exec_cmd
 from api.utils.compare import account_compare
-
+from django.forms import fields
+from django import forms
 
 class ClientCreateView(CreateView):
     model = Client
@@ -113,23 +114,54 @@ class Test(APIView):
 #             msg = 'user does not exist.'
 #             return render(request, 'login.html', {'msg': msg})
 
-class Login(APIView):
-    def get(self,request,*args,**kwargs):
-        return render(request,'login.html',{'msg':''})
-    def post(self,request,*args,**kwargs):
-        username = request.data['username']
-        pwd = request.data['password']
-        print(username,pwd)
-        obj = models.User.objects.filter(name=username,password=pwd).first()
-        print('-->obj',obj)
-        if obj:
-            request._request.session['user_info'] = {'nid':obj.id,'username':obj.name}
+# class Login(APIView):
+#     def get(self,request,*args,**kwargs):
+#         return render(request,'login.html',{'msg':''})
+#     def post(self,request,*args,**kwargs):
+#         username = request.data['username']
+#         pwd = request.data['password']
+#         print(username,pwd)
+#         obj = models.User.objects.filter(name=username,password=pwd).first()
+#         print('-->obj',obj)
+#         if obj:
+#             request._request.session['user_info'] = {'nid':obj.id,'username':obj.name}
+#             MenuHelper(request,obj.name)
+#             return redirect('/')
+#         else:
+#             return redirect('/login')
+
+class LoginForm(forms.Form):
+    username = forms.CharField(error_messages={'min_length':'长度不能小于6','required':'不能为空'},widget= \
+        forms.TextInput(attrs={'placeholder': '用户名'}))
+    email = forms.CharField(error_messages={'required':'邮箱不能为空','invalid':'邮箱格式错误'},widget=\
+        forms.EmailInput(attrs={'placeholder':'邮箱'}))
+    password = fields.CharField(widget=forms.PasswordInput(attrs={'class':'c1','placeholder':'密码','required':'required'}),\
+                               error_messages={'required':'密码不能为空'})
+    favor = forms.ChoiceField(
+        choices=[(1,'watch TV'),(2,'music'),(3,'food')]
+    )
+
+def login(request,*args,**kwargs):
+    if request.method == 'GET':
+        obj = LoginForm()
+        return render(request,'login.html',{'oo':obj})
+    if request.method == 'POST':
+        obj = LoginForm(request.POST)
+        if obj.is_valid():
+            data = obj.clean()
+            print('-->data',data)
+            obj = models.User.objects.filter(name=data['username'], password=data['password']).first()
+            request.session['user_info'] = {'nid':obj.id,'username':obj.name}
             MenuHelper(request,obj.name)
+            print(obj)
             return redirect('/')
         else:
-            return redirect('/login')
-
-
+            from django.forms.utils import ErrorDict
+            print(obj.errors.as_data())
+            # print(obj.errors['username'][0])
+            # print(obj.errors['email'][0])
+            # print(obj.data.getlist('username'))
+            return render(request,'login.html',{'oo':obj})
 
 
 def logout(request):
@@ -462,7 +494,7 @@ def handle_classes(request):
         print('-->response_dict',response_dict)
         return JsonResponse(response_dict)
 
-@auth
+
 def edit_class(request):
     if request.method == 'GET':
         nid = request.GET.get('nid')
@@ -518,7 +550,6 @@ def handle_teacher(request):
     print(result)
     return render(request,'teacher.html',{'username':username,'teachers':result})
 
-@auth
 def add_teacher(request):
     if request.method == 'GET':
         cls_list = models.Classes.objects.all()
@@ -531,7 +562,7 @@ def add_teacher(request):
         obj.cls.add(*cls)
         return redirect('/teacher')
 
-@auth
+
 def edit_teacher(request,nid):
     if request.method == 'GET':
         obj = models.Teacher.objects.get(id=nid)
@@ -562,7 +593,7 @@ def modal(request):
     print('-->s',s)
     return render(request,'modal.html')
 
-@auth
+
 def addnew(request):
     if request.method == 'POST':
         realname = request.POST['realname']
