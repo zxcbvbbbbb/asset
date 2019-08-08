@@ -508,11 +508,34 @@ def edit_class(request):
     else:
         return redirect('/')
 
+def make_data():
+    from subprocess import Popen, PIPE
+
+    def exec_cmd(cmd):
+        res = Popen(cmd, shell=True, stdout=PIPE)
+        ret = res.communicate()[0].decode('utf-8')
+        return ret
+
+    cmd = 'curl -H "X-Consul-Token: blizzmi.us007" -s -G http://192.168.200.60:8500/v1/agent/services|json'
+    services = exec_cmd(cmd)
+    data = []
+    for item in json.loads(services):
+        data.append({'title': item})
+
+    newdata = 'var data1 = %s' % data
+    from s7day129 import settings
+    filename = os.path.join(settings.BASE_DIR, 'static\js\data.js')
+    print(filename)
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(newdata)
+
 @permission
 def del_consul(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
     if request.method == 'GET':
+        make_data()
+        print('新数据')
         return render(request, 'del_consul.html', {'menu_string':menu_string,\
                                            'action_list':action_list})
     elif request.method == 'POST':
