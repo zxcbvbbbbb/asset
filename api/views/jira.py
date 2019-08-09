@@ -70,7 +70,7 @@ def staff_season(request,*args,**kwargs):
             (SELECT d.pname as 项目,c.姓名,format(sum(c.耗时) / 60 / 60, 2) as 耗时H from (
             (SELECT a.项目ID,a.任务名称,b.display_name as 姓名,a.耗时,a.解决时间 FROM (
             (SELECT project as 项目ID, summary as 任务名称,assignee as 经办人ID,TIMESPENT AS 耗时,RESOLUTIONDATE as 解决时间 from jiraissue where
-             RESOLUTIONDATE BETWEEN "2018-04-01" AND "2018-07-01" and TIMESPENT is not NULL) as a 
+             RESOLUTIONDATE BETWEEN {0} AND {1} and TIMESPENT is not NULL) as a 
             LEFT JOIN cwd_user AS b ON a.经办人ID = b.lower_user_name
             )) as c 
             LEFT JOIN project as d on c.项目ID = d.id
@@ -81,7 +81,7 @@ def staff_season(request,*args,**kwargs):
             (SELECT c.姓名,format(sum(c.耗时) / 60 / 60, 2) as 总计 from (
             (SELECT a.项目ID,a.任务名称,b.display_name as 姓名,a.耗时,a.解决时间 FROM (
             (SELECT project as 项目ID, summary as 任务名称,assignee as 经办人ID,TIMESPENT AS 耗时,RESOLUTIONDATE as 解决时间 from jiraissue where
-             RESOLUTIONDATE BETWEEN "2018-04-01" AND "2018-07-01" and TIMESPENT is not NULL) as a 
+             RESOLUTIONDATE BETWEEN {0} AND {1} and TIMESPENT is not NULL) as a 
             LEFT JOIN cwd_user AS b ON a.经办人ID = b.lower_user_name
             )) as c 
             LEFT JOIN project as d on c.项目ID = d.id
@@ -111,7 +111,7 @@ def finance_staff_month(request, *args, **kwargs):
             (SELECT d.pname as 项目,c.姓名,format(sum(c.耗时) / 60 / 60, 2) as 耗时H from (
             (SELECT a.项目ID,a.任务名称,b.display_name as 姓名,a.耗时,a.解决时间 FROM (
             (SELECT project as 项目ID, summary as 任务名称,assignee as 经办人ID,TIMESPENT AS 耗时,RESOLUTIONDATE as 解决时间 from jiraissue where
-             RESOLUTIONDATE BETWEEN "2019-4-01" AND "2019-5-01" and TIMESPENT is not NULL) as a 
+             RESOLUTIONDATE BETWEEN {0} AND {1} and TIMESPENT is not NULL) as a 
             LEFT JOIN cwd_user AS b ON a.经办人ID = b.lower_user_name
             )) as c 
             LEFT JOIN project as d on c.项目ID = d.id
@@ -122,7 +122,7 @@ def finance_staff_month(request, *args, **kwargs):
             (SELECT c.姓名,format(sum(c.耗时) / 60 / 60, 2) as 总计 from (
             (SELECT a.项目ID,a.任务名称,b.display_name as 姓名,a.耗时,a.解决时间 FROM (
             (SELECT project as 项目ID, summary as 任务名称,assignee as 经办人ID,TIMESPENT AS 耗时,RESOLUTIONDATE as 解决时间 from jiraissue where
-             RESOLUTIONDATE BETWEEN "2019-4-01" AND "2019-5-01" and TIMESPENT is not NULL) as a 
+             RESOLUTIONDATE BETWEEN {0} AND {1} and TIMESPENT is not NULL) as a 
             LEFT JOIN cwd_user AS b ON a.经办人ID = b.lower_user_name
             )) as c 
             LEFT JOIN project as d on c.项目ID = d.id

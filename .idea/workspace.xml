@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="jquery返回顶部">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/tmp2.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/tmp2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/jira.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/jira.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s7day129/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/s7day129/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_consul.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_consul.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,11 +90,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views/jira.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="107" column="49" lean-forward="true" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
+            <state relative-caret-position="1344">
+              <caret line="113" column="38" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="144" column="24" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -191,7 +193,6 @@
         <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
         <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
         <option value="$PROJECT_DIR$/api/utils/compare.py" />
-        <option value="$PROJECT_DIR$/s7day129/settings.py" />
         <option value="$PROJECT_DIR$/static/wikiusers.csv" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/upload.html" />
@@ -218,6 +219,7 @@
         <option value="$PROJECT_DIR$/templates/staff_month.html" />
         <option value="$PROJECT_DIR$/s7day129/urls.py" />
         <option value="$PROJECT_DIR$/templates/finance_staff_month.html" />
+        <option value="$PROJECT_DIR$/s7day129/settings.py" />
         <option value="$PROJECT_DIR$/api/views/jira.py" />
       </list>
     </option>
@@ -582,7 +584,7 @@
       <workItem from="1563273060845" duration="149000" />
       <workItem from="1563322828572" duration="18702000" />
       <workItem from="1565257099467" duration="1401000" />
-      <workItem from="1565322120231" duration="13326000" />
+      <workItem from="1565322120231" duration="13862000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -672,7 +674,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="519455000" />
+    <option name="totallyTimeSpent" value="519991000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -685,7 +687,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
@@ -765,13 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1064,10 +1059,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="144" column="24" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/views/jira.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="107" column="49" lean-forward="true" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
+        <state relative-caret-position="1344">
+          <caret line="113" column="38" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
