@@ -51,5 +51,5 @@ urlpatterns = [
     url(r'^ipinfo/$', views.ipinfo, name="ipinfo"),
     url(r'^staff_month/$', jira.staff_month, name="staff_month"),
     url(r'^staff_season/$', jira.staff_season, name="staff_season"),
-    url(r'^finance_staff_month/$', jira.finance_staff_month, name="finance_staff_month"),
+    url(r'^bug_count/$', jira.bug_count, name="bug_count"),
 ]
