@@ -582,7 +582,7 @@
       <workItem from="1563273060845" duration="149000" />
       <workItem from="1563322828572" duration="18702000" />
       <workItem from="1565257099467" duration="1401000" />
-      <workItem from="1565322120231" duration="12954000" />
+      <workItem from="1565322120231" duration="13326000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -672,7 +672,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="519083000" />
+    <option name="totallyTimeSpent" value="519455000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -685,7 +685,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
