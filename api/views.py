@@ -524,7 +524,7 @@ def make_data():
 
     newdata = 'var data1 = %s' % data
     from s7day129 import settings
-    filename = os.path.join(settings.BASE_DIR, 'static\js\data.js')
+    filename = os.path.join(settings.BASE_DIR, 'static/js/data.js')
     print(filename)
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(newdata)

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="jquery返回顶部">
-      <change beforePath="$PROJECT_DIR$/api/utils/tmp2.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/tmp2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="527" column="19" lean-forward="true" selection-start-line="527" selection-start-column="19" selection-end-line="527" selection-end-column="19" />
+            <state relative-caret-position="29">
+              <caret line="510" column="13" selection-start-line="510" selection-start-column="4" selection-end-line="510" selection-end-column="13" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -84,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" lean-forward="true" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="115">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -105,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>del</find>
       <find>testToggle</find>
       <find>test</find>
       <find>content</find>
@@ -135,6 +131,7 @@
       <find>登录</find>
       <find>shadow</find>
       <find>login_link_a</find>
+      <find>del_consul</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -195,12 +192,12 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="F:/BaiduNetdiskDownload/day64-python 全栈开发-web框架篇/抽屉登录注册-示例/chouti/chouti/settings.py" />
         <option value="$PROJECT_DIR$/api/utils/tmp2.py" />
-        <option value="$PROJECT_DIR$/static/js/data.js" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/static/js/data.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="96" />
     <option name="y" value="7" />
     <option name="width" value="1300" />
@@ -338,7 +335,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tmp2">
+  <component name="RunManager" selected="Django server.s7day129">
     <configuration name="compare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="s7day129" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -559,7 +556,8 @@
       <workItem from="1563269443620" duration="2656000" />
       <workItem from="1563273060845" duration="149000" />
       <workItem from="1563322828572" duration="18702000" />
-      <workItem from="1565257099467" duration="571000" />
+      <workItem from="1565257099467" duration="1401000" />
+      <workItem from="1565322120231" duration="905000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -649,7 +647,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="505299000" />
+    <option name="totallyTimeSpent" value="507034000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -665,12 +663,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20735608" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850778" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49626866" visible="true" weight="0.34075725" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49626866" weight="0.34075725" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1020,23 +1018,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/data.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" lean-forward="true" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="115">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/data.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="527" column="19" lean-forward="true" selection-start-line="527" selection-start-column="19" selection-end-line="527" selection-end-column="19" />
+        <state relative-caret-position="29">
+          <caret line="510" column="13" selection-start-line="510" selection-start-column="4" selection-end-line="510" selection-end-column="13" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
