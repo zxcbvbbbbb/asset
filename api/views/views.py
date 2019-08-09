@@ -10,8 +10,8 @@ from api.utils.permission import MyPermission1
 from api.utils.throttle import VisitThrottle
 from api import models
 from django.views.generic.edit import CreateView
-from .forms import ClientForm
-from .models import Client,City,UserInfo
+from api.forms import ClientForm
+from api.models import Client,City,UserInfo
 import json
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.hashers import check_password
@@ -46,7 +46,7 @@ def posttest(request):
     print(request)
     if request.method == 'POST':
         print(request.POST)
-    return render(request,'posttest.html')
+    return render(request, 'posttest.html')
 
 class Test(APIView):
     def post(self,request,*args,**kwargs):
@@ -133,18 +133,18 @@ class Test(APIView):
 class LoginForm(forms.Form):
     username = forms.CharField(error_messages={'min_length':'长度不能小于6','required':'不能为空'},widget= \
         forms.TextInput(attrs={'placeholder': '用户名'}))
-    email = forms.CharField(error_messages={'required':'邮箱不能为空','invalid':'邮箱格式错误'},widget=\
-        forms.EmailInput(attrs={'placeholder':'邮箱'}))
+    # email = forms.CharField(error_messages={'required':'邮箱不能为空','invalid':'邮箱格式错误'},widget=\
+    #     forms.EmailInput(attrs={'placeholder':'邮箱'}))
     password = fields.CharField(widget=forms.PasswordInput(attrs={'class':'c1','placeholder':'密码','required':'required'}),\
                                error_messages={'required':'密码不能为空'})
-    favor = forms.ChoiceField(
-        choices=[(1,'watch TV'),(2,'music'),(3,'food')]
-    )
+    # favor = forms.ChoiceField(
+    #     choices=[(1,'watch TV'),(2,'music'),(3,'food')]
+    # )
 
 def login(request,*args,**kwargs):
     if request.method == 'GET':
         obj = LoginForm()
-        return render(request,'login.html',{'oo':obj})
+        return render(request, 'login.html', {'oo':obj})
     if request.method == 'POST':
         obj = LoginForm(request.POST)
         if obj.is_valid():
@@ -161,7 +161,7 @@ def login(request,*args,**kwargs):
             # print(obj.errors['username'][0])
             # print(obj.errors['email'][0])
             # print(obj.data.getlist('username'))
-            return render(request,'login.html',{'oo':obj})
+            return render(request, 'login.html', {'oo':obj})
 
 
 def logout(request):
@@ -269,7 +269,7 @@ def index(request,*args,**kwargs):
         result = models.User.objects.all()
     else:
         result = []
-    return render(request,'index.html',{'username':current_user,'menu_string':menu_string,'action_list':action_list})
+    return render(request, 'index.html', {'username':current_user, 'menu_string':menu_string, 'action_list':action_list})
 
 @permission
 def test(request,*args,**kwargs):
@@ -281,25 +281,25 @@ def test(request,*args,**kwargs):
 def jquery(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
-    return render(request,'jquery.html',{'menu_string':menu_string,'action_list':action_list})
+    return render(request, 'jquery.html', {'menu_string':menu_string, 'action_list':action_list})
 
 @permission
 def tab(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
-    return render(request,'tab.html',{'menu_string':menu_string,'action_list':action_list})
+    return render(request, 'tab.html', {'menu_string':menu_string, 'action_list':action_list})
 
 @permission
 def top(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
-    return render(request,'top.html',{'menu_string':menu_string,'action_list':action_list})
+    return render(request, 'top.html', {'menu_string':menu_string, 'action_list':action_list})
 
 @permission
 def ipinfo(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
-    return render(request,'ipinfo.html',{'menu_string':menu_string,'action_list':action_list})
+    return render(request, 'ipinfo.html', {'menu_string':menu_string, 'action_list':action_list})
 
 def menu_content(child_list):
     response = ''
@@ -474,7 +474,7 @@ def handle_classes(request):
         cls_list = models.Classes.objects.all()[obj.db_start:obj.db_end]
 
         current_user = request.session.get('username')
-        return render(request,'classes.html',{'username':current_user,'classes':cls_list,'str_pager':pager})
+        return render(request, 'classes.html', {'username':current_user, 'classes':cls_list, 'str_pager':pager})
     elif request.method == 'POST':
         caption = request.POST.get('caption')
         response_dict = {'status':True,'error':None,'data':None}
@@ -499,7 +499,7 @@ def edit_class(request):
     if request.method == 'GET':
         nid = request.GET.get('nid')
         obj = models.Classes.objects.filter(id=nid).first()
-        return render(request,'edit_class.html',{'obj':obj})
+        return render(request, 'edit_class.html', {'obj':obj})
     elif request.method == 'POST':
         nid = request.POST.get('nid')
         caption = request.POST.get('caption')
@@ -571,12 +571,12 @@ def handle_teacher(request):
             cls_list = [{'id':t['cls__id'],'caption':t['cls__caption']}]
         result[t['id']] = {'nid':t['id'],'name':t['name'], 'cls_list':cls_list}
     print(result)
-    return render(request,'teacher.html',{'username':username,'teachers':result})
+    return render(request, 'teacher.html', {'username':username, 'teachers':result})
 
 def add_teacher(request):
     if request.method == 'GET':
         cls_list = models.Classes.objects.all()
-        return render(request,'add_teacher.html',{'cls_list':cls_list})
+        return render(request, 'add_teacher.html', {'cls_list':cls_list})
     elif request.method == 'POST':
         teacher = request.POST.get('teacher')
         cls = request.POST.getlist('cls')
@@ -595,7 +595,7 @@ def edit_teacher(request,nid):
         print('-->id_list',id_list)
         cls_list = models.Classes.objects.exclude(id__in=id_list)
         print('-->cls_list',cls_list)
-        return render(request, 'edit_teacher.html',{'obj':obj,'id_list':id_list,'cls_list':obj_cls_list,'exclude_list':cls_list})
+        return render(request, 'edit_teacher.html', {'obj':obj, 'id_list':id_list, 'cls_list':obj_cls_list, 'exclude_list':cls_list})
     elif request.method == 'POST':
         name = request.POST.get('name')
         cls_li = request.POST.getlist('cls')
@@ -614,7 +614,7 @@ def modal(request):
     # s[0].click()
     s = driver.find_element_by_css_selector('[type=submit]')
     print('-->s',s)
-    return render(request,'modal.html')
+    return render(request, 'modal.html')
 
 
 def addnew(request):
@@ -634,11 +634,11 @@ def addnew(request):
             # new.add_jira()
             new.add_mantis()
             # new.add_doku(pro)
-            return render(request, 'register/reg.html',{"username": username,"passwd": passwd,"name":name})
+            return render(request, 'register/reg.html', {"username": username, "passwd": passwd, "name":name})
         else:
-            return render(request, 'register/reg.html',{"username": username,"passwd": passwd,"hidden2": "hidden","name":name})
+            return render(request, 'register/reg.html', {"username": username, "passwd": passwd, "hidden2": "hidden", "name":name})
     else:
-        return render(request, 'register/reg.html',{"hidden": "hidden"})
+        return render(request, 'register/reg.html', {"hidden": "hidden"})
 
 def check_name(name):
     getUrl = 'https://api.bearychat.com/v1/user.list?token=049ecceaea09856c86236fef0068c8d6'
@@ -675,7 +675,7 @@ def dropuser(request,*args,**kwargs):
 
     elif request.method == 'GET':
         user = request.session.get('username')
-        return render(request, 'register/dropuser.html',{"hidden": "hidden",'username':user,'menu_string':menu_string})
+        return render(request, 'register/dropuser.html', {"hidden": "hidden", 'username':user, 'menu_string':menu_string})
 
 def upload(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
@@ -771,7 +771,7 @@ def compare(request,*args,**kwargs):
         user = request.session.get('username')
         accounts = account_compare()
         print('-->accounts',accounts)
-        return render(request, 'compare.html',{'accounts':accounts,
+        return render(request, 'compare.html', {'accounts':accounts,
                                                'username':user,
                                                'menu_string':menu_string,
                                                'action_list':action_list})
@@ -783,7 +783,7 @@ def blur(request):
     # objs = models.Classes.objects.filter(caption__contains=q)
     # l = [obj.caption for obj in objs]
     # print(l)
-    return render(request,'blur.html')
+    return render(request, 'blur.html')
 
 def file_md5(path):
     md5 = hashlib.md5()
@@ -804,7 +804,7 @@ def ftp(request,*args,**kwargs):
     if request.method == 'GET':
         user = request.session.get('username')
         # pictures = models.Img.objects.all()
-        return render(request, 'ftp.html',{'username':user})
+        return render(request, 'ftp.html', {'username':user})
     elif request.method == 'POST':
         obj = request.FILES.get('transfer')
         if obj:
@@ -826,9 +826,9 @@ def ftp(request,*args,**kwargs):
                 local_add = 'http://192.168.200.111:18081/' + file_name
                 internet_add = 'http://218.17.239.26:18081/'+ file_name
 
-                return render(request, 'ftp.html',{'msg':'请选择文件','md5':md5,'local_add':local_add,'internet_add':internet_add})
+                return render(request, 'ftp.html', {'msg': '请选择文件', 'md5':md5, 'local_add':local_add, 'internet_add':internet_add})
         else:
-            return render(request, 'ftp.html',{'msg':'请选择文件'})
+            return render(request, 'ftp.html', {'msg': '请选择文件'})
 
 
 

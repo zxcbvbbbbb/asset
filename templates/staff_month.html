@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+        <form action="/staff_month/" method="post">
+            <span class="add">开始时间</span><input type="date" class="input-all" name="start">
+            <p><span class="add">结束时间</span><input type="date" class="input-all" name="end"></p>
+            <input id="sub" style="margin-left: 83px" class="btn-all" type="submit" value="提交">
+        </form>
+
+    {% if data %}
+            <h3 style="margin-left: 15px">搜索结果：</h3>
+            <table class="table-test" style="margin-left: 15px">
+                <thead>
+                    <tr style="background-color: rgb(178, 224, 255)">
+                        <th>项目</th>
+                        <th>姓名</th>
+                        <th>耗时(h)</th>
+                        <th>百分比</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                        <td>{{ item.0 }}</td>
+                        <td>{{ item.1 }}</td>
+                        <td>{{ item.2 }}</td>
+                        <td>{{ item.3 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}
