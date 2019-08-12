@@ -108,10 +108,12 @@ def bug_count(request, *args, **kwargs):
                       {'username': current_user, 'menu_string': menu_string, 'action_list': action_list})
     elif request.method == 'POST':
         start_time = request.POST.get('start')
-        start = time_transfer(start_time)
+        s = time.strptime(start_time,'%Y-%m-%d')
+        start = math.floor(time.mktime(s))
         print('-->start',start)
         end_time = request.POST.get('end')
-        end = time_transfer(end_time)
+        e = time.strptime(end_time,'%Y-%m-%d')
+        end = math.floor(time.mktime(e))
         print('-->end', end)
         sql = '''
             SELECT
