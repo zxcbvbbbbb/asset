@@ -7,6 +7,8 @@
 
     <div>
     <input id="id_add" type="button" value="添加">
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">点我弹出/隐藏弹出框</button>
+
     </div>
     <table border="1">
         <thead>
@@ -53,6 +55,7 @@
 {% endblock %}
 
 {% block js %}
+    <script src="/static/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#menu_class').addClass('active');
@@ -103,5 +106,6 @@
                 })
             })
         }
+        $("[data-toggle='popover']").popover();
     </script>
 {% endblock %}

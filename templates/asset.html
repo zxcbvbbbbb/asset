@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <style>
+        .tag {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: chocolate;
+            cursor: pointer;
+        }
+        .modal_button {
+            float: right;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        #cls-mod:hover {
+            color: #ba2121;
+        }
+        .alink {
+            background: lightslategray;
+            border-radius: 4px;
+            padding: 6px 10px;
+            color: #fff!important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div style="padding: 20px 40px">
+    <h1>IT资产管理</h1>
+<div class="localmodal hide">
+    <div class="header">
+        <div style="float: left">是否删除?</div>
+        <div class="xicon">X</div>
+    </div>
+<div class="modal_button">
+    <input id="id_cancel"  style="background: #dddddd;color: black" type="submit" value="取消">
+    <input id="id_confirm" style="background: #ba2121;margin-left: 15px" type="submit" value="确定">
+</div>
+</div>
+    <div class="localshadow hide"></div>
+    <p>
+        <a href="/add_asset/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">资产</a>
+        <a href="/add_configure/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">型号配置</a>
+        <a href="/add_model/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">型号</a>
+    </p>
+    <table class="table-test asset">
+        <thead>
+            <tr>
+                <th>部门</th>
+                <th>类别</th>
+                <th>供应商</th>
+                <th>型号</th>
+                <th>购买时间</th>
+                <th>价格</th>
+                <th>领用人</th>
+                <th>领用时间</th>
+                <th>资产编号</th>
+                <th>售后联系方式</th>
+                <th>状态</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in assets %}
+                <tr nid="{{ item.id }}">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.mod.type }}</td>
+                    <td>{{ item.get_supplier_display }}</td>
+                    <td>
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table class='table
+                         table-bordered'><tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr><tr><th>内存
+                         </th><td>{{ item.mod.configure.mem }}</td></tr><tr><th>硬盘</th><td>
+                         {{ item.mod.configure.harddisk }}</td></tr></tr><tr><th>屏幕</th><td>
+                         {{ item.mod.configure.screen }}</td></tr></table>">
+                            {{ item.mod }}
+                        </a>
+                    </td>
+                    <td>{{ item.purchase_at | date:"Y-m-d" }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.recipient }}</td>
+                    <td>{{ item.recipient_at | date:"Y-m-d"}}</td>
+                    <td>{{ item.sn }}</td>
+                    <td>{{ item.after_sales }}</td>
+                    <td>{{ item.get_status_display }}</td>
+                    <td>{{ item.note }}</td>
+                    <td>
+                        <a href="/edit_asset?nid={{ item.id }}">编辑</a> | <span onclick="delRow(this)">删除</span>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            $("[data-toggle='popover']").popover({
+                'trigger': 'hover',
+                'title': '配置',
+                'html': true,
+            });
+            $('#menu_teacher').addClass('active')
+
+        })
+
+        function delRow(ths) {
+            $('.localmodal').removeClass('hide')
+            $('.localshadow').removeClass('hide')
+            rowid = $(ths).parent().parent().attr('nid')
+            $('#id_confirm').click(function () {
+                $.ajax({
+                url: '/del_asset',
+                type: 'get',
+                dataType: 'json',
+                data: {'rowid': rowid},
+                success: function (data) {
+                    window.location.reload()
+                }
+            })
+            })
+        }
+
+        $('#id_cancel').click(function () {
+            $('.localmodal,.localshadow').addClass('hide')
+        })
+        $('.xicon').click(function () {
+            $('.localmodal,.localshadow').addClass('hide')
+        })
+
+    </script>
+{% endblock %}

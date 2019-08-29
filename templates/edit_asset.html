@@ -1,0 +1,180 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+    <div style="padding: 20px 40px">
+    <h1 style="margin-left: 15px">编辑资产{{ username }}</h1>
+
+<form method="post" id="asset_form" novalidate>
+<fieldset class="module aligned">
+        <div class="form-row field-name">
+            <input style="display: none" name="nid" type="text" value="{{ obj.id }}">
+            <div>
+                    <label class="required">名称:</label>
+                        <input type="text" name="name" value="{{ obj.name }}" class="vTextField" maxlength="32" required="" >
+            </div>
+        </div>
+        <div class="form-row field-mod">
+                <div>
+        <label class="required" for="id_mod">型号:</label>
+                    <div class="related-widget-wrapper">
+    <select name="type" required="" id="id_type">
+      <option value="">---------</option>
+        {% for row in type_list %}
+            {% if row.id == obj.mod.type_id  %}
+                <option value="{{ row.id }}" selected>{{ row.name }}</option>
+            {% else %}
+                <option value="{{ row.id }}">{{ row.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <select name="mod" required="" id="id_mod">
+      <option value="">---------</option>
+        {% for row in mod_list %}
+            {% if row.id == obj.mod_id  %}
+                <option value="{{ row.id }}" selected>{{ row.name }}</option>
+            {% elif row.type_id == obj.mod.type_id %}
+                <option value="{{ row.id }}">{{ row.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+                </div>
+
+        </div>
+        <div class="form-row field-purchase_at">
+                <div>
+                        <label class="required" for="id_purchase_at">购买时间:</label>
+                            <input type="date" name="purchase_at" value="{{ obj.purchase_at | date:'Y-m-d'}}" class="vDateField" size="10"  ><span class="datetimeshortcuts"></span>
+                </div>
+        </div>
+        <div class="form-row field-price">
+                <div>
+                        <label for="id_price">价格:</label>
+                            <input type="text" name="price" value="{{ obj.price }}" class="vTextField" maxlength="32" id="id_price">
+                </div>
+        </div>
+        <div class="form-row field-recipient">
+                <div>
+                        <label class="required" for="id_recipient">领用人:</label>
+
+                            <div class="related-widget-wrapper">
+    <select name="recipient" required="" id="id_recipient">
+  <option value="">---------</option>
+  {% for row in recipient_list %}
+      {% if row.id == obj.recipient_id %}
+        <option value="{{ row.id }}" selected>{{ row.name }}</option>
+      {% else %}
+        <option value="{{ row.id }}">{{ row.name }}</option>
+      {% endif %}
+  {% endfor %}
+</select>
+
+</div>
+                </div>
+        </div>
+        <div class="form-row field-recipient_at">
+                <div>
+                        <label class="required" for="id_recipient_at">领用时间:</label>
+                            <input type="date" name="recipient_at" value="{{ obj.recipient_at | date:'Y-m-d' }}" class="vDateField" size="10" required=""><span class="datetimeshortcuts">&nbsp;</span>
+                </div>
+        </div>
+        <div class="form-row field-sn">
+                <div>
+                        <label class="required" for="id_sn">资产编号:</label>
+                            <input type="text" name="sn" value="{{ obj.sn }}" class="vTextField" maxlength="32" required="" id="id_sn">
+                </div>
+        </div>
+        <div class="form-row field-supplier">
+                <div>
+                        <label for="id_supplier">供应商:</label>
+
+                            <select name="supplier" id="id_supplier">
+  <option value="">---------</option>
+   {% for row in obj.supplier_type_choices %}
+      {% if row.0 == obj.supplier %}
+        <option value="{{ row.0 }}" selected>{{ row.1 }}</option>
+      {% else %}
+        <option value="{{ row.0 }}">{{ row.1 }}</option>
+      {% endif %}
+  {% endfor %}
+
+</select>
+                </div>
+        </div>
+        <div class="form-row field-after_sales">
+                <div>
+                        <label for="id_after_sales">售后联系方式:</label>
+                            <input type="text" name="after_sales" value="{{ obj.after_sales }}" class="vTextField" maxlength="128" id="id_after_sales">
+                </div>
+        </div>
+        <div class="form-row field-status">
+                <div>
+                        <label class="required" for="id_status">状态:</label>
+
+                            <select name="status" id="id_status">
+
+  {% for row in obj.status_choices %}
+      {% if row.0 == obj.status %}
+        <option value="{{ row.0 }}" selected>{{ row.1 }}</option>
+      {% else %}
+        <option value="{{ row.0 }}">{{ row.1 }}</option>
+      {% endif %}
+  {% endfor %}
+</select>
+                </div>
+        </div>
+        <div class="form-row field-note">
+                <div>
+                        <label for="id_note">备注:</label>
+                            <input type="text" name="note" class="vTextField" maxlength="64" id="id_note" value="{{ obj.note }}">
+                </div>
+        </div>
+    <br>
+<input type="submit" value="Save" class="default" style="float: left;margin-left: 10px">
+</fieldset>
+
+
+
+
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('#id_type').change(function () {
+        ths = $(this).val()
+        $.ajax({
+            url: '/load_models',
+            type: 'get',
+            dataType: 'json',
+            data:{type_info:ths},
+            success:function (data) {
+                var shtml = ''
+                $.each(data,function (i,item) {
+                    console.log(item)
+                    shtml += '<option value='+ item.id + '>' + item.name + '</option>'
+                })
+                $('#id_mod').html(shtml)
+            }
+            })
+        })
+    </script>
+{% endblock %}

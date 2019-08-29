@@ -139,6 +139,71 @@ class Teacher(models.Model):
     def __str__(self):
         return self.name
 
+
+class Models(models.Model):
+    name = models.CharField(max_length=32)
+    type = models.ForeignKey('Type',to_field='id',related_name='type_name',on_delete=models.CASCADE,verbose_name='类别')
+    configure = models.OneToOneField(to='Configuration',on_delete=models.CASCADE,verbose_name='配置',null=True,blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Type(models.Model):
+    name = models.CharField(max_length=32,verbose_name='类别')
+
+    def __str__(self):
+        return self.name
+
+class Department(models.Model):
+    name = models.CharField(max_length=32)
+
+    def __str__(self):
+        return self.name
+
+class Employee(models.Model):
+    name = models.CharField(max_length=32,verbose_name='员工姓名')
+    dept = models.ForeignKey('Department',on_delete=models.CASCADE,verbose_name='部门')
+
+    def __str__(self):
+        return self.name
+
+class Configuration(models.Model):
+    cpu = models.CharField(max_length=32,blank=True,null=True)
+    mem = models.CharField(max_length=32,blank=True,null=True,verbose_name='内存')
+    harddisk = models.CharField(max_length=32,blank=True,null=True,verbose_name='硬盘')
+    gpu = models.CharField(max_length=32,blank=True,null=True,verbose_name='显卡')
+    screen = models.CharField(max_length=32,blank=True,null=True,verbose_name='显示器')
+
+    def __str__(self):
+        return 'CPU:%s 内存:%s 硬盘:%s 显卡:%s 显示器:%s' % (self.cpu,self.mem,self.harddisk,self.gpu,self.screen)
+
+class Asset(models.Model):
+    supplier_type_choices = (
+        (1, 'N'),
+        (2,'戴尔'),
+        (3, '苹果'),
+    )
+    status_choices = (
+        (1,'空闲'),
+        (2, '保修'),
+        (3, '报废')
+    )
+    name = models.CharField(max_length=32,verbose_name='名称')
+    mod = models.ForeignKey('Models',on_delete=models.CASCADE,verbose_name='型号')
+    purchase_at = models.DateField(verbose_name='购买时间')
+    price = models.CharField(max_length=32, verbose_name='价格',blank=True,null=True)
+    recipient = models.ForeignKey('Employee',on_delete=models.CASCADE,verbose_name='领用人')
+    recipient_at =  models.DateField(verbose_name='领用时间')
+    sn = models.CharField(max_length=32,verbose_name='资产编号')
+    supplier = models.IntegerField(choices=supplier_type_choices,default=3,verbose_name='供应商')
+    after_sales = models.CharField(max_length=128,blank=True,null=True,verbose_name='售后联系方式')
+    status = models.IntegerField(choices=status_choices,default=1,verbose_name='状态')
+    note = models.CharField(max_length=64,blank=True,null=True,verbose_name='备注',default='')
+
+    def __str__(self):
+        return self.name
+
 class Img(models.Model):
     path = models.CharField(max_length=128)
 

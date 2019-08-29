@@ -73,63 +73,6 @@ class Test(APIView):
         except UserInfo.DoesNotExist:
             return JsonResponse({'code':20001,'error':'user does not exist.'},status=202)
 
-# def login(request):
-#     msg = ''
-#     v = request.session
-#     if request.method == 'POST':
-#         user = request.POST.get('username')
-#         pwd = request.POST.get('password')
-#
-#         obj = UserInfo.objects.filter(name=user).first()
-#         if not obj:
-#             msg = '用户不存在'
-#             return render(request,'login.html',{'msg':msg})
-#         if  check_password(pwd,obj.password):
-#             request.session['is_login'] = True
-#             request.session['username'] = user
-#             return redirect('/index')
-#         else:
-#             msg = '登录失败'
-#             # return render(request,'login.html',{'msg':msg})
-#     return render(request,'login.html',{'msg':msg})
-
-# class Login(APIView):
-#     def get(self,request,*args,**kwargs):
-#         return render(request,'login.html',{'msg':''})
-#     def post(self,request,*args,**kwargs):
-#         msg = ''
-#         user = request.data['username']
-#         pwd = request.data['password']
-#         try:
-#             obj = models.UserInfo.objects.get(name=user)
-#             if check_password(pwd, obj.password):
-#                 request._request.session['is_login'] = True
-#                 request._request.session['username'] = user
-#                 print('-->check password',request._request.session['is_login'])
-#                 return redirect('/')
-#             else:
-#                 msg = '密码错误'
-#                 return render(request, 'login.html', {'msg': msg})
-#         except UserInfo.DoesNotExist:
-#             msg = 'user does not exist.'
-#             return render(request, 'login.html', {'msg': msg})
-
-# class Login(APIView):
-#     def get(self,request,*args,**kwargs):
-#         return render(request,'login.html',{'msg':''})
-#     def post(self,request,*args,**kwargs):
-#         username = request.data['username']
-#         pwd = request.data['password']
-#         print(username,pwd)
-#         obj = models.User.objects.filter(name=username,password=pwd).first()
-#         print('-->obj',obj)
-#         if obj:
-#             request._request.session['user_info'] = {'nid':obj.id,'username':obj.name}
-#             MenuHelper(request,obj.name)
-#             return redirect('/')
-#         else:
-#             return redirect('/login')
-
 class LoginForm(forms.Form):
     username = forms.CharField(error_messages={'min_length':'长度不能小于6','required':'不能为空'},widget= \
         forms.TextInput(attrs={'placeholder': '用户名'}))
@@ -177,69 +120,6 @@ def auth(func):
         else:
             return redirect('/login')
     return inner
-
-# @auth
-# def index(request):
-#     current_user = request.session.get('username')
-#     print('-->current_user',current_user)
-#     obj = models.User.objects.get(name=current_user)
-#     user2role_list = models.User2Role.objects.filter(u=obj)
-#     role_list= models.Role.objects.filter(user2role__u__name=current_user)
-#     print(role_list)
-#     # p2a2r_list = models.Permission2Action2Role.objects.filter(r__in=role_list)
-#     menu_leaf_list = models.Permission2Action.objects.\
-#         filter(permission2action2role__r__in=role_list).exclude(p__menu__isnull=True).\
-#         values('p_id','p__url','p__caption','p__menu').distinct()
-#     print(menu_leaf_list)
-#     menu_leaf_dict = {}
-#     for item in menu_leaf_list:
-#         item = {
-#             'id': item['p_id'],
-#             'url': item['p__url'],
-#             'caption': item['p__caption'],
-#             'parent_id': item['p__menu'],
-#             'child':[],
-#             'status':True
-#         }
-#         if item['parent_id'] in menu_leaf_dict:
-#             menu_leaf_dict[item['parent_id']].append(item)
-#         else:
-#             menu_leaf_dict[item['parent_id']] = [item]
-#     print('-->menu_leaf_dict',menu_leaf_dict)
-#     for item,v in menu_leaf_dict.items():
-#         print('-->leaf item',v)
-#     menu_list = models.Menu.objects.values('id','caption','parent_id')
-#     print('-->menu_list',menu_list)
-#     menu_dict = {}
-#     for item in menu_list:
-#         item['child'] = []
-#         item['status'] = False
-#         menu_dict[item['id']] = item
-#
-#     for k,v in menu_leaf_dict.items():
-#         menu_dict[k]['child'] = v
-#         parent_id = k
-#         while parent_id:
-#             menu_dict[parent_id]['status'] = True
-#             parent_id = menu_dict[parent_id]['parent_id']
-#     print('-------------- ')
-#     for k,v in menu_dict.items():
-#         print(k,v)
-#     print(json.dumps(menu_dict,ensure_ascii=False))
-#     for k,v in menu_leaf_dict.items():
-#         print(k,v)
-#     result = []
-#     for row in menu_list:
-#         if not row['parent_id']:
-#             result.append(row)
-#         else:
-#             menu_dict[row['parent_id']]['child'].append(row)
-#
-#     print('------------------')
-#     for item in result:
-#         print(item)
-#     string = menu_tree(result)
-#     return render(request,'index.html',{'username':current_user,'menu_string':string})
 
 def permission(func):
     def inner(request,*args,**kwargs):
@@ -317,21 +197,6 @@ def menu_content(child_list):
             content = menu_content(row['child'])
             response += tpl % (title,content)
     return response
-
-
-# def menu_tree(result):
-#     response = ''
-#     tpl = '''<div class="item">
-#         <div class="title">%s</div>
-#         <div class="content">%s</div>
-#     </div>'''
-#     for row in result:
-#         if not row['status']:
-#             continue
-#         title = row['caption']
-#         content = menu_content(row['child'])
-#         response += tpl % (title,content)
-#     return response
 
 class MenuHelper(object):
     def __init__(self,request,username):
@@ -482,7 +347,7 @@ def handle_classes(request):
             c = models.Classes.objects.filter(caption=caption).count()
             if not c:
                 models.Classes.objects.create(caption=caption)
-                for i in range(50):
+                for i in range(10):
                     models.Classes.objects.create(caption=caption+str(i))
                 response_dict['data'] = '添加成功'
             else:
@@ -605,6 +470,133 @@ def edit_teacher(request,nid):
         obj.save()
         obj.cls.set(cls_li)
         return redirect('/teacher/')
+
+def handle_asset(request):
+    username = request.session.get('username')
+    # asset_list = models.Asset.objects.filter(id__in=models.Asset.objects.all()).values('id','name','mod','purchase_at',\
+    #                                                                                    'price','recipient','recipient_at'\
+    #                                                                                    ,'sn','configure','supplier','after_sales','status','note')
+
+    asset_list = models.Asset.objects.all()
+    return render(request,'asset.html',{'username':username,'assets':asset_list})
+
+def edit_asset(request):
+    if request.method == 'GET':
+        nid = request.GET.get('nid')
+        obj = models.Asset.objects.get(id=nid)
+        # mod_list = models.Models.objects.values('id','name')
+        recipient_list = models.Employee.objects.values('id','name')
+        type_list = models.Type.objects.values('id','name')
+        # mod_list = models.Type.objects.get(id=obj.mod.type_id).type_name.all()
+        mod_list = models.Models.objects.filter(type_id=obj.mod.type_id).values('id', 'name')
+        print('-->mod_list',mod_list)
+        return render(request, 'edit_asset.html', {'obj':obj,'mod_list':mod_list,'recipient_list':recipient_list,\
+                                                   'type_list':type_list})
+    elif request.method == 'POST':
+        nid = request.POST.get('nid')
+        print('nid',nid)
+        n = request.POST.get('name')
+        t = request.POST.get('type')
+        m = request.POST.get('mod')
+        purchase_at = request.POST.get('purchase_at')
+        price = request.POST.get('price')
+        recipient = request.POST.get('recipient')
+        recipient_at = request.POST.get('recipient_at')
+        sn = request.POST.get('sn')
+        supplier = request.POST.get('supplier')
+        after_sales = request.POST.get('after_sales')
+        status = request.POST.get('status')
+        note = request.POST.get('note')
+        models.Asset.objects.filter(id=nid).update(name=n,mod=m,purchase_at=purchase_at,price=price,recipient=recipient,\
+                                                   recipient_at=recipient_at,sn=sn,supplier=supplier,\
+                                                   after_sales=after_sales,status=status,note=note)
+        return redirect('/asset')
+
+def add_asset(request):
+    msg = ''
+    recipient_list = models.Employee.objects.values('id', 'name')
+    type_list = models.Type.objects.values('id', 'name')
+    mod_list = models.Models.objects.values('id', 'name')
+    confiugre_list = models.Configuration.objects.all()
+    suppliser_list = models.Asset.supplier_type_choices
+    status_list = models.Asset.status_choices
+    if request.method == 'GET':
+        return render(request, 'add_asset.html', {'recipient_list':recipient_list,\
+                                                   'type_list':type_list,'suppliser_list':suppliser_list,'status_list':\
+                                                  status_list,'mod_list':mod_list,'msg':msg})
+    elif request.method == 'POST':
+
+        try:
+            n = request.POST.get('name')
+            t = request.POST.get('type')
+            m = request.POST.get('mod')
+            # m_obj = models.Models.objects.get(id=m)
+            purchase_at = request.POST.get('purchase_at')
+            price = request.POST.get('price')
+            recipient = request.POST.get('recipient')
+            recipient_at = request.POST.get('recipient_at')
+            sn = request.POST.get('sn')
+            print('-->sn',sn)
+            if not sn:
+                raise Exception
+            # configure = request.POST.get('configure')
+            supplier = request.POST.get('supplier')
+            after_sales = request.POST.get('after_sales')
+            status = request.POST.get('status')
+            note = request.POST.get('note')
+            models.Asset.objects.create(name=n,mod_id=m,purchase_at=purchase_at,price=price,recipient_id=recipient,\
+                                                   recipient_at=recipient_at,sn=sn,supplier=supplier,\
+                                                   after_sales=after_sales,status=status,note=note)
+        except Exception as e:
+            print('-->e',e)
+            msg = '粗体字段为必填'
+            return render(request, 'add_asset.html',
+                          {'recipient_list': recipient_list, 'confiugre_list': confiugre_list, \
+                           'type_list': type_list, 'suppliser_list': suppliser_list, 'status_list': \
+                               status_list, 'mod_list': mod_list, 'msg': msg})
+        return redirect('/asset')
+
+def add_configure(request):
+    if request.method == 'GET':
+        return render(request, 'add_configure.html')
+    elif request.method == 'POST':
+        cpu = request.POST.get('cpu')
+        mem = request.POST.get('mem')
+        harddisk = request.POST.get('harddisk')
+        gpu = request.POST.get('gpu')
+        screen = request.POST.get('screen')
+        models.Configuration.objects.create(cpu=cpu,mem=mem,harddisk=harddisk,screen=screen)
+        return redirect('/asset')
+
+def add_model(request):
+    if request.method == 'GET':
+        type_list = models.Type.objects.values('id','name')
+        configure_list = models.Configuration.objects.all()
+        return render(request, 'add_model.html', {'type_list':type_list,'configure_list':configure_list})
+    elif request.method == 'POST':
+        name = request.POST.get('name')
+        type = request.POST.get('type')
+        configure = request.POST.get('configure')
+        obj = models.Models.objects.create(name=name,type_id=type,configure_id=configure)
+        print('-->obj',obj)
+        return redirect('/asset')
+
+def del_asset(request):
+    if request.method == 'GET':
+        nid = request.GET.get('rowid')
+        print('-->nid',nid)
+        models.Asset.objects.filter(id=nid).delete()
+        return JsonResponse({'status':True})
+    elif request.method == 'POST':
+        pass
+
+def load_models(request):
+    if request.method == 'GET':
+        type_info = request.GET.get('type_info')
+        print('-->type_id',type_info)
+        # mod_list = models.Type.objects.filter(id=type_info).values('')
+        mod_list = list(models.Models.objects.filter(type_id=type_info).values('id','name'))
+        return JsonResponse(mod_list,safe=False)
 
 def modal(request):
     print(request.GET.get('p'))

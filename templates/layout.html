@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <style>
         body {
             margin: 0px;
@@ -103,9 +104,28 @@
         }
         .table-test {
             width:25%;
+            border-spacing: 2px;
+            border-color: grey;
+        }
+        .table-test,asset {
+            width:80%;
+        }
+        .table-test th{
+            background: #f6f6f6;
+            line-height: normal;
+            padding: 8px 0px;
+            text-align: left;
+            /* font-weight: 600; */
+            font-size: 11px;
         }
         .table-test td{
-            padding:8px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #ddd
+            font-size: 12px;
+            padding: 8px;
+            line-height:16px;
+            text-align:left;
+            vertical-align:top;
+            border-bottom:1px solid #eee
+
         }
         .content a{
             padding: 2px;
@@ -177,6 +197,53 @@
             font-size: 30px;
             margin: 10px;
         }
+        .localmodal {
+            position: fixed;
+            height: 135px;
+            width: 500px;
+            top: 50%;
+            left: 50%;
+            background-color: white;
+            margin-top: -260px;
+            margin-left: -260px;
+            z-index: 10;
+        }
+        .localshadow {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .header {
+            font-size: 16px;
+            padding: 10px;
+        }
+        .xicon {
+            float: right;
+            cursor: pointer;
+        }
+        .button {
+            display: inline-block;
+            background-color: #336699;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+        }
+        .button-new {
+            background: #ba2121;
+            border-radius: 4px;
+            padding: 10px 15px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
     </style>
 {% block css %}
 {% endblock %}
@@ -234,6 +301,7 @@
 </div>
 
 <script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <script>
     $(function(){
         $('.contents').scroll(function () {
