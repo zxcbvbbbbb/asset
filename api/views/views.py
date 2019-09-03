@@ -26,6 +26,9 @@ from api.utils.cmd import exec_cmd
 from api.utils.compare import account_compare
 from django.forms import fields
 from django import forms
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+from django.db.models import Q
 
 class ClientCreateView(CreateView):
     model = Client
@@ -471,16 +474,72 @@ def edit_teacher(request,nid):
         obj.cls.set(cls_li)
         return redirect('/teacher/')
 
-def handle_asset(request):
+def handle_asset(request,*args,**kwargs):
+
     username = request.session.get('username')
-    # asset_list = models.Asset.objects.filter(id__in=models.Asset.objects.all()).values('id','name','mod','purchase_at',\
-    #                                                                                    'price','recipient','recipient_at'\
-    #                                                                                    ,'sn','configure','supplier','after_sales','status','note')
+    type_list = models.Type.objects.all()
+    status_list = models.Asset.status_choices
 
-    asset_list = models.Asset.objects.all()
-    return render(request,'asset.html',{'username':username,'assets':asset_list})
+    # asset_list = models.Asset.objects.all()
 
-def edit_asset(request):
+    condition = {}
+    r = reverse('asset',kwargs=kwargs)
+    print(r)
+    for k,v in kwargs.items():
+        kwargs[k] = int(v)
+        if v == '0':
+            pass
+        else:
+            condition[k] = v
+    print('-->condition',condition)
+    print('-->args', args)
+    arg_dict = kwargs
+
+    current_page = request.GET.get('p',1)
+    current_page = int(current_page)
+    total_count = models.Asset.objects.all().count()
+
+    from api.utils.page import PagerHelper
+    obj = PagerHelper(total_count,current_page,'/asset-%s-%s' % (arg_dict['mod__type_id'],arg_dict['status']),100)
+    pager = obj.pager_str()
+    asset_list = models.Asset.objects.filter(**condition)[obj.db_start:obj.db_end]
+    if request.method == 'GET':
+        q = request.GET.get('q')
+        print('-->q', q)
+        if q:
+            rep = models.Employee.objects.filter(name__icontains=q).first()
+            if rep:
+                asset_list = rep.asset_set.filter(**condition)
+                print('-->asset_list', asset_list)
+                return render(request, 'asset.html', {'username': username, 'assets': asset_list, 'type_list': type_list, \
+                                                      'status_list': status_list, 'arg_dict': arg_dict,
+                                                      'str_pager': pager,'q':q})
+            else:
+                print('无此用户')
+        else:
+            q = 123
+    # if request.method == 'POST':
+    #     q = request.POST.get('q')
+    #     print('-->q',q)
+    #     rep = models.Employee.objects.filter(name__icontains=q).first()
+    #     if rep:
+    #         asset_list = rep.asset_set.all()
+    #         print('-->asset_list', asset_list)
+    #         return render(request, 'asset.html', {'username': username, 'assets': asset_list, 'mod_list': mod_list, \
+    #                                               'status_list': status_list, 'arg_dict': arg_dict, 'str_pager': pager})
+    #     else:
+    #         print('无此用户')
+
+    return render(request,'asset.html',{'username':username,'assets':asset_list,'type_list':type_list,\
+                                        'status_list':status_list,'arg_dict':arg_dict,'str_pager':pager})
+
+
+
+def edit_asset(request,**kwargs):
+    mod__type_id = request.GET.get('mod__type_id')
+    print('-->edit mod_id',mod__type_id )
+    asset_status = request.GET.get('status')
+    print('-->edit status', asset_status)
     if request.method == 'GET':
         nid = request.GET.get('nid')
         obj = models.Asset.objects.get(id=nid)
@@ -495,22 +554,23 @@ def edit_asset(request):
     elif request.method == 'POST':
         nid = request.POST.get('nid')
         print('nid',nid)
-        n = request.POST.get('name')
         t = request.POST.get('type')
         m = request.POST.get('mod')
         purchase_at = request.POST.get('purchase_at')
         price = request.POST.get('price')
         recipient = request.POST.get('recipient')
         recipient_at = request.POST.get('recipient_at')
+        if not recipient_at:
+            return HttpResponse('领用时间未填写！返回继续')
         sn = request.POST.get('sn')
         supplier = request.POST.get('supplier')
         after_sales = request.POST.get('after_sales')
         status = request.POST.get('status')
         note = request.POST.get('note')
-        models.Asset.objects.filter(id=nid).update(name=n,mod=m,purchase_at=purchase_at,price=price,recipient=recipient,\
+        models.Asset.objects.filter(id=nid).update(mod=m,purchase_at=purchase_at,price=price,recipient=recipient,\
                                                    recipient_at=recipient_at,sn=sn,supplier=supplier,\
                                                    after_sales=after_sales,status=status,note=note)
-        return redirect('/asset')
+        return redirect('/asset-%s-%s' % (mod__type_id,asset_status))
 
 def add_asset(request):
     msg = ''
@@ -527,7 +587,6 @@ def add_asset(request):
     elif request.method == 'POST':
 
         try:
-            n = request.POST.get('name')
             t = request.POST.get('type')
             m = request.POST.get('mod')
             # m_obj = models.Models.objects.get(id=m)
@@ -544,7 +603,7 @@ def add_asset(request):
             after_sales = request.POST.get('after_sales')
             status = request.POST.get('status')
             note = request.POST.get('note')
-            models.Asset.objects.create(name=n,mod_id=m,purchase_at=purchase_at,price=price,recipient_id=recipient,\
+            models.Asset.objects.create(mod_id=m,purchase_at=purchase_at,price=price,recipient_id=recipient,\
                                                    recipient_at=recipient_at,sn=sn,supplier=supplier,\
                                                    after_sales=after_sales,status=status,note=note)
         except Exception as e:
@@ -554,7 +613,7 @@ def add_asset(request):
                           {'recipient_list': recipient_list, 'confiugre_list': confiugre_list, \
                            'type_list': type_list, 'suppliser_list': suppliser_list, 'status_list': \
                                status_list, 'mod_list': mod_list, 'msg': msg})
-        return redirect('/asset')
+        return redirect('/asset-0-0')
 
 def add_configure(request):
     if request.method == 'GET':
@@ -566,7 +625,7 @@ def add_configure(request):
         gpu = request.POST.get('gpu')
         screen = request.POST.get('screen')
         models.Configuration.objects.create(cpu=cpu,mem=mem,harddisk=harddisk,screen=screen)
-        return redirect('/asset')
+        return redirect('/asset-0-0')
 
 def add_model(request):
     if request.method == 'GET':
@@ -575,11 +634,24 @@ def add_model(request):
         return render(request, 'add_model.html', {'type_list':type_list,'configure_list':configure_list})
     elif request.method == 'POST':
         name = request.POST.get('name')
+        if not name:
+            return HttpResponse('名字不能为空!返回继续')
         type = request.POST.get('type')
         configure = request.POST.get('configure')
         obj = models.Models.objects.create(name=name,type_id=type,configure_id=configure)
         print('-->obj',obj)
-        return redirect('/asset')
+        return redirect('/asset-0-0')
+
+def add_employee(request):
+    if request.method == 'GET':
+        dept_list = models.Department.objects.values('id','name')
+        return render(request, 'add_employee.html',{'dept_list':dept_list})
+    elif request.method == 'POST':
+        name = request.POST.get('name')
+        dept = request.POST.get('department')
+        obj = models.Employee.objects.create(name=name,dept_id=dept)
+        print('-->obj',obj)
+        return redirect('/asset-0-0')
 
 def del_asset(request):
     if request.method == 'GET':
@@ -589,6 +661,17 @@ def del_asset(request):
         return JsonResponse({'status':True})
     elif request.method == 'POST':
         pass
+
+def clear_asset(request):
+    if request.method == 'GET':
+        nid = request.GET.get('rowid')
+        print('-->nid', nid)
+        models.Asset.objects.filter(id=nid).update(recipient=6, recipient_at=None, supplier=1, \
+                                                   after_sales='', status=1, note='')
+        return JsonResponse({'status': True})
+    elif request.method == 'POST':
+        pass
+
 
 def load_models(request):
     if request.method == 'GET':

@@ -19,7 +19,7 @@ admin.site.register(models.Student)
 admin.site.register(models.Teacher)
 
 class AssetDisplay(admin.ModelAdmin):
-    list_display = ['id','name','mod','price','recipient','sn','supplier','after_sales','status']
+    list_display = ['id','mod','price','recipient','sn','supplier','after_sales','status']
 
 admin.site.register(models.Asset,AssetDisplay)
 

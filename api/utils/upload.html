@@ -1,142 +1,32 @@
-{% extends 'ops/layout.html' %}
-
-{% block css %}
-    <style>
-        .file {
-            left: 15px;
-            position: relative;
-            background: #D0EEFF;
-            border: 1px solid #99D3F5;
-            border-radius: 4px;
-            padding: 2px 10px;
-            overflow: hidden;
-            color: #1E88C7;
-            text-decoration: none;
-            text-indent: 0;
-            line-height: 20px;
-        }
-        .file input {
-            font-size: 20px;
-            right: 0;
-            top: 0;
-            opacity: 0;
-        }
-        .file:hover {
-            background: #AADFFD;
-            border-color: #78C3F3;
-            color: #004974;
-            text-decoration: none;
-
-        }
-        .msg {
-            color: chocolate;
-            margin-left: 15px;
-            margin-top: 30px;
-        }
-        .rep {
-            margin-left: 15px;    
-        }
-        .test {
-            display: block
-        }
-    </style>
-{% endblock %}
-
-{% block content %}
-
-<form method="post" enctype="multipart/form-data">
-    <input id="file" type="file" style="margin-top: 20px;margin-left: 15px" name="file">
-    <p>
-    <!--<input type="submit" class="file" onclick="upload()" value="上传">-->
-    <button type="button" class="file" onclick="upload();">上传</button>
-    <!--<button type="button" class="file" onclick="upload();">上传</button>-->
-    </p>
-</form>
-
-<div id='1' style="height:20px;width:100px;float:left;margin-right:10px;margin-left:15px;margin-top:15px">
-			<div id='2' style="height:100%;width:0px;background:gray;"></div>
-
-		</div>
-		
-		<span style="display:block;margin-right:20px;margin-top:28px" id='3'>0%</span>
-
-    <p class="msg">{{ msg }}</p>
-
-<div id="rep" class="rep">
+<li class="bor-b1s LI7">
+<div class="fl WhLeList-left h64"><span class="pt10 dinline">域名</span></div>
+<div class="fr WhLeList-right">
+<p class="h30 bor-b1s02"><a class="col-gray03 fz18 pr5" href="http://fungaming.me" rel="nofollow" target="_blank">fungaming.me</a><a href="reverse?host=fungaming.me&amp;ddlSearchMode=0" target="_blank">[whois 反查]</a> <a class="fr col-red" href="http://kf.tool.chinaz.com?host=fungaming.me" target="_blank">申请删除隐私</a></p>
+<p class="OtherSuf">
+<span>其他常用域名后缀查询：</span>
+<a href="/?DomainName=fungaming.cn" target="_blank">cn</a>
+<a href="/?DomainName=fungaming.com" target="_blank">com</a>
+<a href="/?DomainName=fungaming.cc" target="_blank">cc</a>
+<a href="/?DomainName=fungaming.net" target="_blank">net</a>
+<a href="/?DomainName=fungaming.org" target="_blank">org</a>
+</p>
 </div>
+</li>
 
-{% endblock %}
 
-{% block js %}
-    <script>
-    var clipboard = new ClipboardJS('.btn');
+<li class="clearfix bor-b1s"><div class="fl WhLeList-left">注册商</div><div class="fr WhLeList-right"><div class="block ball"><span>Name.com LLC</span></div></div></li>
+<li class="clearfix bor-b1s bg-list"><div class="fl WhLeList-left">创建时间</div><div class="fr WhLeList-right"><span>2017年05月24日</span></div></li>
+<li class="clearfix bor-b1s"><div class="fl WhLeList-left">过期时间</div><div class="fr WhLeList-right"><span>2020年05月24日</span></div></li>
+<li class="clearfix bor-b1s bg-list"><div class="fl WhLeList-left">公司</div><div class="fr WhLeList-right"><div class="block ball"><span>Domain Protection Services, Inc.</span></div></div></li>
+<li class="clearfix bor-b1s"><div class="fl WhLeList-left">域名服务器</div><div class="fr WhLeList-right"><span>whois.name.com</span></div></li>
+<li class="clearfix bor-b1s bg-list"><div class="fl WhLeList-left">DNS</div><div class="fr WhLeList-right">ns7.alidns.com<br/> ns8.alidns.com<br/></div></li>
+<li class="clearfix bor-b1s"><div class="fl WhLeList-left">状态</div><div class="fr WhLeList-right clearfix"><p class="lh30 pr tip-sh"><span> 注册商设置禁止转移(<a href="http://www.icann.org/epp#clientTransferProhibited" rel="nofollow" target="_blank">client Transfer Prohibited</a>)</span><i class="QhintCent autohide">注册商设置禁止转移（注册商处设置不允许转出）</i></p></div></li>
 
-    clipboard.on('success', function(e) {
-                    console.log(e);
-                });
 
-    clipboard.on('error', function(e) {
-                    console.log(e);
-                });
-    function on_progress(evt) {
-    if(evt.lengthComputable) {
-        var ele = document.getElementById('2');
-        var percent = Math.round((evt.loaded) * 100 / evt.total);
-        ele.style.width = percent + '%';
-        document.getElementById('3').innerHTML = percent + '%';
-    }
-    }
-    function upload() {
-        var rep=document.getElementById("rep");
-        var childs = rep.childNodes;
-        for(var i = childs.length - 1; i >= 0; i--) {
-           rep.removeChild(childs[i]);
-           }
-        var xhr = new XMLHttpRequest();
-        var file = document.getElementById('file').files[0];
-        console.log(file);
-        if(typeof(file)=="undefined"){
-            alert('请上传文件')
-            return
-            }
-        var form = new FormData();
-        form.append('file',file);
-        console.log(form)
-        xhr.upload.addEventListener('progress',on_progress,false);
-        xhr.open('POST','http://192.168.200.111/upload/',true);
-        xhr.onreadystatechange = function () {
-            if(xhr.readyState == 4){
-            var obj = JSON.parse(xhr.responseText)
-            if(obj.status){
-                console.log(obj.howbig)
-                var rep = document.getElementById('rep')
-                function createP(text){
-                var p = document.createElement('p');
-                p.innerHTML = text
-                                rep.appendChild(p)
-                }
-                createP('文件大小：'+obj.howbig+'M')
-                createP('md5值：'+obj.md5)
-                createP('下载地址：'+obj.internet_add)
-                pWget = document.createElement('p')
-                pWget.innerHTML = 'wget '+obj.internet_add+' -O '+obj.name
-                pWget.className = 'copy'
-                rep.appendChild(pWget)
-                b = document.createElement('button')
-                b.className = 'btn'
-                b.setAttribute('data-clipboard-action','copy')
-                b.setAttribute('data-clipboard-target','.copy')
-                var t=document.createTextNode("copy")
-                b.appendChild(t)
-                rep.appendChild(b)
+<li class="tc h30 lh30 fz14 col-blue02 bor-b1s flag">-------站长之家 <a href="http://whois.chinaz.com">Whois查询</a>--------</li>
 
-                }
-            else {
-                alert()
-            }
-            }
-         }
-        xhr.send(form);
-        }    
-    </script>
-{% endblock %}
+
+<li class="clearfix bg-list pt15">
+<p class="MoreInfo" id="detail_info">
+</p>
+</li>

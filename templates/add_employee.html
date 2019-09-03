@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+<div  style="padding: 20px 40px">
+    <h1>添加领用人</h1>
+{% if msg %}
+    <div class="errornote">{{ msg }}</div>
+{% endif %}
+
+<form method="post" id="asset_form" novalidate>
+<fieldset class="module aligned">
+
+        <div class="form-row field-sn">
+                <div>
+                        <label class="required" for="id_name">名字:</label>
+                            <input type="text" name="name" class="vTextField" maxlength="32" required="" id="id_name">
+                </div>
+        </div>
+
+        <div class="form-row field-after_sales">
+                <div>
+                    <label for="id_type">类别:</label>
+                    <select name="department" id="id_type">
+                        {% for row in dept_list %}
+                            <option value="{{ row.id }}">{{ row.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+        </div>
+    <br>
+<input type="submit" value="Save" class="default" style="float: left;margin-left: 10px">
+</fieldset>
+
+
+
+
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

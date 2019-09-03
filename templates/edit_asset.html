@@ -23,14 +23,8 @@
 
 <form method="post" id="asset_form" novalidate>
 <fieldset class="module aligned">
-        <div class="form-row field-name">
-            <input style="display: none" name="nid" type="text" value="{{ obj.id }}">
-            <div>
-                    <label class="required">名称:</label>
-                        <input type="text" name="name" value="{{ obj.name }}" class="vTextField" maxlength="32" required="" >
-            </div>
-        </div>
         <div class="form-row field-mod">
+        <input style="display: none" name="nid" type="text" value="{{ obj.id }}">
                 <div>
         <label class="required" for="id_mod">型号:</label>
                     <div class="related-widget-wrapper">

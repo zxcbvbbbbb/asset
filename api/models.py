@@ -173,7 +173,8 @@ class Configuration(models.Model):
     mem = models.CharField(max_length=32,blank=True,null=True,verbose_name='内存')
     harddisk = models.CharField(max_length=32,blank=True,null=True,verbose_name='硬盘')
     gpu = models.CharField(max_length=32,blank=True,null=True,verbose_name='显卡')
-    screen = models.CharField(max_length=32,blank=True,null=True,verbose_name='显示器')
+    screen = models.CharField(max_length=32,blank=True,null=True,verbose_name='显示器',default='N'
+                                                                                            '')
 
     def __str__(self):
         return 'CPU:%s 内存:%s 硬盘:%s 显卡:%s 显示器:%s' % (self.cpu,self.mem,self.harddisk,self.gpu,self.screen)
@@ -189,12 +190,11 @@ class Asset(models.Model):
         (2, '保修'),
         (3, '报废')
     )
-    name = models.CharField(max_length=32,verbose_name='名称')
     mod = models.ForeignKey('Models',on_delete=models.CASCADE,verbose_name='型号')
     purchase_at = models.DateField(verbose_name='购买时间')
     price = models.CharField(max_length=32, verbose_name='价格',blank=True,null=True)
     recipient = models.ForeignKey('Employee',on_delete=models.CASCADE,verbose_name='领用人')
-    recipient_at =  models.DateField(verbose_name='领用时间')
+    recipient_at =  models.DateField(null=True,blank=True,verbose_name='领用时间')
     sn = models.CharField(max_length=32,verbose_name='资产编号')
     supplier = models.IntegerField(choices=supplier_type_choices,default=3,verbose_name='供应商')
     after_sales = models.CharField(max_length=128,blank=True,null=True,verbose_name='售后联系方式')
@@ -202,7 +202,7 @@ class Asset(models.Model):
     note = models.CharField(max_length=64,blank=True,null=True,verbose_name='备注',default='')
 
     def __str__(self):
-        return self.name
+        return self.sn
 
 class Img(models.Model):
     path = models.CharField(max_length=128)

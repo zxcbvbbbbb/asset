@@ -2,6 +2,7 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
     <style>
         .tag {
             display: inline-block;
@@ -20,21 +21,100 @@
             color: #ba2121;
         }
         .alink {
-            background: lightslategray;
-            border-radius: 4px;
-            padding: 6px 10px;
+            background: #999;
+            font-weight: 400;
+            border-radius: 13px;
+            padding: 5px 10px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
             color: #fff!important;
         }
+        .condition a{
+            display: inline-block;
+            padding: 0px 10px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            line-height: 26px;
+        }
+        .condition a.active{
+            background: #148aff;
+            color: #fff;
+            border-radius: 13px;
+            border: none;
+        }
+        .condition span {
+            display: inline-block;
+            background: #e6f2ff;
+            line-height: 26px;
+            border-radius: 13px;
+            color: #148aff;
+            padding: 0 10px;
+        }
+        .pagination a{
+            padding: 5px 10px;
+            border: 1px solid #e1e2e3;
+            margin: 0px 3px;
+        }
+        .pagination a.active{
+            border: 0;
+            font-weight: 600;
+            color: #333;
+        }
+        #search {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 -15px 20px -10px rgba(0, 0, 0, 0.15) inset;
+            height: 30px;
+            padding: 0 1px 0 0;
+            width: 40px;
+        }
+
     </style>
 {% endblock %}
 
 {% block content %}
-
     <div style="padding: 20px 40px">
     <h1>IT资产管理</h1>
+    <div class="condition">
+        <div>
+            <span>型号</span>
+            {% if arg_dict.mod__type_id  == 0 %}
+                <a class="active" href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
+            {% else %}
+                <a href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
+            {% endif %}
+            {% for row in type_list %}
+                {% if row.id == arg_dict.mod__type_id %}
+                    <a class="active" href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
+                {% else %}
+                    <a href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+            <span>状态</span>
+            {% if arg_dict.status  == 0 %}
+                <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
+            {% else %}
+                <a href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
+            {% endif %}
+            {% for row in status_list %}
+                {% if row.0 == arg_dict.status %}
+                    <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
+                {% else %}
+                    <a href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+
 <div class="localmodal hide">
     <div class="header">
-        <div style="float: left">是否删除?</div>
+        <div style="float: left">是否清除?</div>
         <div class="xicon">X</div>
     </div>
 <div class="modal_button">
@@ -43,24 +123,26 @@
 </div>
 </div>
     <div class="localshadow hide"></div>
-    <p>
-        <a href="/add_asset/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">资产</a>
-        <a href="/add_configure/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">型号配置</a>
-        <a href="/add_model/" class="alink"><img src="/static/image/icon-addlink.svg" alt="">型号</a>
-    </p>
+        <a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
+        <a href="/add_configure/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">型号配置</a>
+        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">型号</a>
+        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>
+        <input id="q" type="text" style="height: 30px;margin-left: 80px" placeholder="搜索领用人">
+        <!--<button id="search" type="submit" class="button">Go</button>-->
+        <a id="search" href="/asset-0-0/?q={{ para }}" class="button">Go</a>
     <table class="table-test asset">
         <thead>
             <tr>
-                <th>部门</th>
                 <th>类别</th>
                 <th>供应商</th>
                 <th>型号</th>
                 <th>购买时间</th>
                 <th>价格</th>
                 <th>领用人</th>
+                <th>部门</th>
                 <th>领用时间</th>
                 <th>资产编号</th>
-                <th>售后联系方式</th>
+                <th>售后电话</th>
                 <th>状态</th>
                 <th>备注</th>
                 <th>操作</th>
@@ -69,7 +151,6 @@
         <tbody>
             {% for item in assets %}
                 <tr nid="{{ item.id }}">
-                    <td>{{ item.name }}</td>
                     <td>{{ item.mod.type }}</td>
                     <td>{{ item.get_supplier_display }}</td>
                     <td>
@@ -84,19 +165,27 @@
                     <td>{{ item.purchase_at | date:"Y-m-d" }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.recipient }}</td>
+                    <td>{{ item.recipient.dept }}</td>
                     <td>{{ item.recipient_at | date:"Y-m-d"}}</td>
                     <td>{{ item.sn }}</td>
                     <td>{{ item.after_sales }}</td>
                     <td>{{ item.get_status_display }}</td>
                     <td>{{ item.note }}</td>
                     <td>
-                        <a href="/edit_asset?nid={{ item.id }}">编辑</a> | <span onclick="delRow(this)">删除</span>
+                        <a href="/edit_asset?nid={{ item.id }}&mod__type_id={{ arg_dict.mod__type_id }}&status={{ arg_dict.status }}
+                        "><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a> | <span onclick="delRow(this)">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>清除</span>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 
+
+
+     <div class="pagination">
+        {{ str_pager | safe }}
+    </div>
 
 {% endblock %}
 
@@ -118,7 +207,7 @@
             rowid = $(ths).parent().parent().attr('nid')
             $('#id_confirm').click(function () {
                 $.ajax({
-                url: '/del_asset',
+                url: '/clear_asset',
                 type: 'get',
                 dataType: 'json',
                 data: {'rowid': rowid},
@@ -128,6 +217,18 @@
             })
             })
         }
+
+        $('#search').click(function () {
+            q = $('#q').val()
+            $.ajax({
+                url: '/asset-0-0/?q=' + q,
+                type: 'get',
+                data: {'q': q},
+                success: function (data) {
+                    window.location.replace('/asset-0-0?q=' + q)
+                }
+            })
+        })
 
         $('#id_cancel').click(function () {
             $('.localmodal,.localshadow').addClass('hide')
