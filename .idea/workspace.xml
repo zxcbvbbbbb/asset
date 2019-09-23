@@ -5,42 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="jquery返回顶部">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54edc49a-9f4f-4e82-b486-1dab47ac761c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54edc49a-9f4f-4e82-b486-1dab47ac761c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0002_action_permission_permission2action_permission2action2role_role_user_user2role.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0003_auto_20190710_1223.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0004_auto_20190710_1457.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0005_asset_configuration_department_employee_models_price_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0006_auto_20190824_1234.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0007_auto_20190824_1235.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0008_auto_20190824_1244.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0009_auto_20190824_1247.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0010_auto_20190824_1254.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0011_asset_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0012_auto_20190824_1406.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0013_auto_20190825_1451.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0014_auto_20190825_1651.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0015_auto_20190827_1125.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0016_auto_20190827_1128.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0017_auto_20190827_1130.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0018_auto_20190827_1631.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0019_auto_20190828_1634.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0020_auto_20190828_1641.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/utils/tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/tmp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/utils/tmp2.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/tmp2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s7day129/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/s7day129/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/temp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_asset.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_asset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/asset.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/edit_asset.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_asset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/data.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,53 +70,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/tmp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" selection-start-line="9" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/add_asset.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-341">
+              <caret line="252" column="41" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/temp.html">
+        <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/utils/upload.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="483">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
+        <entry file="file://$PROJECT_DIR$/api/views/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="203">
+              <caret line="631" column="45" lean-forward="true" selection-start-line="631" selection-start-column="45" selection-end-line="631" selection-end-column="45" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/views/views.py">
+        <entry file="file://$PROJECT_DIR$/templates/add_Arecord.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="637" column="44" selection-start-line="637" selection-start-column="44" selection-end-line="637" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="29">
+              <caret line="39" column="22" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -162,9 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>input</find>
-      <find>href</find>
-      <find>资产编号</find>
       <find>load_models</find>
       <find>mod_list</find>
       <find>mod_</find>
@@ -184,14 +161,17 @@
       <find>add_asset</find>
       <find>recipient</find>
       <find>型号</find>
-      <find>add_model</find>
       <find>element</find>
       <find>过期时间</find>
       <find>过期</find>
       <find>asset</find>
       <find>相关</find>
       <find>主板</find>
+      <find>add_model</find>
       <find>WhLeList-right</find>
+      <find>id_type</find>
+      <find>类型</find>
+      <find>requests.post</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -203,9 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/utils/lend.py" />
-        <option value="$PROJECT_DIR$/static/js/input-autocomplete.js" />
-        <option value="$PROJECT_DIR$/templates/teacher.html" />
         <option value="$PROJECT_DIR$/templates/register/dropuser.html" />
         <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
         <option value="$PROJECT_DIR$/api/utils/compare.py" />
@@ -245,22 +222,26 @@
         <option value="$PROJECT_DIR$/api/admin.py" />
         <option value="$PROJECT_DIR$/api/models.py" />
         <option value="$PROJECT_DIR$/templates/asset.html" />
-        <option value="$PROJECT_DIR$/s7day129/urls.py" />
         <option value="$PROJECT_DIR$/templates/add_employeel.html" />
         <option value="$PROJECT_DIR$/templates/add_employee.html" />
-        <option value="$PROJECT_DIR$/api/views/views.py" />
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/api/utils/upload.html" />
         <option value="$PROJECT_DIR$/temp.html" />
-        <option value="$PROJECT_DIR$/api/utils/tmp.py" />
         <option value="$PROJECT_DIR$/api/utils/tmp2.py" />
+        <option value="$PROJECT_DIR$/intf/views.py" />
+        <option value="$PROJECT_DIR$/intf/urls.py" />
+        <option value="$PROJECT_DIR$/api/utils/tmp.py" />
+        <option value="$PROJECT_DIR$/s7day129/urls.py" />
+        <option value="$PROJECT_DIR$/templates/add_Arecord.html" />
+        <option value="$PROJECT_DIR$/api/views/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="167" />
-    <option name="width" value="1300" />
-    <option name="height" value="735" />
+    <option name="x" value="74" />
+    <option name="y" value="56" />
+    <option name="width" value="1087" />
+    <option name="height" value="678" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -271,6 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,25 +263,7 @@
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="intf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
@@ -315,7 +279,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -324,7 +287,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="D:/ops" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Django Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -345,10 +308,10 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\posttest\templates" />
+      <recent name="F:\posttest\intf" />
       <recent name="F:\posttest\static\fonts" />
       <recent name="F:\posttest\static\css" />
       <recent name="F:\posttest\static\image" />
-      <recent name="F:\posttest\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -363,7 +326,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tmp2">
+  <component name="RunManager" selected="Django server.posttest">
     <configuration name="compare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="s7day129" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -508,8 +471,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tmp2" />
         <item itemvalue="Python.tmp" />
+        <item itemvalue="Python.tmp2" />
         <item itemvalue="Python.compare" />
         <item itemvalue="Python.lend" />
         <item itemvalue="Python.game" />
@@ -576,7 +539,13 @@
       <workItem from="1567125306841" duration="25072000" />
       <workItem from="1567385043752" duration="8737000" />
       <workItem from="1567397540311" duration="606000" />
-      <workItem from="1567398161439" duration="13415000" />
+      <workItem from="1567398161439" duration="23250000" />
+      <workItem from="1567565585207" duration="803000" />
+      <workItem from="1567589099373" duration="2292000" />
+      <workItem from="1567652802366" duration="5635000" />
+      <workItem from="1568020357297" duration="1778000" />
+      <workItem from="1568075766098" duration="234000" />
+      <workItem from="1569229086000" duration="5470000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -666,7 +635,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="713151000" />
+    <option name="totallyTimeSpent" value="739198000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -679,9 +648,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18070363" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -693,7 +663,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32850778" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49520257" weight="0.20601337" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4989339" weight="0.2026726" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4989339" weight="0.4443207" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.2026726" />
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.32850778" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -702,7 +672,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18976545" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.19296375" />
       <window_info anchor="right" id="SciView" order="5" weight="0.32995737" />
     </layout>
   </component>
@@ -722,43 +692,14 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/posttest$game.coverage" NAME="game Coverage Results" MODIFIED="1561532973722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
-    <SUITE FILE_PATH="coverage/posttest$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1567417271451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
-    <SUITE FILE_PATH="coverage/posttest$tmp2.coverage" NAME="tmp2 Coverage Results" MODIFIED="1567419011341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$tmp2.coverage" NAME="tmp2 Coverage Results" MODIFIED="1567656627684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
+    <SUITE FILE_PATH="coverage/posttest$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1568075783118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
     <SUITE FILE_PATH="coverage/posttest$compare.coverage" NAME="compare Coverage Results" MODIFIED="1561975835815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
     <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561101789059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
     <SUITE FILE_PATH="coverage/posttest$views.coverage" NAME="views Coverage Results" MODIFIED="1561152304917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/posttest$lend.coverage" NAME="lend Coverage Results" MODIFIED="1561544376181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views/jira.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/staff_month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="43" column="45" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-          <folding>
-            <element signature="e#755#780#0#HTML" expanded="true" />
-            <element signature="e#830#855#0#HTML" expanded="true" />
-            <element signature="e#905#949#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/contrib/admin/sites.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="843">
@@ -993,39 +934,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/add_asset.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
-          <folding>
-            <element signature="e#642#674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/add_employee.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="32" column="95" selection-start-line="32" selection-start-column="95" selection-end-line="32" selection-end-column="95" />
           <folding>
             <element signature="e#1827#1864#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="637" column="44" selection-start-line="637" selection-start-column="44" selection-end-line="637" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1057,13 +971,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+    <entry file="file://$PROJECT_DIR$/api/utils/upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="252" column="41" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="575">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1076,27 +987,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/tmp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="9" selection-end-line="13" selection-end-column="29" />
+        <state relative-caret-position="345">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-341">
+          <caret line="252" column="41" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/upload.html">
+    <entry file="file://$PROJECT_DIR$/templates/add_asset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intf/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intf/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/tmp2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        <state relative-caret-position="483">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/add_Arecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="631" column="45" lean-forward="true" selection-start-line="631" selection-start-column="45" selection-end-line="631" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

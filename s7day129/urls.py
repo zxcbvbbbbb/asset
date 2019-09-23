@@ -13,7 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
+
 from django.contrib import admin
 from api.views import views,jira
 
@@ -44,6 +45,7 @@ urlpatterns = [
     url(r'^del_asset/$', views.del_asset, name="del_asset"),
     url(r'^clear_asset/$', views.clear_asset, name="clear_asset"),
     url(r'^add_asset/$', views.add_asset, name="add_asset"),
+    url(r'^add_Arecord/$', views.add_Arecord, name="add_Arecord"),
     url(r'^add_configure/$', views.add_configure, name="add_configure"),
     url(r'^add_model/$', views.add_model, name="add_model"),
     url(r'^add_employee/$', views.add_employee, name="add_employee"),
@@ -61,4 +63,5 @@ urlpatterns = [
     url(r'^staff_month/$', jira.staff_month, name="staff_month"),
     url(r'^staff_season/$', jira.staff_season, name="staff_season"),
     url(r'^bug_count/$', jira.bug_count, name="bug_count"),
+    url(r'^intf/',include('intf.urls')),
 ]

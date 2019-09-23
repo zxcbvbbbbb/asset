@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <style>
+        .content {
+            margin-left: 20px;
+        }
+        .content a{
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block menus %}
+    {{ menu_string | safe }}
+{% endblock %}
+
+{% block content %}
+<div  style="padding: 20px 40px">
+    <h1>添加资产</h1>
+{% if msg %}
+    <div class="errornote">{{ msg }}</div>
+{% endif %}
+
+<form method="post" id="asset_form" novalidate>
+<fieldset class="module aligned">
+        <div class="form-row field-price">
+                <div>
+                        <label for="id_record">主机记录:</label>
+                            <input type="text" name="record" class="vTextField" maxlength="32" id="id_record">
+                </div>
+        </div>
+        <div class="form-row field-recipient">
+                <div>
+                        <label class="required" for="id_type">记录类型:</label>
+
+                            <div class="related-widget-wrapper">
+    <select name="type" required="" id="id_type">
+        <option value="A" selected>A</option>
+        <option value="CNAME">CNAME</option>
+</select>
+
+</div>
+                </div>
+        </div>
+        <div class="form-row field-sn">
+                <div>
+                        <label class="required" for="id_address">记录值:</label>
+                            <input type="text" name="address" class="vTextField" maxlength="32" required="" id="id_address">
+                </div>
+        </div>
+    <br>
+<input type="submit" value="Save" class="default" style="float: left;margin-left: 10px">
+</fieldset>
+
+
+
+
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('#id_type').change(function () {
+            ths = $(this).val()
+            $.ajax({
+                url: '/load_models',
+                type: 'get',
+                dataType: 'json',
+                data:{type_info:ths},
+                success:function (data) {
+                    var shtml = ''
+                    $.each(data,function (i,item) {
+                        console.log(item)
+                        shtml += '<option value='+ item.id + '>' + item.name + '</option>'
+                    })
+                    $('#id_mod').html(shtml)
+                }
+            })
+        })
+    </script>
+{% endblock %}

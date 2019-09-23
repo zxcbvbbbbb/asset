@@ -12,7 +12,7 @@ from api import models
 from django.views.generic.edit import CreateView
 from api.forms import ClientForm
 from api.models import Client,City,UserInfo
-import json
+import json,sys
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
@@ -29,6 +29,7 @@ from django import forms
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.db.models import Q
+from subprocess import Popen,PIPE,call
 
 class ClientCreateView(CreateView):
     model = Client
@@ -614,6 +615,39 @@ def add_asset(request):
                            'type_list': type_list, 'suppliser_list': suppliser_list, 'status_list': \
                                status_list, 'mod_list': mod_list, 'msg': msg})
         return redirect('/asset-0-0')
+
+def exec_cmd(cmd):
+    # res = Popen(cmd, shell=True, stdout=PIPE)
+    # ret = res.communicate()[0].decode('utf-8')
+    call(cmd,shell=True,stdout=sys.stdout,stderr=sys.stderr)
+    # return ret.strip()
+
+def add_Arecord(request):
+    msg = ''
+    if request.method == 'GET':
+        return render(request, 'add_Arecord.html', {'msg':msg})
+    elif request.method == 'POST':
+        record = request.POST.get('record')
+        type = request.POST.get('type')
+        address = request.POST.get('address')
+        print(record,type,address)
+
+        # r = requests.post(url='https://dnsapi.cn/Record.Create',
+        #               data={
+        #                 'login_token':'111640,939779be5e82635b8a63e21150628da5',
+        #                 'format':'json',
+        #                 'domain_id':73728120,
+        #                 'sub_domain':record,
+        #                 'record_type':type,
+        #                 'record_line_id':'10%3D0',
+        #                 'value':address
+        #               }
+        #               )
+
+        cmd = "curl -s -X POST https://dnsapi.cn/Record.Create -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json&domain_id=73728120&sub_domain={0}&record_type={1}&record_line_id=10%3D0&value={2}'".format(record,type,address)
+        print(cmd)
+        r = exec_cmd(cmd)
+        return render(request, 'add_Arecord.html', {'msg':msg})
 
 def add_configure(request):
     if request.method == 'GET':
