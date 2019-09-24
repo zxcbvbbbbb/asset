@@ -616,17 +616,16 @@ def add_asset(request):
                                status_list, 'mod_list': mod_list, 'msg': msg})
         return redirect('/asset-0-0')
 
-def exec_cmd(cmd):
-    # res = Popen(cmd, shell=True, stdout=PIPE)
-    # ret = res.communicate()[0].decode('utf-8')
-    call(cmd,shell=True,stdout=sys.stdout,stderr=sys.stderr)
-    # return ret.strip()
-
 def add_Arecord(request):
-    msg = ''
     if request.method == 'GET':
-        return render(request, 'add_Arecord.html', {'msg':msg})
+        cmd = "curl -s  https://dnsapi.cn/Domain.List -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json'"
+        data = json.loads(exec_cmd(cmd))
+        domain_list = []
+        for item in data['domains']:
+            domain_list.append(item['name'])
+        return render(request, 'add_Arecord.html', {'msg':domain_list})
     elif request.method == 'POST':
+        domain = request.POST.get('domain')
         record = request.POST.get('record')
         type = request.POST.get('type')
         address = request.POST.get('address')
@@ -643,11 +642,13 @@ def add_Arecord(request):
         #                 'value':address
         #               }
         #               )
-
-        cmd = "curl -s -X POST https://dnsapi.cn/Record.Create -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json&domain_id=73728120&sub_domain={0}&record_type={1}&record_line_id=10%3D0&value={2}'".format(record,type,address)
-        print(cmd)
-        r = exec_cmd(cmd)
-        return render(request, 'add_Arecord.html', {'msg':msg})
+        cmd2 = "curl -s -X POST https://dnsapi.cn/Record.Create -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json&domain_id={0}&sub_domain={1}&record_type={2}&record_line_id=10%3D0&value={3}'".format(domain,record,type,address)
+        r = json.loads(exec_cmd(cmd2))
+        print(r)
+        if r['status']['code'] != '1':
+            return render(request, 'add_Arecord.html', {'msg':r['status']['message']})
+        else:
+            return render(request, 'add_Arecord.html', {'msg':'创建成功!'})
 
 def add_configure(request):
     if request.method == 'GET':

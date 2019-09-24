@@ -19,13 +19,28 @@
 
 {% block content %}
 <div  style="padding: 20px 40px">
-    <h1>添加资产</h1>
+    <h1>添加记录</h1>
 {% if msg %}
     <div class="errornote">{{ msg }}</div>
 {% endif %}
 
 <form method="post" id="asset_form" novalidate>
 <fieldset class="module aligned">
+
+<div class="form-row field-recipient">
+    <label class="required" for="id_domain">选择域名:</label>
+
+    <div class="related-widget-wrapper">
+    <select name="domain" required="" id="id_domain">
+      <option value="">---------</option>
+      {% for row in msg %}
+            <option value="{{ row }}" selected>{{ row }}</option>
+      {% endfor %}
+    </select>
+
+    </div>
+</div>
+
         <div class="form-row field-price">
                 <div>
                         <label for="id_record">主机记录:</label>
