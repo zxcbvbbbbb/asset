@@ -19,7 +19,9 @@
 {% block content %}
         <form action="/staff_season/" method="post">
             <span class="add">开始时间</span><input type="date" class="input-all" name="start">
-            <p><span class="add">结束时间</span><input type="date" class="input-all" name="end"></p>
+            <p><span class="add">结束时间</span><input type="date" class="input-all" name="end">
+            <span style="color: chocolate;margin-left: 16px">提示：时间为所选日期的0时，如需查询当天数据，结束日期请增加1天</span>
+            </p>
             <input id="sub" style="margin-left: 83px" class="btn-all" type="submit" value="提交">
         </form>
 

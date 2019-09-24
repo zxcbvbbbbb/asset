@@ -616,6 +616,7 @@ def add_asset(request):
                                status_list, 'mod_list': mod_list, 'msg': msg})
         return redirect('/asset-0-0')
 
+@permission
 def add_Arecord(request,*args,**kwargs):
     menu_string = kwargs.get('menu_string')
     action_list = kwargs.get('action_list')
@@ -650,9 +651,9 @@ def add_Arecord(request,*args,**kwargs):
         r = json.loads(exec_cmd(cmd2))
         print(r)
         if r['status']['code'] != '1':
-            return render(request, 'add_Arecord.html', {'msg':r['status']['message'],'domain_list':domain_list})
+            return render(request, 'add_Arecord.html', {'msg':r['status']['message'],'domain_list':domain_list,'menu_string':menu_string,'action_list':action_list})
         else:
-            return render(request, 'add_Arecord.html', {'msg':'创建成功!'})
+            return render(request, 'add_Arecord.html', {'msg':'创建成功!','domain_list':domain_list,'menu_string':menu_string,'action_list':action_list})
 
 def add_configure(request):
     if request.method == 'GET':
