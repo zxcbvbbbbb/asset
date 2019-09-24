@@ -616,14 +616,18 @@ def add_asset(request):
                                status_list, 'mod_list': mod_list, 'msg': msg})
         return redirect('/asset-0-0')
 
-def add_Arecord(request):
+def add_Arecord(request,*args,**kwargs):
+    menu_string = kwargs.get('menu_string')
+    action_list = kwargs.get('action_list')
+    user = request.session.get('username')
+    cmd = "curl -s  https://dnsapi.cn/Domain.List -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json'"
+    data = json.loads(exec_cmd(cmd))
+    domain_list = {}
+    for item in data['domains']:
+        domain_list[item['id']] = item['name']
     if request.method == 'GET':
-        cmd = "curl -s  https://dnsapi.cn/Domain.List -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json'"
-        data = json.loads(exec_cmd(cmd))
-        domain_list = []
-        for item in data['domains']:
-            domain_list.append(item['name'])
-        return render(request, 'add_Arecord.html', {'msg':domain_list})
+        return render(request, 'add_Arecord.html', {'domain_list':domain_list,'username':user, 'menu_string':menu_string,\
+                                           'action_list':action_list})
     elif request.method == 'POST':
         domain = request.POST.get('domain')
         record = request.POST.get('record')
@@ -646,7 +650,7 @@ def add_Arecord(request):
         r = json.loads(exec_cmd(cmd2))
         print(r)
         if r['status']['code'] != '1':
-            return render(request, 'add_Arecord.html', {'msg':r['status']['message']})
+            return render(request, 'add_Arecord.html', {'msg':r['status']['message'],'domain_list':domain_list})
         else:
             return render(request, 'add_Arecord.html', {'msg':'创建成功!'})
 

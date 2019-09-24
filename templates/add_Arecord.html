@@ -32,9 +32,8 @@
 
     <div class="related-widget-wrapper">
     <select name="domain" required="" id="id_domain">
-      <option value="">---------</option>
-      {% for row in msg %}
-            <option value="{{ row }}" selected>{{ row }}</option>
+      {% for k,v in domain_list.items %}
+            <option value="{{ k }}" selected>{{ v }}</option>
       {% endfor %}
     </select>
 
