@@ -187,7 +187,7 @@ class Asset(models.Model):
     )
     status_choices = (
         (1,'空闲'),
-        (2, '保修'),
+        (2, '使用'),
         (3, '报废')
     )
     mod = models.ForeignKey('Models',on_delete=models.CASCADE,verbose_name='型号')

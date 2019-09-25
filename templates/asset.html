@@ -134,7 +134,6 @@
         <thead>
             <tr>
                 <th>类别</th>
-                <th>供应商</th>
                 <th>型号</th>
                 <th>购买时间</th>
                 <th>价格</th>
@@ -142,7 +141,6 @@
                 <th>部门</th>
                 <th>领用时间</th>
                 <th>资产编号</th>
-                <th>售后电话</th>
                 <th>状态</th>
                 <th>备注</th>
                 <th>操作</th>
@@ -152,13 +150,12 @@
             {% for item in assets %}
                 <tr nid="{{ item.id }}">
                     <td>{{ item.mod.type }}</td>
-                    <td>{{ item.get_supplier_display }}</td>
                     <td>
                         <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table class='table
                          table-bordered'><tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr><tr><th>内存
                          </th><td>{{ item.mod.configure.mem }}</td></tr><tr><th>硬盘</th><td>
-                         {{ item.mod.configure.harddisk }}</td></tr></tr><tr><th>屏幕</th><td>
-                         {{ item.mod.configure.screen }}</td></tr></table>">
+                         {{ item.mod.configure.harddisk }}</td></tr></tr><tr><th>显卡</th><td>
+                         {{ item.mod.configure.gpu }}</td></tr></table>">
                             {{ item.mod }}
                         </a>
                     </td>
@@ -168,7 +165,6 @@
                     <td>{{ item.recipient.dept }}</td>
                     <td>{{ item.recipient_at | date:"Y-m-d"}}</td>
                     <td>{{ item.sn }}</td>
-                    <td>{{ item.after_sales }}</td>
                     <td>{{ item.get_status_display }}</td>
                     <td>{{ item.note }}</td>
                     <td>

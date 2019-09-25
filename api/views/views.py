@@ -564,13 +564,10 @@ def edit_asset(request,**kwargs):
         if not recipient_at:
             return HttpResponse('领用时间未填写！返回继续')
         sn = request.POST.get('sn')
-        supplier = request.POST.get('supplier')
-        after_sales = request.POST.get('after_sales')
         status = request.POST.get('status')
         note = request.POST.get('note')
         models.Asset.objects.filter(id=nid).update(mod=m,purchase_at=purchase_at,price=price,recipient=recipient,\
-                                                   recipient_at=recipient_at,sn=sn,supplier=supplier,\
-                                                   after_sales=after_sales,status=status,note=note)
+                                                   recipient_at=recipient_at,sn=sn,status=status,note=note)
         return redirect('/asset-%s-%s' % (mod__type_id,asset_status))
 
 def add_asset(request):
@@ -579,11 +576,10 @@ def add_asset(request):
     type_list = models.Type.objects.values('id', 'name')
     mod_list = models.Models.objects.values('id', 'name')
     confiugre_list = models.Configuration.objects.all()
-    suppliser_list = models.Asset.supplier_type_choices
     status_list = models.Asset.status_choices
     if request.method == 'GET':
         return render(request, 'add_asset.html', {'recipient_list':recipient_list,\
-                                                   'type_list':type_list,'suppliser_list':suppliser_list,'status_list':\
+                                                   'type_list':type_list,'status_list':\
                                                   status_list,'mod_list':mod_list,'msg':msg})
     elif request.method == 'POST':
 
@@ -599,20 +595,16 @@ def add_asset(request):
             print('-->sn',sn)
             if not sn:
                 raise Exception
-            # configure = request.POST.get('configure')
-            supplier = request.POST.get('supplier')
-            after_sales = request.POST.get('after_sales')
             status = request.POST.get('status')
             note = request.POST.get('note')
             models.Asset.objects.create(mod_id=m,purchase_at=purchase_at,price=price,recipient_id=recipient,\
-                                                   recipient_at=recipient_at,sn=sn,supplier=supplier,\
-                                                   after_sales=after_sales,status=status,note=note)
+                                                   recipient_at=recipient_at,sn=sn,status=status,note=note)
         except Exception as e:
             print('-->e',e)
             msg = '粗体字段为必填'
             return render(request, 'add_asset.html',
                           {'recipient_list': recipient_list, 'confiugre_list': confiugre_list, \
-                           'type_list': type_list, 'suppliser_list': suppliser_list, 'status_list': \
+                           'type_list': type_list , 'status_list': \
                                status_list, 'mod_list': mod_list, 'msg': msg})
         return redirect('/asset-0-0')
 
@@ -664,7 +656,7 @@ def add_configure(request):
         harddisk = request.POST.get('harddisk')
         gpu = request.POST.get('gpu')
         screen = request.POST.get('screen')
-        models.Configuration.objects.create(cpu=cpu,mem=mem,harddisk=harddisk,screen=screen)
+        models.Configuration.objects.create(cpu=cpu,mem=mem,harddisk=harddisk,gpu=gpu,screen=screen)
         return redirect('/asset-0-0')
 
 def add_model(request):

@@ -89,24 +89,6 @@
                             <input type="text" name="sn" class="vTextField" maxlength="32" required="" id="id_sn">
                 </div>
         </div>
-        <div class="form-row field-supplier">
-                <div>
-                        <label for="id_supplier">供应商:</label>
-
-                            <select name="supplier" id="id_supplier">
-   {% for row in suppliser_list %}
-        <option value="{{ row.0 }}">{{ row.1 }}</option>
-  {% endfor %}
-
-</select>
-                </div>
-        </div>
-        <div class="form-row field-after_sales">
-                <div>
-                        <label for="id_after_sales">售后联系方式:</label>
-                            <input type="text" name="after_sales" class="vTextField" maxlength="128" id="id_after_sales">
-                </div>
-        </div>
         <div class="form-row field-status">
                 <div>
                         <label class="required" for="id_status">状态:</label>
