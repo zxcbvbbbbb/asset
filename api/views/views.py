@@ -570,15 +570,22 @@ def edit_asset(request,**kwargs):
                                                    recipient_at=recipient_at,sn=sn,status=status,note=note)
         return redirect('/asset-%s-%s' % (mod__type_id,asset_status))
 
+def foo(arg):
+    from pypinyin import pinyin
+    return pinyin(arg['name'])
+
 def add_asset(request):
     msg = ''
     recipient_list = models.Employee.objects.values('id', 'name')
+    x = list(recipient_list)
+    x.sort(key=foo)
+    print('-->x',x)
     type_list = models.Type.objects.values('id', 'name')
     mod_list = models.Models.objects.values('id', 'name')
     confiugre_list = models.Configuration.objects.all()
     status_list = models.Asset.status_choices
     if request.method == 'GET':
-        return render(request, 'add_asset.html', {'recipient_list':recipient_list,\
+        return render(request, 'add_asset.html', {'recipient_list':x,\
                                                    'type_list':type_list,'status_list':\
                                                   status_list,'mod_list':mod_list,'msg':msg})
     elif request.method == 'POST':

@@ -152,10 +152,26 @@
                     <td>{{ item.mod.type }}</td>
                     <td>
                         <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table class='table
-                         table-bordered'><tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr><tr><th>内存
-                         </th><td>{{ item.mod.configure.mem }}</td></tr><tr><th>硬盘</th><td>
-                         {{ item.mod.configure.harddisk }}</td></tr></tr><tr><th>显卡</th><td>
-                         {{ item.mod.configure.gpu }}</td></tr></table>">
+                         table-bordered'>{% if item.mod.configure.cpu %}<tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr>{% endif %}
+                         <tr>
+                         {% if item.mod.configure.mem %}
+                            <th>内存</th>
+                            <td>{{ item.mod.configure.mem }}</td>
+                         </tr>
+                         <tr>
+                         {% endif %}
+                         {% if item.mod.configure.harddisk %}
+                            <th>硬盘</th>
+                            <td>{{ item.mod.configure.harddisk }}</td>
+                         </tr>
+                         {% endif %}
+                         {% if item.mod.configure.gpu %}
+                         <tr>
+                            <th>显卡</th>
+                            <td>{{ item.mod.configure.gpu }}</td>
+                         </tr>
+                         {% endif %}
+                         </table>">
                             {{ item.mod }}
                         </a>
                     </td>
@@ -170,7 +186,7 @@
                     <td>
                         <a href="/edit_asset?nid={{ item.id }}&mod__type_id={{ arg_dict.mod__type_id }}&status={{ arg_dict.status }}
                         "><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a> | <span onclick="delRow(this)">
-                        <i class="fa fa-eraser" aria-hidden="true"></i>清除</span>
+                        <i class="fa fa-eraser" aria-hidden="true"></i><span style="cursor: pointer">清除</span></span>
                     </td>
                 </tr>
             {% endfor %}

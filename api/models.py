@@ -165,6 +165,9 @@ class Employee(models.Model):
     name = models.CharField(max_length=32,verbose_name='员工姓名')
     dept = models.ForeignKey('Department',on_delete=models.CASCADE,verbose_name='部门')
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
