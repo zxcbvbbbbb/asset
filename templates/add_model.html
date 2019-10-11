@@ -26,7 +26,6 @@
 
 <form method="post" id="asset_form" novalidate>
 <fieldset class="module aligned">
-
         <div class="form-row field-sn">
                 <div>
                         <label class="required" for="id_name">型号:</label>
@@ -36,7 +35,7 @@
 
         <div class="form-row field-after_sales">
                 <div>
-                    <label for="id_type">类别:</label>
+                    <label class="required" for="id_type">类别:</label>
                     <select name="type" id="id_type">
                         {% for row in type_list %}
                             <option value="{{ row.id }}">{{ row.name }}</option>
@@ -44,16 +43,48 @@
                     </select>
                 </div>
         </div>
-        <div class="form-row field-note">
+        <div class="form-row field-name">
+            <div>
+                    <label>CPU:</label>
+                        <input type="text" name="cpu" class="vTextField" maxlength="32" required="" >
+            </div>
+        </div>
+
+
+        <div class="form-row field-price">
                 <div>
-                    <label for="id_configure">配置:</label>
-                    <select name="configure" id="id_configure">
-                        {% for row in configure_list %}
-                            <option value="{{ row.id }}">{{ row }}</option>
-                        {% endfor %}
-                    </select>
+                        <label for="id_mem">内存:</label>
+                            <input type="text" name="mem" class="vTextField" maxlength="32" id="id_mem">
                 </div>
         </div>
+
+        <div class="form-row field-sn">
+                <div>
+                        <label for="id_harddisk">硬盘:</label>
+                            <input type="text" name="harddisk" class="vTextField" maxlength="32" required="" id="id_harddisk">
+                </div>
+        </div>
+
+        <div class="form-row field-after_sales">
+                <div>
+                        <label for="id_gpu">显卡:</label>
+                            <input type="text" name="gpu" class="vTextField" maxlength="128" id="id_gpu">
+                </div>
+        </div>
+        <div class="form-row field-note">
+                <div>
+                    <label for="id_screen">显示器:</label>
+                        <input type="text" name="screen" class="vTextField" maxlength="128" id="id_screen">
+                        </select>
+                </div>
+        </div>
+        <div class="form-row field-name">
+            <div>
+                    <label>备注:</label>
+                        <input type="text" name="note" class="vTextField" maxlength="32" required="" >
+            </div>
+        </div>
+
     <br>
 <input type="submit" value="Save" class="default" style="float: left;margin-left: 10px">
 </fieldset>

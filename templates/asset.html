@@ -124,8 +124,7 @@
 </div>
     <div class="localshadow hide"></div>
         <a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
-        <a href="/add_configure/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">型号配置</a>
-        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">型号</a>
+        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
         <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>
         <input id="q" type="text" style="height: 30px;margin-left: 80px" placeholder="搜索领用人">
         <!--<button id="search" type="submit" class="button">Go</button>-->
@@ -169,6 +168,18 @@
                          <tr>
                             <th>显卡</th>
                             <td>{{ item.mod.configure.gpu }}</td>
+                         </tr>
+                         {% endif %}
+                        {% if item.mod.configure.screen %}
+                         <tr>
+                            <th>显示器</th>
+                            <td>{{ item.mod.configure.screen }}</td>
+                         </tr>
+                         {% endif %}
+                         {% if item.mod.configure.note %}
+                         <tr>
+                            <th>备注</th>
+                            <td>{{ item.mod.configure.note }}</td>
                          </tr>
                          {% endif %}
                          </table>">

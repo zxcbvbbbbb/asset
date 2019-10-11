@@ -672,12 +672,23 @@ def add_model(request):
         configure_list = models.Configuration.objects.all()
         return render(request, 'add_model.html', {'type_list':type_list,'configure_list':configure_list})
     elif request.method == 'POST':
+        #增加配置
+        cpu = request.POST.get('cpu')
+        mem = request.POST.get('mem')
+        harddisk = request.POST.get('harddisk')
+        gpu = request.POST.get('gpu')
+        screen = request.POST.get('screen')
+        note = screen = request.POST.get('note')
+        models.Configuration.objects.create(cpu=cpu, mem=mem, harddisk=harddisk, gpu=gpu, screen=screen)
+
+        #绑定配置
         name = request.POST.get('name')
         if not name:
             return HttpResponse('名字不能为空!返回继续')
         type = request.POST.get('type')
         configure = request.POST.get('configure')
-        obj = models.Models.objects.create(name=name,type_id=type,configure_id=configure)
+        latest_configure = models.Configuration.objects.all().last()
+        obj = models.Models.objects.create(name=name,type_id=type,configure_id=latest_configure.id)
         print('-->obj',obj)
         return redirect('/asset-0-0')
 
@@ -705,7 +716,7 @@ def clear_asset(request):
     if request.method == 'GET':
         nid = request.GET.get('rowid')
         print('-->nid', nid)
-        models.Asset.objects.filter(id=nid).update(recipient=6, recipient_at=None, supplier=1, \
+        models.Asset.objects.filter(id=nid).update(recipient_at=None, supplier=1, \
                                                    after_sales='', status=1, note='')
         return JsonResponse({'status': True})
     elif request.method == 'POST':

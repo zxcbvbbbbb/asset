@@ -176,11 +176,11 @@ class Configuration(models.Model):
     mem = models.CharField(max_length=32,blank=True,null=True,verbose_name='内存')
     harddisk = models.CharField(max_length=32,blank=True,null=True,verbose_name='硬盘')
     gpu = models.CharField(max_length=32,blank=True,null=True,verbose_name='显卡')
-    screen = models.CharField(max_length=32,blank=True,null=True,verbose_name='显示器',default='N'
-                                                                                            '')
+    screen = models.CharField(max_length=32,blank=True,null=True,verbose_name='显示器',default='N')
+    note = models.CharField(max_length=32,blank=True,null=True,verbose_name='备注')
 
     def __str__(self):
-        return 'CPU:%s 内存:%s 硬盘:%s 显卡:%s 显示器:%s' % (self.cpu,self.mem,self.harddisk,self.gpu,self.screen)
+        return 'CPU:%s 内存:%s 硬盘:%s 显卡:%s 显示器:%s 备注:%s' % (self.cpu,self.mem,self.harddisk,self.gpu,self.screen,self.note)
 
 class Asset(models.Model):
     supplier_type_choices = (
