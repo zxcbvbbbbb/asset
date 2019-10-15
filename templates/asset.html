@@ -62,16 +62,6 @@
             font-weight: 600;
             color: #333;
         }
-        #search {
-            background: #fff;
-            color: #333;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-shadow: 0 -15px 20px -10px rgba(0, 0, 0, 0.15) inset;
-            height: 30px;
-            padding: 0 1px 0 0;
-            width: 40px;
-        }
 
     </style>
 {% endblock %}
@@ -123,13 +113,32 @@
     <input id="id_confirm" style="background: #ba2121;margin-left: 15px" type="submit" value="确定">
 </div>
 </div>
+    <br>
     <div class="localshadow hide"></div>
-        <a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
+        <!--<a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
         <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
-        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>
-        <input id="q" type="text" style="height: 30px;margin-left: 80px" placeholder="搜索领用人" value="{{ q }}">
-        <a id="search" href="/asset-0-0/?q={{ paras }}" class="button">Go</a>
-    <table class="table-test asset">
+        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>-->
+        <div class="row">
+            <div class="col-lg-3">
+            <div class="btn-group" role="group">
+              <a href="/add_model/" class="btn btn-default">添加资产</a>
+              <a href="/add_asset/" class="btn btn-default">添加型号</a>
+              <a href="/add_employee/" class="btn btn-default">添加领用人</a>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="input-group">
+              <input id="q" type="text" class="form-control" placeholder="Search for..." value="{{ q }}">
+              <span class="input-group-btn">
+                <a id="search" class="btn btn-default"  href="/asset-0-0/?q={{ paras }}">Go</a>
+              </span>
+              </div>
+            </div>
+        </div>
+
+    <br>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>类别</th>
