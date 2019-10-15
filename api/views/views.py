@@ -30,6 +30,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.db.models import Q
 from subprocess import Popen,PIPE,call
+import xlrd
 
 class ClientCreateView(CreateView):
     model = Client
@@ -599,7 +600,7 @@ def add_asset(request):
             recipient = request.POST.get('recipient')
             recipient_at = request.POST.get('recipient_at')
             sn = request.POST.get('sn')
-            print('-->sn',sn)
+            print('-->post data',m,purchase_at,recipient,recipient_at,sn,)
             if not sn:
                 raise Exception
             status = request.POST.get('status')
@@ -683,9 +684,9 @@ def add_model(request):
 
         #绑定配置
         name = request.POST.get('name')
-        if not name:
-            return HttpResponse('名字不能为空!返回继续')
         type = request.POST.get('type')
+        if not name or not type:
+            return HttpResponse('名字/类型不能为空!返回继续')
         configure = request.POST.get('configure')
         latest_configure = models.Configuration.objects.all().last()
         obj = models.Models.objects.create(name=name,type_id=type,configure_id=latest_configure.id)
@@ -955,7 +956,31 @@ def ftp(request,*args,**kwargs):
         else:
             return render(request, 'ftp.html', {'msg': '请选择文件'})
 
+def test(request):
+    data = xlrd.open_workbook('d:/posttest/api/info.xlsx')
+    table = data.sheet_by_name('Sheet1')
+    style_list = []
+    for i in range(table.nrows):
+        if type(table.row_values(i)[0]) is float and type(table.row_values(i)[1]) is float:
+            x = xlrd.xldate_as_datetime(table.row_values(i)[0], 0)
+            y = xlrd.xldate_as_datetime(table.row_values(i)[1], 0)
+            data_list = table.row_values(i)
+            data_list[0] = x.strftime('%Y-%m-%d')
+            data_list[1] = y.strftime('%Y-%m-%d')
+            employee_id = models.Employee.objects.filter(name=data_list[2]).first().id
+            data_list[2] = employee_id
+            print('data_list[4]',data_list[4])
+            style_id = models.Models.objects.filter(name=data_list[4]).first().id
+            data_list[4] = style_id
+            style_list.append(data_list[4])
+            models.Asset.objects.create(mod_id=style_id, purchase_at=data_list[0], price=data_list[5], recipient_id=employee_id,
+                                        recipient_at=data_list[1], sn=data_list[3], status=2, note=data_list[6])
+        else:
+            print('xx')
 
+    # print(list(set(style_list)))
+    print(data_list)
+    return HttpResponse('美国队vs塞尔维亚队')
 
 
 

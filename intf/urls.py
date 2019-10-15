@@ -3,5 +3,5 @@ from django.urls import include
 from . import views
 
 urlpatterns = [
-    url('asset/',views.asset)
+    url('asset/',views.asset),
 ]
