@@ -486,7 +486,7 @@ def handle_asset(request,*args,**kwargs):
 
     condition = {}
     r = reverse('asset',kwargs=kwargs)
-    print(r)
+    print('-->r',r)
     for k,v in kwargs.items():
         kwargs[k] = int(v)
         if v == '0':
@@ -520,18 +520,6 @@ def handle_asset(request,*args,**kwargs):
                 print('无此用户')
         else:
             q = 123
-    # if request.method == 'POST':
-    #     q = request.POST.get('q')
-    #     print('-->q',q)
-    #     rep = models.Employee.objects.filter(name__icontains=q).first()
-    #     if rep:
-    #         asset_list = rep.asset_set.all()
-    #         print('-->asset_list', asset_list)
-    #         return render(request, 'asset.html', {'username': username, 'assets': asset_list, 'mod_list': mod_list, \
-    #                                               'status_list': status_list, 'arg_dict': arg_dict, 'str_pager': pager})
-    #     else:
-    #         print('无此用户')
-
     return render(request,'asset.html',{'username':username,'assets':asset_list,'type_list':type_list,\
                                         'status_list':status_list,'arg_dict':arg_dict,'str_pager':pager})
 

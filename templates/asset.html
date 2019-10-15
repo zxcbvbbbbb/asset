@@ -3,6 +3,7 @@
 {% block css %}
     <link rel="stylesheet" type="text/css" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/css/theme.default.css">
     <style>
         .tag {
             display: inline-block;
@@ -126,9 +127,8 @@
         <a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
         <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
         <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>
-        <input id="q" type="text" style="height: 30px;margin-left: 80px" placeholder="搜索领用人">
-        <!--<button id="search" type="submit" class="button">Go</button>-->
-        <a id="search" href="/asset-0-0/?q={{ para }}" class="button">Go</a>
+        <input id="q" type="text" style="height: 30px;margin-left: 80px" placeholder="搜索领用人" value="{{ q }}">
+        <a id="search" href="/asset-0-0/?q={{ paras }}" class="button">Go</a>
     <table class="table-test asset">
         <thead>
             <tr>
@@ -213,6 +213,8 @@
 {% endblock %}
 
 {% block js %}
+    <script src="/static/js/jquery.tablesorter.js"></script>
+    <script src="/static/js/jquery.tablesorter.widgets.js"></script>
     <script>
         $(function () {
             $("[data-toggle='popover']").popover({
@@ -223,6 +225,8 @@
             $('#menu_teacher').addClass('active')
 
         })
+
+        $('table').tablesorter();
 
         function delRow(ths) {
             $('.localmodal').removeClass('hide')
