@@ -502,7 +502,7 @@ def handle_asset(request,*args,**kwargs):
     total_count = models.Asset.objects.all().count()
 
     from api.utils.page import PagerHelper
-    obj = PagerHelper(total_count,current_page,'/asset-%s-%s' % (arg_dict['mod__type_id'],arg_dict['status']),100)
+    obj = PagerHelper(total_count,current_page,'/asset-%s-%s' % (arg_dict['mod__type_id'],arg_dict['status']),1000)
     pager = obj.pager_str()
     asset_list = models.Asset.objects.filter(**condition)[obj.db_start:obj.db_end]
     if request.method == 'GET':
