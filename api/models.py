@@ -191,7 +191,8 @@ class Asset(models.Model):
     status_choices = (
         (1,'空闲'),
         (2, '使用'),
-        (3, '报废')
+        (3, '报废'),
+        (4,'待确认')
     )
     mod = models.ForeignKey('Models',on_delete=models.CASCADE,verbose_name='型号')
     purchase_at = models.DateField(verbose_name='购买时间')
