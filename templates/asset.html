@@ -72,40 +72,6 @@
         <li><a href="/asset-0-0">首页</a></li>
         <li class="active">资产管理</li>
     </ol>
-    <!--<div class="condition">
-        <div>
-
-            <span>型号</span>
-            {{ fwefew }}
-            {% if arg_dict.mod__type_id  == 0 %}
-                <a class="active" href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
-            {% else %}
-                <a href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
-            {% endif %}
-            {% for row in type_list %}
-                {% if row.id == arg_dict.mod__type_id %}
-                    <a class="active" href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
-                {% else %}
-                    <a href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div>
-            <span>状态</span>
-            {% if arg_dict.status  == 0 %}
-                <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
-            {% else %}
-                <a href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
-            {% endif %}
-            {% for row in status_list %}
-                {% if row.0 == arg_dict.status %}
-                    <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
-                {% else %}
-                    <a href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>-->
 
 
 <div class="localmodal hide">
@@ -152,6 +118,10 @@
                     </div>
                 </div>
             </div>
+        <!--<a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
+        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
+        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>-->
+
 
 
             <div class="clearfix function-area">
@@ -199,7 +169,6 @@
 
         </div>
     </div>
-
 
 {% endblock %}
 

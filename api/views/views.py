@@ -33,6 +33,7 @@ from subprocess import Popen,PIPE,call
 import xlrd
 from api.utils.pager import PageInfo
 from api.utils.response import BaseResponse
+from pypinyin import lazy_pinyin
 
 class ClientCreateView(CreateView):
     model = Client
@@ -608,7 +609,7 @@ class AssetJsonView(View):
              'title': '部门',
              'display': True,
              'text': {'content': '{m}', 'kwargs': {'m': '@recipient__dept__name'}},
-             'attrs': {'name': 'recipient_dept', 'edit-enable': 'true', 'edit-type': 'input'}
+             'attrs': {'name': 'recipient__dept__name', 'edit-enable': 'true', 'edit-type': 'input'}
              },
             {'q': 'recipient_at',
              'title': '领用时间',
@@ -726,7 +727,9 @@ def edit_asset(request,**kwargs):
         nid = request.GET.get('nid')
         obj = models.Asset.objects.get(id=nid)
         # mod_list = models.Models.objects.values('id','name')
-        recipient_list = models.Employee.objects.values('id','name')
+        recipient_list = list(models.Employee.objects.values('id','name'))
+        recipient_list.sort(key=lambda x:lazy_pinyin(x['name']))
+
         type_list = models.Type.objects.values('id','name')
         # mod_list = models.Type.objects.get(id=obj.mod.type_id).type_name.all()
         mod_list = models.Models.objects.filter(type_id=obj.mod.type_id).values('id', 'name')
@@ -743,7 +746,8 @@ def edit_asset(request,**kwargs):
         recipient = request.POST.get('recipient')
         recipient_at = request.POST.get('recipient_at')
         if not recipient_at:
-            return HttpResponse('领用时间未填写！返回继续')
+            recipient_at = None
+            # return HttpResponse('领用时间未填写！返回继续')
         sn = request.POST.get('sn')
         status = request.POST.get('status')
         note = request.POST.get('note')
@@ -751,15 +755,15 @@ def edit_asset(request,**kwargs):
                                                    recipient_at=recipient_at,sn=sn,status=status,note=note)
         return redirect('/asset-%s-%s' % (mod__type_id,asset_status))
 
-def foo(arg):
-    from pypinyin import pinyin
-    return pinyin(arg['name'])
+# def foo(arg):
+#     from pypinyin import pinyin
+#     return pinyin(arg['name'])
 
 def add_asset(request):
     msg = ''
     recipient_list = models.Employee.objects.values('id', 'name')
     x = list(recipient_list)
-    x.sort(key=foo)
+    x.sort(key=lambda char:lazy_pinyin(char['name']))
     print('-->x',x)
     type_list = models.Type.objects.values('id', 'name')
     mod_list = models.Models.objects.values('id', 'name')
@@ -898,7 +902,7 @@ def clear_asset(request):
         nid = request.GET.get('rowid')
         print('-->nid', nid)
         models.Asset.objects.filter(id=nid).update(recipient_at=None, supplier=1, \
-                                                   after_sales='', status=1, note='')
+                                                   after_sales='', status=1)
         return JsonResponse({'status': True})
     elif request.method == 'POST':
         pass
