@@ -24,21 +24,21 @@
 </ol>
 
                 <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a class="no-radius" href="#basic" aria-controls="basic"  role="tab"
-                                                          data-toggle="tab">基本信息</a></li>
                 <li role="presentation"><a class="no-radius" href="#hardware" aria-controls="hardware" role="tab"
                                            data-toggle="tab">硬件信息</a></li>
+                <li role="presentation" class="active"><a class="no-radius" href="#basic" aria-controls="basic"  role="tab"
+                                                          data-toggle="tab">基本信息</a></li>
                 <li role="presentation"><a class="no-radius" href="#log" aria-controls="log" role="tab"
                                            data-toggle="tab">变更记录</a></li>
 
             </ul>
 
     <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="basic">
-        {% include 'include/asset_basic.html' %}
-    </div>
     <div role="tabpanel" class="tab-pane" id="hardware">
         {% include 'include/asset_configure.html' %}
+    </div>
+    <div role="tabpanel" class="tab-pane active" id="basic">
+        {% include 'include/asset_basic.html' %}
     </div>
     <div role="tabpanel" class="tab-pane" id="log">
         {% include 'include/asset_log.html' %}

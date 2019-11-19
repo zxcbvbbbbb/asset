@@ -315,14 +315,19 @@
                          var sel = document.createElement('select')
                          var origin = $(this).attr('origin')
                          $.each(window[globalName],function (k1,v1) {
-
+                             console.log('----->v1',v1)
                              var op = document.createElement('option')
                             /* if(innerText == v1[1]){
                                  op.setAttribute('selected','selected')
                                  op.setAttribute('value',v1[0])
                              } */
-                             op.setAttribute('value',v1[0])
-                             op.innerHTML = v1[1]
+
+                             {#$.each(v1,function (k,v) {#}
+                             {#    $(op).attr(k,v)#}
+                             {#    $(op).innerHTML(v)#}
+                             //)}
+                             op.setAttribute('value',v1.id)
+                             op.innerHTML = v1.name
                              sel.append(op)
                          })
                          $(sel).val(origin)

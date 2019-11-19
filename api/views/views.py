@@ -557,7 +557,6 @@ class AssetJsonView(View):
         condition_config = [
             {'name': 'mod__type__name', 'text': '类别', 'condition_type': 'select', 'global_name': 'mod__type__name'},
             {'name': 'recipient__name', 'text': '领用人', 'condition_type': 'input'},
-
             {'name': 'status', 'text': '资产状态', 'condition_type': 'select','global_name': 'device_status_list'},
         ]
 
@@ -626,14 +625,15 @@ class AssetJsonView(View):
             {'q': 'status',
              'title': '状态',
              'display': True,
-             'text': {'name':'status','content': '{m}', 'kwargs': {'m': '@@status_choices'}},
-             'attrs': {}
+             'text': {'content': '{m}', 'kwargs': {'m': '@@status_choices'}},
+             'attrs': {'name':'status','edit-enable':'true','edit-type':'select',
+                       'global-name': 'device_status_list','origin':'@status','id':'@status'}
              },
             {'q': 'note',
              'title': '备注',
              'display': True,
-             'text': {'name': 'note', 'content': '{m}', 'kwargs': {'m': '@note'}},
-             'attrs': {}
+             'text': {'content': '{m}', 'kwargs': {'m': '@note'}},
+             'attrs': {'name':'note','edit-enable':'true','edit-type':'input'}
              },
             {'q': 'id',
              'title': '操作',
@@ -664,8 +664,8 @@ class AssetJsonView(View):
             'status_choices':models.Asset.status_choices,
             'device_status_list':list(map(lambda x:{'id': x[0], 'name': x[1]}, models.Asset.status_choices)),
             'supplier_type_choices':models.Asset.supplier_type_choices,
-            'recipient_name':list(set(models.Asset.objects.values_list('recipient_id','recipient__name'))),
-            'recipient__dept__name': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
+            'recipient_name':list(map(lambda x:{'id':x[0],'name':x[1]},set(models.Asset.objects.values_list('recipient_id','recipient__name')))),
+            # 'recipient__dept__name': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
             'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name')))
         }
         }
