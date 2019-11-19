@@ -31,6 +31,8 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 from subprocess import Popen,PIPE,call
 import xlrd
+from api.utils.pager import PageInfo
+from api.utils.response import BaseResponse
 
 class ClientCreateView(CreateView):
     model = Client
@@ -523,7 +525,197 @@ def handle_asset(request,*args,**kwargs):
     return render(request,'asset.html',{'username':username,'assets':asset_list,'type_list':type_list,\
                                         'status_list':status_list,'arg_dict':arg_dict,'str_pager':pager})
 
+def assets_condition(request):
+    con_str = request.GET.get('condition', None)
+    if not con_str:
+        con_dict = {}
+    else:
+        con_dict = json.loads(con_str)
 
+    con_q = Q()
+    for k, v in con_dict.items():
+        temp = Q()
+        temp.connector = 'OR'
+        for item in v:
+            temp.children.append((k, item))
+        con_q.add(temp, 'AND')
+
+    return con_q
+
+class AssetJsonView(View):
+    def tuple2l(self):
+        x = models.Asset.status_choices
+        temp = []
+        for i in x:
+            t = list(i)
+            t[0] = t[1]
+            temp.append(t)
+        return temp
+
+    def get(self,request,*args,**kwargs):
+        condition_config = [
+            {'name': 'mod__type__name', 'text': '类别', 'condition_type': 'select', 'global_name': 'mod__type__name'},
+            {'name': 'recipient__name', 'text': '领用人', 'condition_type': 'input'},
+
+            {'name': 'status', 'text': '资产状态', 'condition_type': 'select','global_name': 'device_status_list'},
+        ]
+
+        table_config = [
+            {'q': 'id',
+             'title': '选项',
+             'display': True,
+             'text':{'content':'<input type="checkbox">','kwargs':{}},
+             'attrs':{'edit-enable':'false'}
+             },
+            {'q': 'recipient_id',
+             'title': '用户id',
+             'display': False,
+             'text': {'content': '', 'kwargs': {}},
+             'attrs': {'edit-enable': 'false'}
+             },
+            {'q': 'mod__type__name',
+             'title': '类别',
+             'display': True,
+             'text': {'name': 'mod__type__name', 'content': '{m}', 'kwargs': {'m': '@mod__type__name'}},
+             'attrs': {}
+             },
+            {'q': 'mod__name',
+             'title': '型号',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@mod__name'}},
+             'attrs': {}
+             },
+            {'q': 'purchase_at',
+             'title': '购买时间',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@purchase_at'}},
+             'attrs': {'name': 'purchase_at', 'edit-enable': 'true', 'edit-type': 'input'}
+             },
+            {'q': 'price',
+             'title': '价格',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@price'}},
+             'attrs': {'name': 'price', 'edit-enable': 'true', 'edit-type': 'input'}
+             },
+            {'q': 'recipient__name',
+             'title': '领用人',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@recipient__name'}},
+             'attrs': {'name': 'recipient', 'edit-enable': 'true', 'edit-type': 'select',
+                       'global-name': 'recipient_name', 'origin': '@recipient_id'}
+             },
+            {'q': 'recipient__dept__name',
+             'title': '部门',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@recipient__dept__name'}},
+             'attrs': {'name': 'recipient_dept', 'edit-enable': 'true', 'edit-type': 'input'}
+             },
+            {'q': 'recipient_at',
+             'title': '领用时间',
+             'display': True,
+             'text': {'content': '{m}', 'kwargs': {'m': '@recipient_at'}},
+             'attrs': {'name':'recipient_at','edit-enable':'true','edit-type':'input'}
+             },
+            {'q': 'sn',
+             'title': '资产编号',
+             'display': True,
+             'text': {'content': '{m}','kwargs': {'m': '@sn'}},
+             'attrs': {'name':'sn','edit-enable':'true','edit-type':'input'}
+             },
+            {'q': 'status',
+             'title': '状态',
+             'display': True,
+             'text': {'name':'status','content': '{m}', 'kwargs': {'m': '@@status_choices'}},
+             'attrs': {}
+             },
+            {'q': 'note',
+             'title': '备注',
+             'display': True,
+             'text': {'name': 'note', 'content': '{m}', 'kwargs': {'m': '@note'}},
+             'attrs': {}
+             },
+            {'q': 'id',
+             'title': '操作',
+             'display': True,
+             'text': {'content': "<a href='/asset-detail-{nid}'>查看详细</a> | <a href='javacript:void(0)'>编辑</a>",
+                      'kwargs': {'nid': '@id'}},
+             'attrs': {'edit-enable':'false'}
+             }
+        ]
+
+        q_list = []
+        for item in table_config:
+            q_list.append(item['q'])
+
+        conditions = assets_condition(request)
+        print('-->conditions', conditions)
+        print('-->q_list', q_list)
+        # data_list = list(models.Asset.objects.values(*q_list)) #一列数据
+        data_list = list(models.Asset.objects.filter(conditions).values(*q_list))
+        print('-->data_list',data_list)
+
+
+        result = {
+            'table_config':table_config,
+            'condition_config':condition_config,
+            'data_list':data_list,
+            'global_dict':{
+            'status_choices':models.Asset.status_choices,
+            'device_status_list':list(map(lambda x:{'id': x[0], 'name': x[1]}, models.Asset.status_choices)),
+            'supplier_type_choices':models.Asset.supplier_type_choices,
+            'recipient_name':list(set(models.Asset.objects.values_list('recipient_id','recipient__name'))),
+            # 'recipient_dept': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
+            'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name')))
+        }
+        }
+        return JsonResponse(result)
+
+
+    def put(self, request):
+        response = BaseResponse()
+        try:
+            response.error = []
+            error_count = 0
+            content = QueryDict(request.body,encoding='utf-8')
+            postdata = json.loads(content.get('post_list'))
+            print('-->postdata', postdata)
+            for row_dict in postdata:
+                nid = row_dict.pop('id')
+                try:
+                    models.Asset.objects.filter(id=nid).update(**row_dict)
+                except Exception as e:
+                    response.error.append({'message':str(e)})
+                    response.status = False
+                    error_count += 1
+            if error_count:
+                response.message = '共%s条,失败%s条' % (len(postdata), error_count,)
+            else:
+                response.message = '更新成功'
+        except Exception as e:
+            response.status = False
+            response.message = str(e)
+            # ret = {
+            #     'status': True,
+            #     'error': ''
+            # }
+        return JsonResponse(response.__dict__)
+
+class TestView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'test.html')
+
+class AssetDetail(View):
+    def get(self,request,asset_nid,**kwargs):
+        response = BaseResponse()
+        response.data =  models.Asset.objects.filter(id=asset_nid).select_related('mod').first().mod.configure
+        response.message = models.Employee.objects.all()
+        return render(request,'asset_detail.html',{'response':response})
+
+
+
+def test(request):
+    if request.method == 'GET':
+        return render(request, 'test.html')
 
 def edit_asset(request,**kwargs):
     mod__type_id = request.GET.get('mod__type_id')
@@ -944,7 +1136,7 @@ def ftp(request,*args,**kwargs):
         else:
             return render(request, 'ftp.html', {'msg': '请选择文件'})
 
-def test(request):
+def insert(request):
     data = xlrd.open_workbook('d:/posttest/api/info.xlsx')
     table = data.sheet_by_name('Sheet1')
     style_list = []
@@ -970,6 +1162,11 @@ def test(request):
     print(data_list)
     return HttpResponse('美国队vs塞尔维亚队')
 
+
+
+def testjson(request):
+    if request.method == 'GET':
+        return HttpResponse(123)
 
 
 

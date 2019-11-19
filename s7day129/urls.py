@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 
 from django.contrib import admin
 from api.views import views,jira
+from django.views import View
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -41,6 +42,8 @@ urlpatterns = [
     url(r'^edit_teacher-(\d+)/$', views.edit_teacher, name="edit_teacher"),
     url(r'^add_teacher/$', views.add_teacher, name="add_teacher"),
     url(r'^asset-(?P<mod__type_id>\d+)-(?P<status>\d+)/$', views.handle_asset, name="asset"),
+    url(r'asset-json',views.AssetJsonView.as_view(),name='asset-json'),
+    url(r'asset-detail-(?P<asset_nid>\d+)',views.AssetDetail.as_view(),name='asset-detail'),
     url(r'^edit_asset/$', views.edit_asset, name="edit_asset"),
     url(r'^del_asset/$', views.del_asset, name="del_asset"),
     url(r'^clear_asset/$', views.clear_asset, name="clear_asset"),
@@ -56,6 +59,8 @@ urlpatterns = [
     url(r'^blur/$', views.blur, name="blur"),
     url(r'^ftp/$', views.ftp, name="ftp"),
     url(r'^test/$', views.test, name="test"),
+    # url(r'^test-json/$', views.TestJsonView),
+    url(r'^insert/$', views.insert, name="insert"),
     url(r'^jquery/$', views.jquery, name="jquery"),
     url(r'^tab/$', views.tab, name="tab"),
     url(r'^top/$', views.top, name="top"),

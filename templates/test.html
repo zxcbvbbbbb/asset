@@ -1,27 +1,55 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
 
-{% block css %}
-    <style>
-        .content {
-            margin-left: 20px;
-        }
-        .content a{
-            display: block;
-        }
-    </style>
-{% endblock %}
+<div id="itany">
+    <input type="text" v-model="msg">
+    <br>
+    {{msg}}
+    <br>
+    {{ flag }}
+    <br>
+    <ul>
+        <li v-for="(user,index) in users" v-if="!user.isOk">{{ index+1 }},{{ user.name }},{{ user.age }}</li>
+    </ul>
+    <button v-on:click="show()">click</button>
+    <button v-on:click="add()">向数组添加一个元素</button>
+    {{ age }}
+    <br>
+    <button v-on:click="change">隐藏</button>
+    <div style="width: 100px;height: 100px;background: chocolate" v-if="flag"></div>
+</div>
+<script>
+        Vue.config.devtools=false;
+        Vue.config.productionTip=false
+        new Vue({
+            el:'#itany',
+            data:{
+                msg: 'the sprit of china',
+                flag:true,
+                age:[1,123,678,123],
+                user:{name:'alex',age:18,gender:'male'},
+                users:[{name:'alex',age:18,isOk:false},
+                {'name':'wusir','age':17,isOk:true}]
+            },
+            methods:{
+                show:function () {
+                    console.log('show me the code')
+                },
+                add:function () {
+                    this.age.push('666')
+                },
+                change(){
+                    this.flag = !this.flag
+                }
+            }
+        })
 
-{% block menus %}
-    {{ menu_string | safe }}
-{% endblock %}
-
-{% block content %}
-    <h1>This is a test page</h1>
-    {% if 'POST' in action_list %}
-        <a href="http://www.baidu.com">添加</a>
-    {% endif %}
-
-{% endblock %}
-
-{% block js %}
-{% endblock %}
+</script>
+</body>
+</html>

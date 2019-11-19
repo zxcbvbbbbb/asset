@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/css/theme.default.css">
+    <style>
+        .tag {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: chocolate;
+            cursor: pointer;
+        }
+        .modal_button {
+            float: right;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        #cls-mod:hover {
+            color: #ba2121;
+        }
+        .alink {
+            background: #999;
+            font-weight: 400;
+            border-radius: 13px;
+            padding: 5px 10px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            color: #fff!important;
+        }
+        .condition a{
+            display: inline-block;
+            padding: 0px 10px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            line-height: 26px;
+        }
+        .condition a.active{
+            background: #148aff;
+            color: #fff;
+            border-radius: 13px;
+            border: none;
+        }
+        .condition span {
+            display: inline-block;
+            background: #e6f2ff;
+            line-height: 26px;
+            border-radius: 13px;
+            color: #148aff;
+            padding: 0 10px;
+        }
+        .pagination a{
+            padding: 5px 10px;
+            border: 1px solid #e1e2e3;
+            margin: 0px 3px;
+        }
+        .pagination a.active{
+            border: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style="padding: 20px 40px">
+    <h1>IT资产管理</h1>
+    <div class="condition">
+        <div>
+            <span>型号</span>
+            {% if arg_dict.mod__type_id  == 0 %}
+                <a class="active" href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
+            {% else %}
+                <a href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
+            {% endif %}
+            {% for row in type_list %}
+                {% if row.id == arg_dict.mod__type_id %}
+                    <a class="active" href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
+                {% else %}
+                    <a href="/asset-{{ row.id }}-{{ arg_dict.status }}?q={{ q }}" name="{{ row.id }}">{{ row.name }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+            <span>状态</span>
+            {% if arg_dict.status  == 0 %}
+                <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
+            {% else %}
+                <a href="/asset-{{ arg_dict.mod__type_id }}-0?q={{ q }}">全部</a>
+            {% endif %}
+            {% for row in status_list %}
+                {% if row.0 == arg_dict.status %}
+                    <a class="active" href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
+                {% else %}
+                    <a href="/asset-{{ arg_dict.mod__type_id }}-{{ row.0 }}?q={{ q }}" name="{{ row.id }}">{{ row.1 }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+<div class="localmodal hide">
+    <div class="header">
+        <div style="float: left">是否清除?</div>
+        <div class="xicon">X</div>
+    </div>
+<div class="modal_button">
+    <input id="id_cancel"  style="background: #dddddd;color: black" type="submit" value="取消">
+    <input id="id_confirm" style="background: #ba2121;margin-left: 15px" type="submit" value="确定">
+</div>
+</div>
+    <br>
+    <div class="localshadow hide"></div>
+        <!--<a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
+        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
+        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>-->
+        <div class="row">
+            <div class="col-lg-3">
+            <div class="btn-group" role="group">
+              <a href="/add_model/" class="btn btn-default">添加资产</a>
+              <a href="/add_asset/" class="btn btn-default">添加型号</a>
+              <a href="/add_employee/" class="btn btn-default">添加领用人</a>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="input-group">
+              <input id="q" type="text" class="form-control" placeholder="Search for..." value="{{ q }}">
+              <span class="input-group-btn">
+                <a id="search" class="btn btn-default"  href="/asset-0-0/?q={{ paras }}">Go</a>
+              </span>
+              </div>
+            </div>
+        </div>
+
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>类别</th>
+                <th>型号</th>
+                <th>购买时间</th>
+                <th>价格</th>
+                <th>领用人</th>
+                <th>部门</th>
+                <th>领用时间</th>
+                <th>资产编号</th>
+                <th>状态</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in assets %}
+                <tr nid="{{ item.id }}">
+                    <td>{{ item.mod.type }}</td>
+                    <td>
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table class='table
+                         table-bordered'>{% if item.mod.configure.cpu %}<tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr>{% endif %}
+                         <tr>
+                         {% if item.mod.configure.mem %}
+                            <th>内存</th>
+                            <td>{{ item.mod.configure.mem }}</td>
+                         </tr>
+                         <tr>
+                         {% endif %}
+                         {% if item.mod.configure.harddisk %}
+                            <th>硬盘</th>
+                            <td>{{ item.mod.configure.harddisk }}</td>
+                         </tr>
+                         {% endif %}
+                         {% if item.mod.configure.gpu %}
+                         <tr>
+                            <th>显卡</th>
+                            <td>{{ item.mod.configure.gpu }}</td>
+                         </tr>
+                         {% endif %}
+                        {% if item.mod.configure.screen %}
+                         <tr>
+                            <th>显示器</th>
+                            <td>{{ item.mod.configure.screen }}</td>
+                         </tr>
+                         {% endif %}
+                         {% if item.mod.configure.note %}
+                         <tr>
+                            <th>备注</th>
+                            <td>{{ item.mod.configure.note }}</td>
+                         </tr>
+                         {% endif %}
+                         </table>">
+                            {{ item.mod }}
+                        </a>
+                    </td>
+                    <td>{{ item.purchase_at | date:"Y-m-d" }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.recipient }}</td>
+                    <td>{{ item.recipient.dept }}</td>
+                    <td>{{ item.recipient_at | date:"Y-m-d"}}</td>
+                    <td>{{ item.sn }}</td>
+                    <td>{{ item.get_status_display }}</td>
+                    <td>{{ item.note }}</td>
+                    <td>
+                        <a href="/edit_asset?nid={{ item.id }}&mod__type_id={{ arg_dict.mod__type_id }}&status={{ arg_dict.status }}
+                        "><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a> | <span onclick="delRow(this)">
+                        <i class="fa fa-eraser" aria-hidden="true"></i><span style="cursor: pointer">清除</span></span>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+     <div class="pagination">
+        {{ str_pager | safe }}
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="/static/js/jquery.tablesorter.js"></script>
+    <script src="/static/js/jquery.tablesorter.widgets.js"></script>
+    <script>
+        $(function () {
+            init()
+            $("[data-toggle='popover']").popover({
+                'trigger': 'hover',
+                'title': '配置',
+                'html': true,
+            });
+            $('#menu_teacher').addClass('active')
+
+        })
+
+        $('table').tablesorter();
+
+        function delRow(ths) {
+            $('.localmodal').removeClass('hide')
+            $('.localshadow').removeClass('hide')
+            rowid = $(ths).parent().parent().attr('nid')
+            $('#id_confirm').click(function () {
+                $.ajax({
+                url: '/clear_asset',
+                type: 'get',
+                dataType: 'json',
+                data: {'rowid': rowid},
+                success: function (data) {
+                    window.location.reload()
+                }
+            })
+            })
+        }
+
+        $('#search').click(function () {
+            q = $('#q').val()
+            $.ajax({
+                url: '/asset-0-0/?q=' + q,
+                type: 'get',
+                data: {'q': q},
+                success: function (data) {
+                    window.location.replace('/asset-0-0?q=' + q)
+                }
+            })
+        })
+
+        $('#id_cancel').click(function () {
+            $('.localmodal,.localshadow').addClass('hide')
+        })
+        $('.xicon').click(function () {
+            $('.localmodal,.localshadow').addClass('hide')
+        })
+
+    function init() {
+        $.ajax({
+            url: '/asset-json/',
+            type: 'get',
+            dataType:'json',
+            success:function (arg) {
+                if(arg.status){
+                    alert('ok')
+                }
+                else {
+                    alert('error')
+                }
+            }
+        })
+    }
+    </script>
+{% endblock %}

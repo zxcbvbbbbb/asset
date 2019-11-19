@@ -57,12 +57,24 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script>
         $(function () {
+
             $('#menu_class').addClass('active');
             bindAddEvent();
             bindCancelEvent();
             bindTdDeleteEvent();
             bindSubmitModal();
+            init()
         })
+
+        function init() {
+        $.ajax({
+            url: '/asset-json/',
+            type: 'get',
+            success:function () {
+                alert(123)
+            }
+        })
+    }
 
         function bindAddEvent() {
             $('#id_add').click(function () {

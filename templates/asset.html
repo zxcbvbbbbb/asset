@@ -2,8 +2,9 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/theme.default.css">
+    <link rel="stylesheet" href="/static/css/commons.css">
     <style>
         .tag {
             display: inline-block;
@@ -67,11 +68,15 @@
 {% endblock %}
 
 {% block content %}
-    <div style="padding: 20px 40px">
-    <h1>IT资产管理</h1>
-    <div class="condition">
+    <ol class="breadcrumb" style="margin-bottom: 0px">
+        <li><a href="/asset-0-0">首页</a></li>
+        <li class="active">资产管理</li>
+    </ol>
+    <!--<div class="condition">
         <div>
+
             <span>型号</span>
+            {{ fwefew }}
             {% if arg_dict.mod__type_id  == 0 %}
                 <a class="active" href="/asset-0-{{ arg_dict.status }}?q={{ q }}">全部</a>
             {% else %}
@@ -100,7 +105,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
+    </div>-->
 
 
 <div class="localmodal hide">
@@ -113,21 +118,76 @@
     <input id="id_confirm" style="background: #ba2121;margin-left: 15px" type="submit" value="确定">
 </div>
 </div>
-    <br>
     <div class="localshadow hide"></div>
-        <!--<a href="/add_asset/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">资产</a>
-        <a href="/add_model/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">添加型号</a>
-        <a href="/add_employee/" class="alink"><img src="/static/image/tooltag-add.svg" alt="">领用人</a>-->
-        <div class="row">
-            <div class="col-lg-3">
-            <div class="btn-group" role="group">
-              <a href="/add_model/" class="btn btn-default">添加资产</a>
-              <a href="/add_asset/" class="btn btn-default">添加型号</a>
-              <a href="/add_employee/" class="btn btn-default">添加领用人</a>
-            </div>
+
+    <div style="padding: 5px 8px;">
+        <div class="list-block">
+            <div class="clearfix search-area">
+                <div class="col-md-offset-4 do-submit">
+                    <a id="search_condition_submit" class="btn btn-primary no-radius">
+                        <i class="fa fa-search"></i> 搜索
+                    </a>
+                </div>
+
+                <div id="search_conditions" class="col-md-4">
+                    <div class="condition-cmdb">
+                        <div class="icons">
+                            <a class="btn btn-default no-radius" onclick="AddSearchCondition(this)"><i
+                                    class="fa fa-plus-square"></i></a>
+                        </div>
+                        <div class="inputs">
+                            <div class="input-group">
+                                <div id="search_condition" init="false" class="input-group-btn">
+                                    <label type="button" class="btn btn-default no-radius" style="width: 100px;">&nbsp;</label>
+                                    <button type="button" class="btn btn-default dropdown-toggle no-border-r" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="caret"></div></button>
+                                    <ul class="change-search-condition dropdown-menu">
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-lg-2">
+
+            <div class="clearfix function-area">
+                <div class="btn-group btn-group-sm custom-btn-group">
+                  <a href="/add_model/" class="btn btn-default">添加资产</a>
+                  <a href="/add_asset/" class="btn btn-default">添加型号</a>
+                  <a href="/add_employee/" class="btn btn-default">添加领用人</a>
+                  <a id="idCheckAll" class="btn btn-default">全选</a>
+                  <a id="idReverse" class="btn btn-default">反选</a>
+                  <a id="idCancel" class="btn btn-default">取消</a>
+                  <a id="IdEditMode" class="btn btn-default">进入编辑模式</a>
+                  <a id="idSave" class="btn btn-default" >保存</a>
+                  <a class="btn btn-default">批量删除</a>
+                  <a id="handle_status" class="btn no-radius" tabindex="0" role="button" data-toggle="manual"
+                   data-trigger="focus" data-container="body" data-html="true" data-placement="bottom" title="错误详细"
+                   data-content="">
+                  </a>
+                </div>
+            </div>
+
+            <div class="table-responsive table-area">
+                <table class="table table-hover table-bordered">
+                    <thead id="table-th">
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody id="table-tb">
+                    </tbody>
+                </table>
+
+                 <div class="pagination">
+                    {{ str_pager | safe }}
+                 </div>
+            </div>
+
+            <!--<div class="col-lg-2">
             <div class="input-group">
               <input id="q" type="text" class="form-control" placeholder="Search for..." value="{{ q }}">
               <span class="input-group-btn">
@@ -135,89 +195,11 @@
               </span>
               </div>
             </div>
+            </div>-->
+
         </div>
-
-    <br>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>类别</th>
-                <th>型号</th>
-                <th>购买时间</th>
-                <th>价格</th>
-                <th>领用人</th>
-                <th>部门</th>
-                <th>领用时间</th>
-                <th>资产编号</th>
-                <th>状态</th>
-                <th>备注</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in assets %}
-                <tr nid="{{ item.id }}">
-                    <td>{{ item.mod.type }}</td>
-                    <td>
-                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table class='table
-                         table-bordered'>{% if item.mod.configure.cpu %}<tr><th>CPU</th><td>{{ item.mod.configure.cpu }}</td></tr>{% endif %}
-                         <tr>
-                         {% if item.mod.configure.mem %}
-                            <th>内存</th>
-                            <td>{{ item.mod.configure.mem }}</td>
-                         </tr>
-                         <tr>
-                         {% endif %}
-                         {% if item.mod.configure.harddisk %}
-                            <th>硬盘</th>
-                            <td>{{ item.mod.configure.harddisk }}</td>
-                         </tr>
-                         {% endif %}
-                         {% if item.mod.configure.gpu %}
-                         <tr>
-                            <th>显卡</th>
-                            <td>{{ item.mod.configure.gpu }}</td>
-                         </tr>
-                         {% endif %}
-                        {% if item.mod.configure.screen %}
-                         <tr>
-                            <th>显示器</th>
-                            <td>{{ item.mod.configure.screen }}</td>
-                         </tr>
-                         {% endif %}
-                         {% if item.mod.configure.note %}
-                         <tr>
-                            <th>备注</th>
-                            <td>{{ item.mod.configure.note }}</td>
-                         </tr>
-                         {% endif %}
-                         </table>">
-                            {{ item.mod }}
-                        </a>
-                    </td>
-                    <td>{{ item.purchase_at | date:"Y-m-d" }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>{{ item.recipient }}</td>
-                    <td>{{ item.recipient.dept }}</td>
-                    <td>{{ item.recipient_at | date:"Y-m-d"}}</td>
-                    <td>{{ item.sn }}</td>
-                    <td>{{ item.get_status_display }}</td>
-                    <td>{{ item.note }}</td>
-                    <td>
-                        <a href="/edit_asset?nid={{ item.id }}&mod__type_id={{ arg_dict.mod__type_id }}&status={{ arg_dict.status }}
-                        "><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a> | <span onclick="delRow(this)">
-                        <i class="fa fa-eraser" aria-hidden="true"></i><span style="cursor: pointer">清除</span></span>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
-
-     <div class="pagination">
-        {{ str_pager | safe }}
     </div>
+
 
 {% endblock %}
 
@@ -226,16 +208,189 @@
     <script src="/static/js/jquery.tablesorter.widgets.js"></script>
     <script>
         $(function () {
+            init()
             $("[data-toggle='popover']").popover({
                 'trigger': 'hover',
                 'title': '配置',
                 'html': true,
             });
             $('#menu_teacher').addClass('active')
+            bindEditMode();
+            bindCheckbox();
+            bindidSave();
+            //bindSubmitSearchCondition();
+            bindSearchCondition();
 
         })
 
-        $('table').tablesorter();
+        function bindSearchCondition(){
+            bindChangeSearchCondition();
+            bindSubmitSearchCondition();
+        }
+
+
+
+        $('#idCheckAll').click(function () {
+            $('#table-tb').find(':checkbox').each(function () {
+                if($('#IdEditMode').hasClass('btn-warning')){
+                    if($(this).prop('checked')){
+
+                    }else {
+                        $(this).prop('checked', true)
+                        $currentTr = $(this).parent().parent()
+                        trInToEditMode($currentTr)
+                    }
+                }else {
+                    $(this).prop('checked',true)
+                }
+            })
+        })
+
+        $('#idCancel').click(function () {
+            $('#table-tb').find(':checked').each(function () {
+                if($('#IdEditMode').hasClass('btn-warning')){
+                    $(this).prop('checked',false)
+                    $currentTr = $(this).parent().parent()
+                    trOutEditMode($currentTr)
+                }else {
+                    $(this).prop('checked',false)
+                }
+            })
+        })
+
+        $('#idReverse').click(function () {
+            $('#table-tb').find(':checkbox').each(function () {
+                if ($('#IdEditMode').hasClass('btn-warning')) {
+                    if ($(this).prop('checked')) {
+                        $(this).prop('checked', false)
+                        $currentTr = $(this).parent().parent()
+                        trOutEditMode($currentTr)
+                    } else {
+                        $(this).prop('checked', true)
+                        $currentTr = $(this).parent().parent()
+                        trInToEditMode($currentTr)
+                    }
+                } else {
+                    if ($(this).prop('checked')) {
+                        $(this).prop('checked', false)
+                    } else {
+                        $(this).prop('checked', true)
+                    }
+                }
+            })
+        })
+        
+        function bindEditMode() {
+            $('#IdEditMode').click(function () {
+                $(this)
+                if ($(this).hasClass('btn-warning')) {
+                    //退出编辑模式
+                    $(this).removeClass('btn-warning')
+                    $(this).text('进入编辑模式')
+                    $('#table-tb').find(':checked').each(function () {
+                        var $currentTr = $(this).parent().parent()
+                        trOutEditMode($currentTr)
+                    })
+                } else {
+                    //进入编辑模式
+                    $(this).addClass('btn-warning')
+                    $(this).text('退出编辑模式')
+                    $('#table-tb').find(':checked').each(function () {
+                        var $currentTr = $(this).parent().parent()
+                        $currentTr.addClass('success')
+                        trInToEditMode($currentTr)
+                    })
+                }
+            })
+        }
+        
+        function bindCheckbox() {
+
+                $('#table-tb').on('click', ':checkbox', function () {
+                    if ($('#IdEditMode').hasClass('btn-warning')) {
+                        var ck = $(this).prop('checked')
+                        if (ck) {
+                            //进入编辑模式
+                            console.log('进入编辑模式')
+                            $currentTr = $(this).parent().parent()
+                            trInToEditMode($currentTr)
+                        } else {
+                            //退出编辑模式
+                            $currentTr = $(this).parent().parent()
+                            $currentTr.removeClass('success')
+                            console.log('退出编辑模式')
+                            trOutEditMode($currentTr)
+                        }
+                    }
+                })
+            }
+
+
+
+        function trInToEditMode($tr) {
+            $tr.addClass('success')
+            $tr.attr('has-edit','true')
+            $tr.children().each(function () {
+                var editEnable = $(this).attr('edit-enable')
+                var editType = $(this).attr('edit-type')
+                if(editEnable == 'true'){
+                    if(editType == 'input'){
+                        var innerText = $(this).text()
+                        var tag = document.createElement('input')
+                        tag.value = innerText
+                        $(this).html(tag)
+                    }else if(editType == 'select'){
+                         var innerText = $(this).text()
+                         var globalName = $(this).attr('global-name')
+                         //console.log('window[globalName]',window[globalName])
+                         var sel = document.createElement('select')
+                         var origin = $(this).attr('origin')
+                         $.each(window[globalName],function (k1,v1) {
+
+                             var op = document.createElement('option')
+                            /* if(innerText == v1[1]){
+                                 op.setAttribute('selected','selected')
+                                 op.setAttribute('value',v1[0])
+                             } */
+                             op.setAttribute('value',v1[0])
+                             op.innerHTML = v1[1]
+                             sel.append(op)
+                         })
+                         $(sel).val(origin)
+                         $(this).html(sel)
+                         //x = $('select')
+                         //console.log('-->x',x)
+                         //var innerSelect = x[0].selectedOptions[0].text
+                         //console.log('-->innerSelect',innerSelect)
+                         //tag.value = innerSelect
+                         //tag.option.val() = innerSelect
+                         //$(this).html(tag)
+                    }
+                }
+            })
+        }
+        
+        function trOutEditMode($tr) {
+            $tr.removeClass('success')
+            $tr.children().each(function () {
+                var editEnable = $(this).attr('edit-enable')
+                var editType = $(this).attr('edit-type')
+                if(editEnable == 'true'){
+                    if(editType == 'select') {
+                        var $select = $(this).children().first()
+                        var newId = $select.val()
+                        newText = $select[0].selectedOptions[0].innerHTML
+                        $(this).attr('new-val',newId)
+                        $(this).html(newText)
+                    }else if (editType == 'input') {
+                        var $input = $(this).children().first()
+                        newValue = $input.val()
+                        $(this).html(newValue)
+                        $(this).attr('new-val',newValue)
+                    }
+                }
+            })
+        }
 
         function delRow(ths) {
             $('.localmodal').removeClass('hide')
@@ -273,5 +428,375 @@
             $('.localmodal,.localshadow').addClass('hide')
         })
 
+    requestUrl = '/asset-json/'
+    function init() {
+        var conditions = JSON.stringify(aggregationSearchCondition())
+        $.ajax({
+            url: requestUrl,
+            type: 'get',
+            traditional:true,
+            data: {'condition':conditions},
+            dataType:'json',
+            success:function (result) {
+                initGlobalData(result.global_dict)
+                initHeader(result.table_config);
+                initBody(result.table_config,result.data_list);
+                initSearchCondition(result.condition_config);
+
+                BindDoSingleCheck('#table-tb',null,null);
+            },
+            error: function () {
+                alert('请求异常')
+            }
+        })
+    }
+    function initHeader(table_config) {
+        tr = document.createElement('tr')
+        $.each(table_config,function (k,item) {
+            //console.log(k,item) // 0 {q: "sn", title: "1111111111", display: true}
+            th = document.createElement('th')
+            if(item.display) {
+                th.innerHTML = item.title
+                tr.append(th)
+            }
+        })
+        $('#table-th').empty()
+        $('#table-th').append(tr)
+    }
+
+    String.prototype.format = function(kwargs){
+            var ret = this.replace(/\{(\w+)\}/g,function (km,m) {
+            return kwargs[m]
+        })
+            return ret
+        }
+
+    v = 'xxx{m}'
+    r = v.format({'m':'123'})
+    //console.log('-->r',r)
+
+    function initBody(table_config,data_list) {
+        console.log('-->data_list',data_list)
+        $('#table-tb').empty()
+        $.each(data_list,function (k,row) {
+            tr = document.createElement('tr')
+            tr.setAttribute('row-id',row['id'])
+
+            $.each(table_config,function (k,colconfig) {
+                if(colconfig.display){
+                    var td = document.createElement('td')
+                    //td.setAttribute('name','alex')
+                    /* 生成文本信息 */
+                    var kwargs ={}
+                    $.each(colconfig.text.kwargs,function (key,value) {
+                        if (value.substring(0,2) == '@@'){
+                            var globalName =  value.substring(2,value.length)
+                            var currentId = row[colconfig.q]
+
+                            var t = getTextFromGlobalById(globalName,currentId)
+                            kwargs[key] = t
+                        }
+                        else if(value[0] == '@'){
+                            kwargs[key] = row[value.substring(1,value.length)]
+                        }
+                        else {
+                            kwargs[key] = kwargs[value]
+                        }
+                    })
+
+                    td.innerHTML = colconfig.text.content.format(kwargs)
+                    $.each(colconfig.attrs,function (key,value) {
+                        if(value[0] == '@'){
+                            //console.log('-->row',row)
+                            td.setAttribute(key,row[value.substring(1,value.length)])
+                        }else {
+                            td.setAttribute(key,value)
+                        }
+                    })
+
+                    $(tr).append(td)
+                }
+            })
+            $('#table-tb').append(tr)
+        })
+    }
+    
+    function getTextFromGlobalById(globalName,currentId) {
+        var ret = null
+        $.each(window[globalName],function (k,item) {
+            {#console.log(item[0],item[1],currentId)#}
+            if(item[0] == currentId){
+                ret = item[1]
+                return
+            }
+        })
+        return ret
+    }
+    function initGlobalData(global_dict) {
+        $.each(global_dict,function (k,v) {
+            window[k] = v
+        })
+    }
+
+    function bindidSave() {
+        $('#idSave').click(function () {
+            var postList = []
+                $('#table-tb').find('tr[has-edit="true"]').each(function () {
+                $('#IdEditMode').removeClass('btn-warning')
+                $('#IdEditMode').text('进入编辑模式')
+                trOutEditMode($(this))
+                var temp = {}
+                var id = $(this).attr('row-id')
+                temp['id'] = id
+                console.log('-->temp',temp)
+                console.log('-->$(this)',$(this).children()[0])
+                $(this).children('[edit-enable="true"]').each(function () {
+                    $(this).prop('checked',false)
+                    $(this).text('进入编辑模式')
+                    var name = $(this).attr('name')
+                    console.log('-->save name',name)
+                    var newVal = $(this).attr('new-val')
+                    console.log('-->new-val',newVal)
+                    var origin = $(this).attr('origin')
+                    if(origin != newVal){
+                        temp[name] = newVal
+                    }
+                })
+                postList.push(temp)
+            })
+
+            console.log('-->postList',postList)
+            $.ajax({
+                url:requestUrl,
+                type:'put',
+                data:{'post_list':JSON.stringify(postList)},
+                dataType: 'json',
+                success:function (response) {
+                    if(response.status){
+                        init()
+                        SuccessHandleStatus(response.message)
+                    }else {
+                        ErrorHandleStatus(response.message,response.error)
+                    }
+                    refreshData()
+                }
+            })
+        })
+    }
+
+    function SuccessHandleStatus(content) {
+        var $handle_status = $('#handle_status');
+        $handle_status.popover('destroy');
+        var msg = "<i class='fa fa-check'></i>" + content;
+        $handle_status.empty().removeClass('btn-danger').addClass('btn-success').html(msg);
+        setTimeout(function () {
+            $handle_status.empty().removeClass('btn-success btn-danger')
+        },3000)
+    }
+    function ErrorHandleStatus(content, errorList) {
+        var $handle_status = $('#handle_status');
+        $handle_status.attr('data-toggle', 'popover');
+
+        var errorStr = '';
+        $.each(errorList, function (k, v) {
+            errorStr = errorStr + v.num + '. ' + v.message + '</br>';
+        });
+
+        $handle_status.attr('data-content', errorStr);
+        $handle_status.popover();
+
+        var msg = "<i class='fa fa-info-circle'></i>" + content;
+        $handle_status.empty().removeClass('btn-success').addClass('btn-danger').html(msg);
+
+    }
+
+    function refreshData() {
+        init();
+    }
+
+    function aggregationSearchCondition() {
+        var ret = {};
+        $("#search_conditions").children().each(function () {
+            var $condition = $(this).find("input[is-condition='true'],select[is-condition='true']");
+            var name = $condition.attr('name');
+            console.log('-->$condition',$condition[0]) // $condition为select框
+            var value = $condition.val();
+            console.log('->aggregationSearchCondition',value)
+            if (!$condition.is('select')) {
+                name = name + "__contains";
+            }
+            if (value) {
+                if(name == 'mod__type__name'){
+                    console.log('-->name',name)
+                    //var valList = $('select[name="mod__type__name"]')[0].selectedOptions[0].text
+                    var valList = $condition[0].selectedOptions[0].text.trim().split();
+                    console.log('-->valList',valList) //["台式主机"]
+                }else {
+                    var valList = $condition.val().trim().replace('，', ',').split(',');
+                }
+                if (ret[name]) {
+                    ret[name] = ret[name].concat(valList); //concat 连接两个或多个数组
+                } else {
+                    ret[name] = valList;
+                }
+                console.log('-->ret',ret)
+            }
+        });
+        return ret;
+    }
+    function AddSearchCondition(ths) {
+        var $duplicate = $(ths).parent().parent().clone(true);
+        console.log('AddSearchCondition',$duplicate)
+        $duplicate.find('.fa-plus-square').addClass('fa-minus-square').removeClass('fa-plus-square');
+        $duplicate.find('a[onclick="AddSearchCondition(this)"]').attr('onclick', "RemoveSearchCondition(this)");
+
+        $duplicate.appendTo($(ths).parent().parent().parent());
+    }
+    function RemoveSearchCondition(ths) {
+        $(ths).parent().parent().remove();
+    }
+    function bindSubmitSearchCondition() {
+        $('#search_condition_submit').click(function () {
+            init();
+
+        });
+    }
+    function bindChangeSearchCondition() {
+        $('#search_condition').find('ul').delegate('li', 'click', function () {
+            var name = $(this).attr('name');
+            var text = $(this).text();
+            var condition_type = $(this).attr('condition-type');
+            var global_name = $(this).attr('global-name');
+            var tag;
+            if (condition_type == 'input') {
+                tag = CreateInput({
+                    'is-condition': 'true',
+                    'class': 'form-control no-radius',
+                    'name': name,
+                    'placeholder': '逗号分割多条件'
+                }, {});
+            } else if (condition_type == 'select') {
+                tag = CreateSelect({
+                    'is-condition': 'true',
+                    'class': 'form-control select-icon no-radius',
+                    'name': name
+                }, {}, window[global_name], null, 'id', 'name');
+            }
+            var $current = $(this).parent().parent();
+            $current.children().first().text(text);
+            $current.next().remove();
+            $current.after(tag);
+
+        });
+    }
+
+    function initSearchCondition(config) {
+        var $search_condition = $('#search_condition');
+        if ($search_condition.attr('init') == 'true') {
+            return
+        }
+        if (config.length > 0) {
+            var first_item = config[0];
+            console.log('-->first_item',first_item)
+            initDefaultSearchCondition(first_item);
+        }
+
+        $.each(config, function (k, v) {
+            var condition_type = v['condition_type'];
+            var tag = document.createElement('li');
+            var a = document.createElement('a');
+            a.innerHTML = v['text'];
+            $(tag).append(a);
+            tag.setAttribute('name', v['name']);
+            tag.setAttribute('condition-type', condition_type);
+            if (condition_type == 'select') {
+                tag.setAttribute('global-name', v['global_name']);
+            }
+            $('#search_condition').find('ul').append(tag);
+        });
+        $search_condition.attr('init', 'true');
+        $('table').tablesorter()
+    }
+    function initDefaultSearchCondition(item) {
+        // item:{'name': 'mod__type__name', 'text': '类别', 'condition_type': 'select', 'global_name': 'mod__type__name'}
+        var tag;
+        if (item.condition_type == 'input') {
+            tag = CreateInput({
+                'is-condition': 'true',
+                'class': 'form-control no-radius',
+                'name': item.name,
+                'placeholder': '逗号分割多条件'
+            }, {});
+        } else if (item.condition_type == 'select') {
+            tag = CreateSelect({
+                'is-condition': 'true',
+                'class': 'form-control select-icon no-radius',
+                'name': item.name
+            }, {}, window[item.global_name], null, 'id', 'name');
+        }
+        var $current = $('#search_condition');
+        $current.children().first().text(item.text); //找到label标签，生成'资产状态'
+        $current.after(tag);
+
+    }
+    function CreateSelect(attrs, csses, option_data_list, current_value, key_value, key_text) {
+            console.log('-->option_data_list',option_data_list)
+            //  option_data_list-->{id: 1, name: "空闲"},这样的数据格式来自view的models.Type.objects.values_list('id','name'))
+            var sel = document.createElement('select');
+            $.each(attrs, function (k, v) {
+                $(sel).attr(k, v);
+            });
+            $.each(csses, function (k, v) {
+                $(sel).css(k, v);
+            });
+            $.each(option_data_list, function (k, v) {
+
+                //  全局变量status_choices-->0: [1, "空闲"]
+                //
+                //  0: {id: 1, name: "台式主机"}
+                //  1: {id: 2, name: "显示器"}
+                var opt1 = document.createElement('option');
+                var sel_text = v[key_text]; // v['name']
+                var sel_value = v[key_value]; // v={id: 1, name: "空闲"},v['id']即1;sel_text与sel_value是从全局变量取来的
+                console.log('-->current_value',current_value)
+                if (sel_value == current_value) {
+                    $(opt1).text(sel_text).attr('value', sel_value).attr('text', sel_text).appendTo($(sel));
+                    $(opt1).prop('selected', true);
+                } else {
+
+                    $(opt1).text(sel_text).attr('value', sel_value).attr('text', sel_text).appendTo($(sel));
+                }
+            });
+            return sel;
+        }
+        function CreateInput(attrs, csses) {
+            var obj = document.createElement('input');
+            $.each(attrs, function (k, v) {
+                $(obj).attr(k, v);
+            });
+            $.each(csses, function (k, v) {
+                $(obj).css(k, v);
+            });
+            return obj
+        }
+        function BindDoSingleCheck(tableBody, specialInEditFunc, specialOutEditFun) {
+            $(tableBody).delegate(':checkbox', 'click', function () {
+                var $tr = $(this).parent().parent();
+                if ($(this).prop('checked')) {
+                    if ($(tableBody).attr('edit-mode') == 'true') {
+                        //this row switch in edit mode
+                        $tr.addClass('success');
+                        DoTrIntoEdit($tr, specialInEditFunc);
+                    }
+                } else {
+                    if ($(tableBody).attr('edit-mode') == 'true') {
+                        //this row switch out edit mode
+                        $tr.removeClass('success');
+                        DoTrOutEdit($tr, specialOutEditFun);
+                    }
+                }
+
+            });
+        }
     </script>
 {% endblock %}

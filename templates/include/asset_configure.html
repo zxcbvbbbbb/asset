@@ -1,0 +1,55 @@
+<style>
+    .guige{}
+    .guige .guige-table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    .guige-table .title{
+        background: #f5fafe;
+        text-align: left;
+        font-weight: bold;
+        line-height: 32px;
+        height: 32px;
+        font-family: "微软雅黑";
+        border-right: 1px solid #dcdcdc;
+        border-left: 2px solid #0488cd;
+    }
+    .guige-table td,.guige-table th{
+        border: 1px solid #dcdcdc;
+        line-height: 30px;
+        height: 30px;
+        padding: 0px 10px;
+        border-top: 0;
+    }
+
+</style>
+<div class="guige">
+<table class="guige-table">
+    <tbody>
+        <tr>
+            <th colspan="5" class="title f14 th"><span class="padding-l-8">基础信息</span></th>
+        </tr>
+        <tr>
+            <td>CPU</td>
+            <td colspan="4">{{ response.data.cpu }}</td>
+        </tr>
+        <tr>
+            <td>内存</td>
+            <td colspan="4">{{ response.data.mem }}</td>
+        </tr>
+        <tr>
+            <td>硬盘</td>
+            <td colspan="4">{{ response.data.harddisk }}</td>
+        </tr>
+        <tr>
+            <td>显卡</td>
+            <td colspan="4">{{ response.data.gpu }}</td>
+        </tr>
+        <tr>
+            <td>显示器</td>
+            <td colspan="4">{{ response.data.screen }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
