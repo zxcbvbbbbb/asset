@@ -565,7 +565,7 @@
     function ErrorHandleStatus(content, errorList) {
         var $handle_status = $('#handle_status');
         $handle_status.attr('data-toggle', 'popover');
-
+        console.log('----->content',content)
         var errorStr = '';
         $.each(errorList, function (k, v) {
             errorStr = errorStr + v.num + '. ' + v.message + '</br>';

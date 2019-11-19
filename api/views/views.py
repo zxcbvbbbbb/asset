@@ -609,7 +609,7 @@ class AssetJsonView(View):
              'title': '部门',
              'display': True,
              'text': {'content': '{m}', 'kwargs': {'m': '@recipient__dept__name'}},
-             'attrs': {'name': 'recipient__dept__name', 'edit-enable': 'true', 'edit-type': 'input'}
+             'attrs': {}
              },
             {'q': 'recipient_at',
              'title': '领用时间',
@@ -665,7 +665,7 @@ class AssetJsonView(View):
             'device_status_list':list(map(lambda x:{'id': x[0], 'name': x[1]}, models.Asset.status_choices)),
             'supplier_type_choices':models.Asset.supplier_type_choices,
             'recipient_name':list(set(models.Asset.objects.values_list('recipient_id','recipient__name'))),
-            # 'recipient_dept': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
+            'recipient__dept__name': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
             'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name')))
         }
         }
@@ -685,6 +685,7 @@ class AssetJsonView(View):
                 try:
                     models.Asset.objects.filter(id=nid).update(**row_dict)
                 except Exception as e:
+                    print('-->response.message', response.message)
                     response.error.append({'message':str(e)})
                     response.status = False
                     error_count += 1
