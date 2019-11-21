@@ -18,6 +18,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from api.views import views,jira
 from django.views import View
+from django.conf.urls.static import static
+from s7day129 import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -69,4 +71,4 @@ urlpatterns = [
     url(r'^staff_season/$', jira.staff_season, name="staff_season"),
     url(r'^bug_count/$', jira.bug_count, name="bug_count"),
     url(r'^intf/',include('intf.urls')),
-]
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
