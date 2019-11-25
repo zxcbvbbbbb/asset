@@ -557,9 +557,10 @@ class AssetJsonView(View):
         recipient_list = list(models.Employee.objects.values('id','name'))
         recipient_list.sort(key=lambda x:lazy_pinyin(x['name']))
         condition_config = [
-            {'name': 'mod__type__name', 'text': '类别', 'condition_type': 'select', 'global_name': 'mod__type__name'},
             {'name': 'recipient__name', 'text': '领用人', 'condition_type': 'input'},
+            {'name': 'mod__name', 'text': '型号', 'condition_type': 'select', 'global_name': 'mod__name'},
             {'name': 'status', 'text': '资产状态', 'condition_type': 'select','global_name': 'device_status_list'},
+            {'name': 'mod__type__name', 'text': '类别', 'condition_type': 'select', 'global_name': 'mod__type__name'},
         ]
 
         table_config = [
@@ -584,7 +585,7 @@ class AssetJsonView(View):
             {'q': 'mod__name',
              'title': '型号',
              'display': True,
-             'text': {'content': '{m}', 'kwargs': {'m': '@mod__name'}},
+             'text': {'name':'mod__name','content': '{m}', 'kwargs': {'m': '@mod__name'}},
              'attrs': {}
              },
             {'q': 'purchase_at',
@@ -670,7 +671,8 @@ class AssetJsonView(View):
             # 'recipient_name': list(map(lambda x: {'id': x[0], 'name': x[1]},set(models.Employee.objects.values_list('id','name')))),
             'recipient_name':recipient_list,
             # 'recipient__dept__name': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
-            'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name')))
+            'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name'))),
+            'mod__name': list(models.Models.objects.values('id','name'))
         }
         }
         return JsonResponse(result)

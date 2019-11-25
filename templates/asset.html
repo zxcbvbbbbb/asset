@@ -605,7 +605,10 @@
                     //var valList = $('select[name="mod__type__name"]')[0].selectedOptions[0].text
                     var valList = $condition[0].selectedOptions[0].text.trim().split();
                     console.log('-->valList',valList) //["台式主机"]
-                }else {
+                }else if (name == 'mod__name'){
+                    var valList = $condition[0].selectedOptions[0].text.trim().split();
+                }
+                else {
                     var valList = $condition.val().trim().replace('，', ',').split(',');
                 }
                 if (ret[name]) {
