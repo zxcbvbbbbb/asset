@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="itany">
-    <button @onclick="send">鲁迅的人际关系</button>
+    <button @click="send">鲁迅的人际关系</button>
 </div>
 <script>
         Vue.config.devtools=false;
@@ -27,12 +27,14 @@
                 {'name':'wusir','age':17,email:'wusir@163.com'}],
             },
             methods:{
-                send(){
+                send() {
                     axios({
                         method:'get',
-                        url:'user.json',
+                        url:'useaaar.json',
                     }).then(function (rep) {
-                        console.log(rep)
+                        console.log(rep.data.name)
+                    }).catch(function (e) {
+                        console.log('请求失败：'+ e)
                     })
                 },
                 write() {
