@@ -6,12 +6,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="bootstrap/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="bootstrap/axios.min.js"></script>
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <style>
+    </style>
 </head>
 <body>
 <div id="itany">
-    <span>输入姓名 :</span>
-    <input type="text" @keydown.13="show">
+    <button @onclick="send">鲁迅的人际关系</button>
 </div>
 <script>
         Vue.config.devtools=false;
@@ -23,17 +25,20 @@
                 flag:true,
                 users:[{name:'alex',age:18,email:'alex@163.com'},
                 {'name':'wusir','age':17,email:'wusir@163.com'}],
-                user:{},
-                nowIndex:-1
             },
             methods:{
-                show() {
-                    console.log('您按了回车')
+                send(){
+                    axios({
+                        method:'get',
+                        url:'user.json',
+                    }).then(function (rep) {
+                        console.log(rep)
+                    })
                 },
                 write() {
                     console.log(222)
                 }
-            }
+            },
         })
 
 </script>

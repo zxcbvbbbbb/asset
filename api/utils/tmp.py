@@ -1,11 +1,6 @@
-import requests
-from subprocess import *
+x = {'receiver': 'mchat', 'status': 'firing', 'alerts': [{'status': 'firing', 'labels': {'alertname': 'Memory Usage', 'alertype': 'host', 'env': 'FGPRO', 'instance': '10.200.77.37:19100', 'job': 'node', 'name': '10.200.77.37', 'severity': 'critical'}, 'annotations': {'description': '当前96.99%', 'summary': '内存>90%'}, 'startsAt': '2019-11-21T22:26:49.827793044-04:00', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://fg-pro-mon:9090/graph?g0.expr=100+-+%28node_memory_MemAvailable_bytes+%2F+1024+%2F+1024%29+%2F+%28node_memory_MemTotal_bytes+%2F+1024+%2F+1024%29+%2A+100+%3E+90&g0.tab=1', 'fingerprint': '572e6e8bda51935f'}], 'groupLabels': {'alertype': 'host'}, 'commonLabels': {'alertname': 'Memory Usage', 'alertype': 'host', 'env': 'FGPRO', 'instance': '10.200.77.37:19100', 'job': 'node', 'name': '10.200.77.37', 'severity': 'critical'}, 'commonAnnotations': {'description': '当前96.99%', 'summary': '内存>90%'}, 'externalURL': 'http://fg-pro-mon:9093', 'version': '4', 'groupKey': '{}/{severity="critical"}:{alertype="host"}'}
 
-
-def exec_cmd(cmd):
-    res = Popen(cmd, shell=True, stdout=PIPE)
-    ret = res.communicate()[0].decode('utf-8')
-    return ret.strip()
-
-cmd = "curl https://dnsapi.cn/Domain.List -d 'login_token=111640,939779be5e82635b8a63e21150628da5&format=json'"
-exec_cmd(cmd)
+for item in x['alerts']:
+    name = item['labels']['name']
+    status = item['status']
+    print('-->item status %s' % name)
