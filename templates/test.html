@@ -1,48 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>练习：用户管理</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="bootstrap/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
-    <script src="bootstrap/axios.min.js"></script>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <style>
-    </style>
-</head>
-<body>
-<div id="itany">
-    <button @click="send">鲁迅的人际关系</button>
-</div>
-<script>
-        Vue.config.devtools=false;
-        Vue.config.productionTip=false
-        new Vue({
-            el:'#itany',
-            data:{
-                msg: 'the sprit of china',
-                flag:true,
-                users:[{name:'alex',age:18,email:'alex@163.com'},
-                {'name':'wusir','age':17,email:'wusir@163.com'}],
-            },
-            methods:{
-                send() {
-                    axios({
-                        method:'get',
-                        url:'useaaar.json',
-                    }).then(function (rep) {
-                        console.log(rep.data.name)
-                    }).catch(function (e) {
-                        console.log('请求失败：'+ e)
-                    })
-                },
-                write() {
-                    console.log(222)
-                }
-            },
-        })
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>练习：用户管理</title>
+        <script src="bootstrap/vue.js"></script>
+        <script src="bootstrap/vue-resource.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+        <style>
+            .current {
+                background: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="itany">
+        <h3>{{ msg }}</h3>
+    </div>
+    <script>
+            Vue.config.devtools=false;
+            Vue.config.productionTip=false
+            var vm = new Vue({
 
-</script>
-</body>
-</html>
+                data:{
+                    msg:'tomorrow is another day'
+                },
+                methods:{
+                    change(){
+                        this.msg='love appeared when one day i met you'
+                    }
+                },
+                computed: {
+                    msg2:function() {
+                        return '知己知彼百战百胜'
+                    },
+                },
+                iron:'the land of ice and snow'
+            })
+
+            vm.$mount('#itany')
+    </script>
+    </body>
+    </html>
