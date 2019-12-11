@@ -5,7 +5,7 @@ import os
 from s7day129 import settings
 
 
-x = JIRA('http://jira.blizzmi.local/', basic_auth=('sunsw', 'b4b1a6'))
+x = JIRA('https://jira.99808.net', basic_auth=('sunsw', 'b4b1a6'))
 
 def get_bcusers():
     getUrl = 'https://api.bearychat.com/v1/user.list?token=049ecceaea09856c86236fef0068c8d6'

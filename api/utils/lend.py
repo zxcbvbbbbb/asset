@@ -9,7 +9,7 @@ from email.utils import formataddr
 from pypinyin import lazy_pinyin
 from datetime import datetime
 
-jira = JIRA('http://jira.blizzmi.local/',basic_auth=('starsliao', '6520sl'))
+jira = JIRA('https://jira.99808.net',basic_auth=('starsliao', '6520sl'))
 JQL = 'project = LIBRARY AND issuetype = 图书借阅 AND status = 借阅中'
 issues = jira.search_issues(JQL)
 

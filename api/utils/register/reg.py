@@ -73,7 +73,7 @@ class register:
         return response_dict
 
     def add_jira(self):
-        jira = JIRA('http://jira.blizzmi.local/',basic_auth=('starsliao', '6520sl'))
+        jira = JIRA('https://jira.99808.net',basic_auth=('starsliao', '6520sl'))
         checkuser = [i['fullname'] for i in jira.group_members('jira-software-users').values() if i['active'] is True and i['fullname'] == self.realname]
         if checkuser:
             return False

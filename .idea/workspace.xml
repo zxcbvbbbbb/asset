@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ad08a164-095c-40df-9453-ae2c9833fb4c" name="Default" comment="jquery返回顶部">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/tmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tmp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/api/tmp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/lend.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/lend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/register/reg.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/register/reg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,31 +61,97 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/asset.html">
+        <entry file="file://$PROJECT_DIR$/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13961">
-              <caret line="607" column="44" selection-start-line="607" selection-start-column="35" selection-end-line="607" selection-end-column="44" />
+            <state relative-caret-position="897">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/views/views.py">
+        <entry file="file://$PROJECT_DIR$/api/tmp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12029">
-              <caret line="558" column="8" selection-start-line="558" selection-start-column="8" selection-end-line="558" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="207">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/fg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/test.html">
+        <entry file="file://$PROJECT_DIR$/api/tmp2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+            <state relative-caret-position="529">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+              <folding>
+                <element signature="e#642#682#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/lend.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1541">
+              <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+              <folding>
+                <element signature="e#50#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,11 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>编辑</find>
-      <find>=======</find>
-      <find>assetJ</find>
-      <find>search</find>
-      <find>function-area</find>
       <find>row</find>
       <find>dept</find>
       <find>q_list</find>
@@ -128,6 +194,11 @@
       <find>mod__type__name</find>
       <find>condition</find>
       <find>conditions</find>
+      <find>print</find>
+      <find>comp</find>
+      <find>asset</find>
+      <find>.blizzmi</find>
+      <find>from jira import JIRA</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -139,13 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../BaiduNetdiskDownload/day64-python 全栈开发-web框架篇/抽屉登录注册-示例/chouti/chouti/settings.py" />
-        <option value="$PROJECT_DIR$/static/js/data.js" />
-        <option value="$PROJECT_DIR$/api/views.py" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/templates/add_consul.html" />
-        <option value="$PROJECT_DIR$/templates/compare.html" />
-        <option value="$PROJECT_DIR$/templates/finance_staff_month.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/api/views/jira.py" />
         <option value="$PROJECT_DIR$/templates/edit_assets.html" />
@@ -162,7 +226,6 @@
         <option value="$PROJECT_DIR$/templates/bug_count.html" />
         <option value="$PROJECT_DIR$/templates/add_asset.html" />
         <option value="$PROJECT_DIR$/api/views/tmp.txt" />
-        <option value="$PROJECT_DIR$/api/tmp.txt" />
         <option value="$PROJECT_DIR$/templates/add_model.html" />
         <option value="$PROJECT_DIR$/intf/views.py" />
         <option value="$PROJECT_DIR$/intf/urls.py" />
@@ -171,7 +234,6 @@
         <option value="$PROJECT_DIR$/templates/we.html" />
         <option value="$PROJECT_DIR$/templates/classes.html" />
         <option value="$PROJECT_DIR$/api/models.py" />
-        <option value="$PROJECT_DIR$/api/tmp.py" />
         <option value="$PROJECT_DIR$/api/client_exporter.py" />
         <option value="$PROJECT_DIR$/templates/add_Arecord.html" />
         <option value="$PROJECT_DIR$/templates/jquery.html" />
@@ -183,13 +245,22 @@
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/templates/asset_detail.html" />
         <option value="$PROJECT_DIR$/s7day129/settings.py" />
-        <option value="$PROJECT_DIR$/s7day129/urls.py" />
         <option value="$PROJECT_DIR$/api/utils/tmp2.py" />
         <option value="$PROJECT_DIR$/api/utils/tmp.py" />
         <option value="$PROJECT_DIR$/templates/package.json" />
         <option value="$PROJECT_DIR$/templates/asset.html" />
         <option value="$PROJECT_DIR$/api/views/views.py" />
         <option value="$PROJECT_DIR$/templates/test.html" />
+        <option value="$PROJECT_DIR$/api/tmp.txt" />
+        <option value="$PROJECT_DIR$/api/tmp2.py" />
+        <option value="$PROJECT_DIR$/api/tmp3.py" />
+        <option value="$PROJECT_DIR$/s7day129/urls.py" />
+        <option value="$PROJECT_DIR$/api/utils/test.py" />
+        <option value="$PROJECT_DIR$/api/utils/register/reg.py" />
+        <option value="$PROJECT_DIR$/api/utils/lend.py" />
+        <option value="$PROJECT_DIR$/api/utils/compare.py" />
+        <option value="$PROJECT_DIR$/api/tmp.py" />
+        <option value="$PROJECT_DIR$/api/utils/fg" />
       </list>
     </option>
   </component>
@@ -208,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,6 +295,19 @@
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posttest" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -235,18 +318,13 @@
             <path>
               <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
               <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="posttest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posttest" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="s7day129" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,8 +333,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/bootstrap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -269,11 +348,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\posttest\api\utils" />
+      <recent name="D:\posttest\api" />
       <recent name="D:\posttest\templates\bootstrap" />
       <recent name="D:\posttest\static\js" />
       <recent name="D:\posttest\templates" />
-      <recent name="D:\posttest\static\image" />
-      <recent name="D:\posttest\templates\include" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\posttest\templates\bootstrap" />
@@ -318,28 +397,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lend" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="s7day129" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/lend.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="tmp (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="posttest" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -376,6 +433,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/utils/tmp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tmp2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="posttest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/tmp2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -432,19 +511,19 @@
     </configuration>
     <list>
       <item itemvalue="Django server.posttest" />
-      <item itemvalue="Python.lend" />
       <item itemvalue="Python.tmp2" />
       <item itemvalue="Python.compare" />
       <item itemvalue="Python.tmp" />
       <item itemvalue="Python.tmp (1)" />
+      <item itemvalue="Python.tmp2 (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tmp (1)" />
+        <item itemvalue="Python.tmp2 (1)" />
         <item itemvalue="Python.tmp" />
         <item itemvalue="Python.tmp2" />
-        <item itemvalue="Python.tmp (1)" />
         <item itemvalue="Python.compare" />
-        <item itemvalue="Python.lend" />
       </list>
     </recent_temporary>
   </component>
@@ -551,7 +630,10 @@
       <workItem from="1574643255114" duration="6265000" />
       <workItem from="1574668973139" duration="15384000" />
       <workItem from="1574901924113" duration="2889000" />
-      <workItem from="1575077076499" duration="602000" />
+      <workItem from="1575077076499" duration="1797000" />
+      <workItem from="1575184732131" duration="14354000" />
+      <workItem from="1575425266665" duration="6929000" />
+      <workItem from="1575877343477" duration="1926000" />
     </task>
     <task id="LOCAL-00001" summary="用户管理到59-07(缺新url提交数据，js事件委托)">
       <created>1560735227828</created>
@@ -641,7 +723,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1090154000" />
+    <option name="totallyTimeSpent" value="1114558000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -655,13 +737,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.195629" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20202559" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850778" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7121535" visible="true" weight="0.3608018" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7121535" weight="0.3608018" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -680,31 +763,6 @@
       <window_info anchor="right" id="Database" order="4" visible="true" weight="0.1881663" />
       <window_info anchor="right" id="SciView" order="5" weight="0.32995737" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06503198" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32850778" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7121535" visible="true" weight="0.3608018" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997773" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32850778" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49520257" weight="0.20489977" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4989339" weight="0.44320711" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.2026726" />
-      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32850778" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="13" weight="0.32962137" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.1881663" />
-      <window_info anchor="right" id="SciView" order="5" weight="0.32995737" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -728,6 +786,11 @@
           <line>184</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/tmp.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -738,70 +801,11 @@
     <SUITE FILE_PATH="coverage/posttest$compare.coverage" NAME="compare Coverage Results" MODIFIED="1561975835815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
     <SUITE FILE_PATH="coverage/posttest$test.coverage" NAME="test Coverage Results" MODIFIED="1561101789059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
     <SUITE FILE_PATH="coverage/posttest$views.coverage" NAME="views Coverage Results" MODIFIED="1561152304917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/posttest$tmp__1_.coverage" NAME="tmp (1) Coverage Results" MODIFIED="1572914969507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/posttest$tmp__1_.coverage" NAME="tmp (1) Coverage Results" MODIFIED="1575877918993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/posttest$tmp2__1_.coverage" NAME="tmp2 (1) Coverage Results" MODIFIED="1575192688827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/posttest$lend.coverage" NAME="lend Coverage Results" MODIFIED="1561544376181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/api.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="286" column="19" lean-forward="true" selection-start-line="286" selection-start-column="19" selection-end-line="286" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery-1.12.4.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/pager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <folding>
-            <element signature="e#46#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54edc49a-9f4f-4e82-b486-1dab47ac761c/schema/main/table/api_type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/tmp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery-1.4.2.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery.tablesorter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/asset.html.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2553" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tmp.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/add_asset.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1518" />
@@ -975,16 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="73" column="63" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
-          <folding>
-            <element signature="e#642#682#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s7day129/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1058,6 +1052,9 @@
     <entry file="file://$PROJECT_DIR$/templates/bootstrap/vue-resource.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/asset.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13961">
@@ -1075,10 +1072,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/tmp.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tmp3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#38#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="897">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/compare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/lend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/register/reg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+          <folding>
+            <element signature="e#50#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s7day129/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+          <folding>
+            <element signature="e#642#682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/fg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tmp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
         </state>
       </provider>
     </entry>
