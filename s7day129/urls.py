@@ -70,5 +70,4 @@ urlpatterns = [
     url(r'^staff_month/$', jira.staff_month, name="staff_month"),
     url(r'^staff_season/$', jira.staff_season, name="staff_season"),
     url(r'^bug_count/$', jira.bug_count, name="bug_count"),
-    url(r'^intf/',include('intf.urls')),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
