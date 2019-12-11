@@ -5,7 +5,7 @@ from api import models
 import pymysql,time,math
 
 def query(sql,database):
-    db = pymysql.connect("192.168.200.150", "root", "wefw$jh374SDYU", "%s" % database)
+    db = pymysql.connect("127.0.0.1", "root", "wefw$jh374SDYU", "%s" % database)
     cursor = db.cursor()
     try:
         cursor.execute(sql)

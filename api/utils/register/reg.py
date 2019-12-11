@@ -38,7 +38,7 @@ class register:
         print(self.realname,self.username,self.email,self.passwd,self.cookie,level,self.level_id)
 
     def add_mantis(self):
-        db = pymysql.connect("192.168.200.150","mantis","ZroXnQDlcJs7lgJ6", \
+        db = pymysql.connect("127.0.0.1","mantis","ZroXnQDlcJs7lgJ6", \
                              "mantis", use_unicode=True, charset="utf8mb4")
         cursor = db.cursor()
         sql = "INSERT INTO mantis_user_table (username, realname, email, password, \
@@ -57,7 +57,7 @@ class register:
         print('\033[;34m删除mantis账户\033[0m')
         response_dict = {'name':'mantis','status':True,'error':None,'data':None}
         try:
-            db = pymysql.connect("192.168.200.150","mantis","ZroXnQDlcJs7lgJ6", \
+            db = pymysql.connect("127.0.0.1","mantis","ZroXnQDlcJs7lgJ6", \
                                  "mantis", use_unicode=True, charset="utf8mb4")
             cursor = db.cursor()
             sql = "DELETE FROM mantis_user_table WHERE username = '{}'".format(self.username)

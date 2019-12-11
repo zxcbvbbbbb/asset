@@ -41,7 +41,7 @@ def get_mantisusers():
     print('\033[;34m比较mantis账号\033[0m')
     user_list = []
     try:
-        db = pymysql.connect("192.168.200.150","mantis","ZroXnQDlcJs7lgJ6", \
+        db = pymysql.connect("127.0.0.1","mantis","ZroXnQDlcJs7lgJ6", \
                              "mantis", use_unicode=True, charset="utf8mb4")
         cursor = db.cursor()
         sql = "SELECT realname FROM mantis_user_table"
