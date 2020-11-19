@@ -2,11 +2,12 @@
 #date:  2016/12/7
 
 class PagerHelper:
-    def __init__(self,total_count,current_page,base_url,per_page=10):
+    def __init__(self,total_count,current_page,base_url,per_page):
         self.total_count = total_count
         self.current_page = current_page
         self.base_url = base_url
         self.per_page = per_page
+        print('-->per_page',self.per_page)
 
     @property
     def db_start(self):

@@ -1,3 +1,6 @@
+bindidSave调用init()
+init()调用initBody
+
 #display，width，text-align
 例1：
 https://www.runoob.com/css/css-display-visibility.html  
@@ -291,4 +294,4 @@ obj.is_valid()会把定义的几条规则执行一遍
 django form创建模板：
 类
 字段，验证
-插件wedget，页面效果
+插件wedget，页面效果# asset

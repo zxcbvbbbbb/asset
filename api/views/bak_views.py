@@ -509,7 +509,7 @@ def handle_asset(request,*args,**kwargs):
     print('-->obj.db_start',obj.db_start)
     print('-->obj.db_end',obj.db_end)
     asset_list = models.Asset.objects.filter(**condition)[obj.db_start:obj.db_end]
-    print('-->asset_list1',asset_list)
+    print('-->asset_list',asset_list)
     if request.method == 'GET':
         q = request.GET.get('q')
         print('-->q', q)
@@ -525,9 +525,7 @@ def handle_asset(request,*args,**kwargs):
                 print('无此用户')
         else:
             q = 123
-            print('-->q else',q)
-            print('-->asset_list2',asset_list)
-            return render(request,'asset.html',{'username':username,'assets':asset_list,'type_list':type_list,\
+    return render(request,'asset.html',{'username':username,'assets':asset_list,'type_list':type_list,\
                                         'status_list':status_list,'arg_dict':arg_dict,'str_pager':pager})
 
 def assets_condition(request):
@@ -677,8 +675,7 @@ class AssetJsonView(View):
             # 'recipient__dept__name': list(set(models.Asset.objects.values_list('recipient_id', 'recipient__dept__name'))),
             'mod__type__name':list(map(lambda x:{'id':x[0],'name':x[1]},models.Type.objects.values_list('id','name'))),
             'mod__name': list(models.Models.objects.values('id','name'))
-        },
-            'pager':"""<li><a>1</a></li><li><a>2</a></li><li><a>3</a></li><li><a>4</a></li><li><a>5</a></li>"""
+        }
         }
         return JsonResponse(result)
 

@@ -151,6 +151,9 @@
                     <tbody id="table-tb">
                     </tbody>
                 </table>
+                  <ul id="idPagination" class="pagination">
+
+                  </ul>
 
                  <div class="pagination">
                     {{ str_pager | safe }}
@@ -188,6 +191,7 @@
             bindCheckbox();
             bindidSave();
             //bindSubmitSearchCondition();
+            bindChagePager();
             bindSearchCondition();
 
         })
@@ -403,20 +407,20 @@
         })
 
     requestUrl = '/asset-json/'
-    function init() {
+    function init(pager) {
         var conditions = JSON.stringify(aggregationSearchCondition())
         $.ajax({
             url: requestUrl,
             type: 'get',
             traditional:true,
-            data: {'condition':conditions},
+            data: {'condition':conditions,'pager':pager},
             dataType:'json',
             success:function (result) {
                 initGlobalData(result.global_dict)
                 initHeader(result.table_config);
                 initBody(result.table_config,result.data_list);
                 initSearchCondition(result.condition_config);
-
+                initPager(result.pager)
                 BindDoSingleCheck('#table-tb',null,null);
             },
             error: function () {
@@ -424,6 +428,11 @@
             }
         })
     }
+
+    function initPager(pager){
+        $('#idPagination').html(pager)
+    }
+
     function initHeader(table_config) {
         tr = document.createElement('tr')
         $.each(table_config,function (k,item) {
@@ -510,6 +519,13 @@
         $.each(global_dict,function (k,v) {
             window[k] = v
         })
+    }
+
+    function bindChagePager(){
+            $('idPagination').on('click','a',function (){
+                var num = $(this).text()
+                init(num)
+            })
     }
 
     function bindidSave() {
